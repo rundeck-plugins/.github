@@ -1,44 +1,46 @@
-# Rundeck Plugins Organization
+# Organization Infrastructure Repository
 
-Welcome to the **rundeck-plugins** organization! 🚀
+This repository provides shared security scanning infrastructure for all repositories in the rundeck-plugins organization.
 
-This organization hosts open source plugin repositories for [Rundeck](https://www.rundeck.com/), the leading runbook automation platform. Our plugins extend Rundeck's capabilities, providing integrations, workflow steps, and enhanced functionality for the Rundeck community.
+## Purpose
 
-## 🔌 What You'll Find Here
+The primary goal is centralized Snyk security scanning across all plugin repositories. This ensures consistent security standards and simplifies maintenance.
 
-- **Plugin Repositories**: Open source plugins that extend Rundeck functionality
-- **Community Contributions**: Plugins developed and maintained by the Rundeck community
-- **Integration Solutions**: Connectors for popular tools, cloud platforms, and services
-- **Workflow Enhancements**: Custom steps and utilities for Rundeck workflows
+## Files
 
-## 🛡️ Security & Quality
+- **`.github/workflows/snyk-scan-reusable.yml`** - Central reusable workflow for security scanning
+- **`snyk-scan.yml`** - Minimal template for implementing security scans  
+- **`calling-workflow-example.yml`** - Full configuration example with comments
+- **`snyk-scan-info.md`** - Complete setup documentation and troubleshooting
+- **`profile/README.md`** - Organization profile page content
 
-All repositories in this organization benefit from:
-- **Continuous Integration**: Automated testing and quality checks
-- **Community Standards**: Consistent development practices across all plugins
+## Snyk Scanning
 
-## 🤝 Contributing
+### Documentation
 
-We welcome contributions from the Rundeck community! Whether you're:
-- 🐛 **Reporting issues** in existing plugins
-- 💡 **Suggesting enhancements** to improve functionality  
-- 🔧 **Contributing code** to fix bugs or add features
-- 📚 **Improving documentation** to help other users
-- 🆕 **Creating new plugins** to share with the community
+See [snyk-scan-info.md](snyk-scan-info.md) for detailed setup instructions and configuration options.
 
-Check individual repository contribution guidelines for specific details.
+### Quick Setup
 
-## 📖 Resources
+For repository maintainers:
 
-- **[Rundeck Documentation](https://docs.rundeck.com/)** - Official Rundeck docs
-- **[Plugin Development Guide](https://docs.rundeck.com/docs/developer/)** - Learn to build Rundeck plugins
-- **[Rundeck Community](https://community.rundeck.com/)** - Join the discussion
-- **[Security Scanning Info](https://github.com/rundeck-plugins/.github/blob/main/snyk-scan-info.md)** - Security scan setup for contributors
+1. Copy `snyk-scan.yml` to your repository as `.github/workflows/security-scan.yml`
+2. Commit and push
+3. Security scans run automatically on pushes and pull requests
 
-## 🏢 About Rundeck
+No additional configuration is required. All parameters are optional with sensible defaults.
 
-Rundeck is an open source automation service with a web console, command line tools and a WebAPI. It lets you easily run automation tasks across a set of nodes.
+### Features
 
----
+- Automatic detection of main/master branches
+- Pre-configured organization secrets
+- Non-blocking security tests
+- Results integrated with Snyk dashboard
+- Support for Java 8, 11, 17, and 21
 
-*This organization is part of the broader Rundeck ecosystem, supporting the community with high-quality, open source plugins.*
+### Benefits
+
+- Single point of maintenance for security scanning logic
+- Consistent security standards across all repositories
+- Easy updates to scanning procedures organization-wide
+- Simplified onboarding for new repositories
