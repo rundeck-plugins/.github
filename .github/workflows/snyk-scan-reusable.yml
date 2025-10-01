@@ -67,7 +67,29 @@ jobs:
 
       - name: Confirm Snyk Identity
         run: snyk whoami --experimental
-          
+
+      - name: Check for Python requirements
+        id: check_python
+        run: |
+          if [ -f "requirements.txt" ]; then
+            echo "has_python=true" >> $GITHUB_OUTPUT
+            echo "Found requirements.txt - will install Python dependencies"
+          else
+            echo "has_python=false" >> $GITHUB_OUTPUT
+            echo "No requirements.txt found - skipping Python setup"
+          fi
+
+      - name: Set up Python
+        if: steps.check_python.outputs.has_python == 'true'
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install Python dependencies
+        if: steps.check_python.outputs.has_python == 'true'
+        run: |
+          echo "Installing Python dependencies from requirements.txt"
+          pip install -r requirements.txt
       - name: Run Snyk monitor (main/master branch only)
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: snyk monitor --all-projects --detection-depth=${{ inputs.snyk-detection-depth }}
