@@ -90,7 +90,6 @@ jobs:
         run: |
           echo "Installing Python dependencies from requirements.txt"
           pip install -r requirements.txt
-          
       - name: Run Snyk monitor (main/master branch only)
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: snyk monitor --all-projects --detection-depth=${{ inputs.snyk-detection-depth }}
