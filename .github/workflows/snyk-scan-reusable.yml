@@ -99,4 +99,4 @@ jobs:
         run: echo "Skipping monitor for feature branch (${{ github.ref }}) - no data sent to dashboard"
         
       - name: Test for vulnerabilities
-        run: snyk test --all-projects --detection-depth=${{ inputs.snyk-detection-depth }} --severity-threshold=critical
+        run: snyk test --all-projects --severity-threshold=critical --detection-depth=${{ inputs.snyk-detection-depth }}
