@@ -92,7 +92,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run Snyk monitor (main/master branch only)
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-        run: snyk monitor --all-projects --detection-depth=${{ inputs.snyk-detection-depth }}
+        run: snyk monitor --all-projects --project-tags=GitHubTopic=category-distributed --detection-depth=${{ inputs.snyk-detection-depth }}
           
       - name: Skip monitor for feature branches
         if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master'
