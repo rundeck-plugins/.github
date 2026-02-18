@@ -1,0 +1,137 @@
+# Grails 7 Migration Handoff Documentation
+
+**Status:** In Progress  
+**Target Release:** Rundeck 6.0  
+**Last Updated:** February 18, 2026
+
+---
+
+## Overview
+
+This directory contains technical documentation for the ongoing Grails 6 → Grails 7 migration effort. These docs capture patterns, solutions, and architectural decisions made during the migration to help engineers working on the project.
+
+## Migration Scope
+
+### Core Technology Upgrades
+- **Grails Framework:** 6.x → 7.x
+- **Groovy:** 3.x → 4.x
+- **Spring Boot:** 2.x → 3.x
+- **Java:** 11 → 17
+- **Jakarta EE:** javax.* → jakarta.*
+
+### Plugin Ecosystem
+- 22+ plugins being migrated to Grails 7 compatibility
+- All plugins maintain backward compatibility with Rundeck 5.x
+- Temporary `-grails7` version suffix during development (removed at release)
+
+---
+
+## Document Index
+
+### Architecture & Standards
+- **[Plugin Tagging Architecture](./PLUGIN_TAGGING_ARCHITECTURE.md)** - Git tagging conventions, version management with Axion, Maven artifact publishing standards
+
+### Common Issues & Solutions
+- **[Merge Conflict Patterns](./MERGE_CONFLICT_PATTERNS.md)** - Handling nested conflicts, verification strategies, cleanup patterns
+
+### Migration Tracking (Coming Soon)
+- Testing strategies for Grails 7
+- Dependency management patterns
+- Common compilation errors and fixes
+
+---
+
+## Key Principles
+
+### Backward Compatibility
+- **100% backward compatibility required** - users must upgrade seamlessly from 5.x → 6.0
+- No breaking changes without deprecation period
+- All plugin updates include CVE fixes merged from upstream
+
+### Version Suffix Strategy
+- **Development:** `-grails7` suffix (e.g., `4.0.19-grails7`)
+- **Production:** No suffix (e.g., `4.0.19`)
+- Suffix removed at release time, not before
+
+### Bottom-Up Update Strategy
+1. Individual plugins first (lowest dependency layer)
+2. Core rundeck modules (middle layer)
+3. Application layers (top layer)
+4. Integration testing last
+
+---
+
+## Getting Started
+
+### For New Engineers
+1. Start with [Plugin Tagging Architecture](./PLUGIN_TAGGING_ARCHITECTURE.md) to understand versioning
+2. Review merge conflict patterns document for Git workflows
+3. Check `grails7-upgrade` branch in each plugin repo for current state
+4. Reference these docs when stuck, but always verify current state in code
+
+### For Contributors
+- Add new patterns as you discover them
+- Include "why" context, not just "what" solutions
+- Keep examples generic and applicable to OSS Rundeck
+- Update this README when adding new documents
+
+---
+
+## Current State (Feb 18, 2026)
+
+### Completed Core Plugins (grails7-upgrade branch)
+- ✅ kubernetes: 2.0.19-grails7
+- ✅ azure-storage: 1.0.13-grails7
+- ✅ http-step: 1.1.20-grails7
+- ✅ ansible-plugin: 4.0.19-grails7
+- ✅ nixy-step-plugins: 1.2.14-grails7
+- ✅ All pushed to remote
+
+### Known Challenges
+- Dependency version conflicts when merging from main/master
+- Netty version compatibility with different frameworks
+- Merge conflict markers persisting after `git status` shows "All conflicts fixed"
+- Axion version parsing with mixed tag formats
+
+---
+
+## Testing Strategy
+
+### Plugin-Level Testing
+```bash
+cd <plugin-directory>
+./gradlew clean build test
+```
+
+### Dependency Resolution Verification
+```bash
+./gradlew dependencies --configuration runtimeClasspath | grep <dependency>
+```
+
+### Tag Verification
+```bash
+./gradlew currentVersion -q
+# Should output clean version matching latest tag
+```
+
+---
+
+## Contributing to This Documentation
+
+When adding documentation:
+- Use Markdown format
+- Include dates and context
+- Show code examples with before/after
+- Explain the "why" behind decisions
+- Keep it focused on technical patterns, not internal processes
+
+**Important:** This is a public repository. Focus on technical patterns that are useful to the open-source community.
+
+---
+
+## Questions or Issues?
+
+1. Check this documentation first
+2. Search Git history for similar issues (`git log --grep="pattern"`)
+3. Review `.github/copilot-instructions.md` files in each repo for additional context
+4. Open an issue in the relevant repository
