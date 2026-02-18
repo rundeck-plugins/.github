@@ -14,134 +14,43 @@ This directory contains technical documentation for the ongoing Grails 6 → Gra
 
 ## Workspace Setup for Engineers
 
-### Step 1: Create Base Directory
+### Quick Start with AI Agent
 
-Create a local workspace directory for all plugin repositories:
+Ask your AI coding agent to help set up your workspace:
 
-```bash
-mkdir -p ~/rundeck-plugins
-cd ~/rundeck-plugins
-```
-
-### Step 2: Clone All Plugin Repositories
-
-Clone all repositories from the `rundeck-plugins` GitHub organization:
-
-```bash
-# Core execution plugins
-git clone https://github.com/rundeck-plugins/ansible-plugin.git
-git clone https://github.com/rundeck-plugins/openssh-node-execution.git
-git clone https://github.com/rundeck-plugins/py-winrm-plugin.git
-git clone https://github.com/rundeck-plugins/sshj-plugin.git
-
-# Cloud provider plugins
-git clone https://github.com/rundeck-plugins/kubernetes.git
-git clone https://github.com/rundeck-plugins/docker.git
-git clone https://github.com/rundeck-plugins/rundeck-azure-plugin.git
-git clone https://github.com/rundeck-plugins/rundeck-azure-storage-plugin.git
-git clone https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin.git
-git clone https://github.com/rundeck-plugins/aws-s3-model-source.git
-git clone https://github.com/rundeck-plugins/aws-s3-steps.git
-git clone https://github.com/rundeck-plugins/rundeck-s3-log-plugin.git
-
-# Workflow step plugins
-git clone https://github.com/rundeck-plugins/http-step.git
-git clone https://github.com/rundeck-plugins/git-plugin.git
-git clone https://github.com/rundeck-plugins/salt-step.git
-git clone https://github.com/rundeck-plugins/puppet-apply-step.git
-git clone https://github.com/rundeck-plugins/nixy-step-plugins.git
-
-# Notification plugins
-git clone https://github.com/rundeck-plugins/http-notification.git
-git clone https://github.com/rundeck-plugins/slack-incoming-webhook-plugin.git
-git clone https://github.com/rundeck-plugins/pagerduty-notification.git
-
-# Storage and utility plugins
-git clone https://github.com/rundeck-plugins/vault-storage.git
-git clone https://github.com/rundeck-plugins/yaml-text-source.git
-git clone https://github.com/rundeck-plugins/jq-json-logfilter.git
-git clone https://github.com/rundeck-plugins/multiline-regex-datacapture-filter.git
-git clone https://github.com/rundeck-plugins/attribute-match-node-enhancer.git
-
-# Clone shared documentation repo
-git clone https://github.com/rundeck-plugins/.github.git
-```
-
-### Step 3: Checkout Standard Branch
-
-**All Grails 7 work is on the `grails7-upgrade` branch:**
-
-```bash
-# Checkout grails7-upgrade on all repos
-for dir in */; do
-    if [ -d "$dir/.git" ]; then
-        cd "$dir"
-        echo "=== $(basename $PWD) ==="
-        git checkout grails7-upgrade 2>/dev/null || echo "No grails7-upgrade branch"
-        cd ..
-    fi
-done
-```
-
-### Step 4: Verify Setup
-
-```bash
-# Verify all repos are on grails7-upgrade branch
-for dir in */; do
-    if [ -d "$dir/.git" ]; then
-        cd "$dir"
-        branch=$(git branch --show-current 2>/dev/null)
-        if [ "$branch" = "grails7-upgrade" ]; then
-            echo "✅ $(basename $PWD): grails7-upgrade"
-        else
-            echo "⚠️  $(basename $PWD): $branch"
-        fi
-        cd ..
-    fi
-done
-```
-
-### Step 5: Access Shared Documentation
-
-Shared documentation lives in the `.github` repository:
-
-```bash
-cd .github
-git checkout grails7-upgrade
-cd Grails7-Handoff
-
-# Available docs:
-ls -1
-# README.md (this file)
-# PLUGIN_TAGGING_ARCHITECTURE.md
-# PLUGIN_VERSIONS.md
-# MERGE_CONFLICT_PATTERNS.md
-# COMMON_MIGRATION_ISSUES.md
-```
-
-### AI Agent Setup Prompt
-
-Use this prompt to set up your AI coding agent for Grails 7 work:
+**Prompt for your AI agent:**
 
 ```
-I'm working on the Rundeck Grails 7 migration. My workspace is organized as follows:
+I'm joining the Rundeck Grails 7 migration project. Please help me set up my workspace:
 
-- Base directory: ~/rundeck-plugins/
-- All plugin repos cloned as subdirectories
-- Standard branch: grails7-upgrade
-- Shared docs: ~/rundeck-plugins/.github/Grails7-Handoff/
+1. Create a base directory called "rundeck-plugins" in my home directory
+2. Clone ALL repositories from the rundeck-plugins GitHub organization into this directory as subdirectories
+3. Also clone the rundeck-plugins/.github repository (contains shared documentation)
+4. Switch all repositories to the "grails7-upgrade" branch
+5. Show me which repos are now ready to work on
 
-Key principles:
-1. All work happens on grails7-upgrade branch
-2. Use Axion scmVersion with NO "v" prefix for tags
-3. Version format: X.Y.Z-grails7 (temporary suffix)
-4. GroupId: com.rundeck.plugins
-5. Java 17 required for JAR plugins
-6. Reference the Grails7-Handoff docs for patterns
+Important context:
+- All Grails 7 work is on the grails7-upgrade branch (standard branch name)
+- Shared documentation is in .github/Grails7-Handoff/ directory
+- After setup, I should read the Grails7-Handoff/README.md and PLUGIN_VERSIONS.md
 
-Please read ~/rundeck-plugins/.github/Grails7-Handoff/README.md to understand
-the migration context, then check PLUGIN_VERSIONS.md for current versions.
+Key technical standards:
+- Version format: X.Y.Z-grails7 (temporary suffix during development)
+- GroupId: com.rundeck.plugins
+- Git tags: NO "v" prefix (use Axion scmVersion with prefix = '')
+- Java 17 required for JAR plugins
+- Bottom-up update strategy (plugins first, then core, then applications)
 ```
+
+### Manual Setup (Alternative)
+
+If you prefer manual setup:
+
+1. Create base directory: `mkdir -p ~/rundeck-plugins && cd ~/rundeck-plugins`
+2. Clone all repos from `https://github.com/rundeck-plugins/` organization
+3. Clone documentation repo: `https://github.com/rundeck-plugins/.github`
+4. Checkout `grails7-upgrade` branch in all repos
+5. Read `~/rundeck-plugins/.github/Grails7-Handoff/README.md` (this file)
 
 ---
 
