@@ -160,6 +160,42 @@ cd <plugin-directory>
 
 ---
 
+## TODO: Functional Test Re-enablement
+
+**Status:** Blocked - Waiting for Rundeck 6.0 Docker image
+
+**Problem:** Two plugins have functional tests disabled on `grails7-upgrade` branch because they require a Rundeck 6.0 (Grails 7) Docker image which has not been published to Docker Hub.
+
+**Plugins Affected:**
+
+### 1. ansible-plugin
+- **Test Framework:** Testcontainers with Docker Compose
+- **Current State:** Tests skipped on `grails7-upgrade` branch
+- **Workflow:** `.github/workflows/gradle.yml` (lines 26-30 have conditionals)
+- **Required Image:** `rundeck/rundeck:6.0.0` (or similar Grails 7-compatible tag)
+- **When Fixed:**
+  - Remove `if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/')` conditionals
+  - Update `functional-test/build.gradle` systemProperty to use Grails 7 image tag
+  - Verify tests pass in CI
+
+### 2. vault-storage
+- **Test Framework:** Custom Docker test script (`run-docker-vault-tests.sh`)
+- **Current State:** Tests skipped on `grails7-upgrade` branch
+- **Workflow:** `.github/workflows/gradle.yml` (line 26 has conditional)
+- **Required Image:** `rundeck/rundeck:SNAPSHOT` (Dockerfile uses this)
+- **When Fixed:**
+  - Remove `if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/')` conditional
+  - Ensure `test/docker/dockers/rundeckvault/Dockerfile` points to correct Grails 7 image
+  - Verify tests pass in CI
+
+**Next Steps:**
+1. Publish Rundeck 6.0 Docker image to Docker Hub
+2. Update test configurations with correct image tag
+3. Re-enable functional tests on `grails7-upgrade` branch
+4. Verify CI passes with full test coverage
+
+---
+
 ## Contributing to This Documentation
 
 When adding documentation:
