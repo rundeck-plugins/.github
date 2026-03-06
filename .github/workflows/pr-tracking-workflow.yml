@@ -22,6 +22,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          mkdir -p pr-tracking
+          
           echo "# PR Count Report - $(date +%Y-%m-%d)" > pr-count.md
           echo "" >> pr-count.md
           
@@ -46,13 +48,13 @@ jobs:
           echo "" >> pr-count.md
           echo "**Total Open PRs:** $total_prs across $repos_with_prs repositories" >> pr-count.md
           
-          cat pr-count.md
-          
-      - name: Append to Historical Log
-        run: |
-          mkdir -p pr-tracking
+          # Append to CSV
           echo "$(date +%Y-%m-%d),$total_prs,$repos_with_prs" >> pr-tracking/history.csv
-          cat pr-count.md >> pr-tracking/$(date +%Y-%m-%d).md
+          
+          # Save markdown report
+          cp pr-count.md pr-tracking/$(date +%Y-%m-%d).md
+          
+          cat pr-count.md
           
       - name: Commit and Push to pr-tracking branch
         run: |
