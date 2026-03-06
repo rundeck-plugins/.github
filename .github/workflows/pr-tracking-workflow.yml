@@ -2,8 +2,8 @@ name: Weekly PR Count Tracker
 
 on:
   schedule:
-    # Run every Monday at 9am UTC
-    - cron: '0 9 * * 1'
+    # Run daily at 9am UTC
+    - cron: '0 9 * * *'
   workflow_dispatch:
 
 jobs:
