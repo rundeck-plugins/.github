@@ -22,8 +22,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mkdir -p pr-tracking
-          
           echo "# PR Count Report - $(date +%Y-%m-%d)" > pr-count.md
           echo "" >> pr-count.md
           
@@ -48,11 +46,25 @@ jobs:
           echo "" >> pr-count.md
           echo "**Total Open PRs:** $total_prs across $repos_with_prs repositories" >> pr-count.md
           
-          # Append to CSV
-          echo "$(date +%Y-%m-%d),$total_prs,$repos_with_prs" >> pr-tracking/history.csv
+          # Create CSV with headers if it doesn't exist
+          if [ ! -f pr-tracking/history.csv ]; then
+            echo "date,total_prs,repos_with_prs" > pr-tracking/history.csv
+          fi
           
-          # Save markdown report
-          cp pr-count.md pr-tracking/$(date +%Y-%m-%d).md
+          # Check if today's entry already exists, update or append
+          today=$(date +%Y-%m-%d)
+          if grep -q "^$today," pr-tracking/history.csv; then
+            # Update existing entry
+            sed -i.bak "/^$today,/c\\
+$today,$total_prs,$repos_with_prs" pr-tracking/history.csv
+            rm -f pr-tracking/history.csv.bak
+          else
+            # Append new entry
+            echo "$today,$total_prs,$repos_with_prs" >> pr-tracking/history.csv
+          fi
+          
+          # Save markdown report (overwrite if exists)
+          cp pr-count.md pr-tracking/$today.md
           
           cat pr-count.md
           
