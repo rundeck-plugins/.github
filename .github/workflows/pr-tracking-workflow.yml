@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout .github repo
         uses: actions/checkout@v4
+        with:
+          ref: pr-tracking
         
       - name: Count Open PRs Across All Repos
         env:
@@ -49,10 +51,10 @@ jobs:
           echo "$(date +%Y-%m-%d),$total_prs,$repos_with_prs" >> pr-tracking/history.csv
           cat pr-count.md >> pr-tracking/$(date +%Y-%m-%d).md
           
-      - name: Commit and Push
+      - name: Commit and Push to pr-tracking branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add pr-tracking/
           git commit -m "Weekly PR count: $(date +%Y-%m-%d)" || echo "No changes"
-          git push
+          git push origin pr-tracking
