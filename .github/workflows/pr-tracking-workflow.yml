@@ -12,8 +12,11 @@ jobs:
     steps:
       - name: Checkout .github repo
         uses: actions/checkout@v4
-        with:
-          ref: pr-tracking
+        
+      - name: Create or checkout pr-tracking branch
+        run: |
+          git fetch origin pr-tracking:pr-tracking 2>/dev/null || git checkout -b pr-tracking
+          git checkout pr-tracking
         
       - name: Count Open PRs Across All Repos
         env:
