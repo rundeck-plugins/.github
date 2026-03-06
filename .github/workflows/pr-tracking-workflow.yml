@@ -1,0 +1,58 @@
+name: Weekly PR Count Tracker
+
+on:
+  schedule:
+    # Run every Monday at 9am UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  track-prs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout .github repo
+        uses: actions/checkout@v4
+        
+      - name: Count Open PRs Across All Repos
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "# PR Count Report - $(date +%Y-%m-%d)" > pr-count.md
+          echo "" >> pr-count.md
+          
+          # Get all repos in the org
+          repos=$(gh repo list rundeck-plugins --limit 100 --json name -q '.[].name')
+          
+          total_prs=0
+          repos_with_prs=0
+          
+          echo "| Repository | Open PRs |" >> pr-count.md
+          echo "|------------|----------|" >> pr-count.md
+          
+          for repo in $repos; do
+            count=$(gh pr list --repo rundeck-plugins/$repo --state open --json number -q 'length')
+            if [ "$count" -gt 0 ]; then
+              echo "| $repo | $count |" >> pr-count.md
+              total_prs=$((total_prs + count))
+              repos_with_prs=$((repos_with_prs + 1))
+            fi
+          done
+          
+          echo "" >> pr-count.md
+          echo "**Total Open PRs:** $total_prs across $repos_with_prs repositories" >> pr-count.md
+          
+          cat pr-count.md
+          
+      - name: Append to Historical Log
+        run: |
+          mkdir -p pr-tracking
+          echo "$(date +%Y-%m-%d),$total_prs,$repos_with_prs" >> pr-tracking/history.csv
+          cat pr-count.md >> pr-tracking/$(date +%Y-%m-%d).md
+          
+      - name: Commit and Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add pr-tracking/
+          git commit -m "Weekly PR count: $(date +%Y-%m-%d)" || echo "No changes"
+          git push
