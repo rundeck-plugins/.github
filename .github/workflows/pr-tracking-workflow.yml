@@ -25,9 +25,10 @@ jobs:
           mkdir -p pr-tracking
           
           # Get team members (maintainers)
-          # GITHUB_TOKEN doesn't have permission to read org members
+          # GITHUB_TOKEN doesn't have permission to read team members
           # Using hardcoded list of automation-proddev team members
-          team_members="bhamdoun carlosrfranco ddarby-hike fdevans gbhutani-pd grappaport-pd gschueler ibozas jayas006 Jesus-Osuna-M jplassnibatt jsboak jtobard ltamaster Lucasrvdev lynchypin megg-pd mrdubr pd-githubowner pd-snyk-integration ronaveva smartinellibenedetti"
+          # Update this list when team membership changes
+          team_members="gschueler jtobard ltamaster carlosrfranco fdevans jsboak ronaveva jayas006 Jesus-Osuna-M smartinellibenedetti gbhutani-pd"
           
           echo "Team members count: $(echo $team_members | wc -w)"
           
