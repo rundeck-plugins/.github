@@ -105,9 +105,12 @@ jobs:
                 
                 # Save details for attention section
                 echo "- **$repo #$pr_number**: $pr_title" >> attention-details.md
-                echo "  - Last activity: $last_event by @$last_actor" >> attention-details.md
+                echo "  - Last activity: $last_event by @$last_actor (is_team: false)" >> attention-details.md
                 echo "  - Link: https://github.com/rundeck-plugins/$repo/pull/$pr_number" >> attention-details.md
                 echo "" >> attention-details.md
+              else
+                # Debug: log maintainer activity
+                echo "DEBUG: $repo #$pr_number - $last_actor is a team member, skipping"
               fi
             done
             
