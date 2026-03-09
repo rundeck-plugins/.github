@@ -1,0 +1,136 @@
+name: PR Attention Tracker
+
+on:
+  schedule:
+    # Run daily at 9am UTC
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  track-attention:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout .github repo
+        uses: actions/checkout@v4
+        
+      - name: Create or checkout pr-tracking branch
+        run: |
+          git fetch origin pr-tracking:pr-tracking 2>/dev/null || git checkout -b pr-tracking
+          git checkout pr-tracking
+        
+      - name: Analyze PRs Needing Attention
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p pr-tracking
+          
+          echo "# PRs Needing Attention - $(date +%Y-%m-%d)" > attention-report.md
+          echo "" >> attention-report.md
+          echo "PRs where community has responded or contributed since last maintainer activity." >> attention-report.md
+          echo "" >> attention-report.md
+          
+          # Get team members (maintainers)
+          team_members=$(gh api orgs/rundeck-plugins/teams/automation-proddev/members --paginate -q '.[].login' | tr '\n' '|' | sed 's/|$//')
+          
+          # Load previous state if exists
+          if [ -f pr-tracking/pr-state.json ]; then
+            previous_state=$(cat pr-tracking/pr-state.json)
+          else
+            previous_state="{}"
+          fi
+          
+          # Get all repos
+          repos=$(gh repo list rundeck-plugins --limit 100 --json name -q '.[].name')
+          
+          needs_attention=0
+          current_state="{"
+          
+          for repo in $repos; do
+            # Get open PRs with timeline data
+            prs=$(gh pr list --repo rundeck-plugins/$repo --state open --json number,title,updatedAt,author --limit 50)
+            
+            pr_count=$(echo "$prs" | jq 'length')
+            if [ "$pr_count" -eq 0 ]; then
+              continue
+            fi
+            
+            repo_has_attention=false
+            
+            echo "$prs" | jq -c '.[]' | while read -r pr; do
+              pr_number=$(echo "$pr" | jq -r '.number')
+              pr_title=$(echo "$pr" | jq -r '.title')
+              pr_updated=$(echo "$pr" | jq -r '.updatedAt')
+              pr_author=$(echo "$pr" | jq -r '.author.login')
+              
+              # Get last comment/event
+              timeline=$(gh api "repos/rundeck-plugins/$repo/issues/$pr_number/timeline" --paginate -q '.[] | select(.event == "commented" or .event == "committed") | {event: .event, actor: (.actor.login // .author.login // .committer.login), created_at: .created_at}' | jq -s '.')
+              
+              if [ "$(echo "$timeline" | jq 'length')" -eq 0 ]; then
+                # No activity yet, check if author is community
+                if ! echo "$pr_author" | grep -qE "^($team_members)$"; then
+                  last_actor="$pr_author"
+                  last_event="opened"
+                  is_community=true
+                else
+                  continue
+                fi
+              else
+                # Get most recent activity
+                last_activity=$(echo "$timeline" | jq -r '.[-1]')
+                last_actor=$(echo "$last_activity" | jq -r '.actor')
+                last_event=$(echo "$last_activity" | jq -r '.event')
+                
+                # Check if last actor is community (not in team)
+                if echo "$last_actor" | grep -qE "^($team_members)$"; then
+                  is_community=false
+                else
+                  is_community=true
+                fi
+              fi
+              
+              # Store current state
+              current_state="$current_state\"$repo/$pr_number\": {\"updated\": \"$pr_updated\", \"last_actor\": \"$last_actor\", \"is_community\": $is_community},"
+              
+              # Flag if community was last to act
+              if [ "$is_community" = true ]; then
+                if [ "$repo_has_attention" = false ]; then
+                  echo "" >> attention-report.md
+                  echo "## $repo" >> attention-report.md
+                  echo "" >> attention-report.md
+                  repo_has_attention=true
+                fi
+                
+                echo "- **PR #$pr_number**: $pr_title" >> attention-report.md
+                echo "  - Last activity: $last_event by @$last_actor" >> attention-report.md
+                echo "  - Updated: $pr_updated" >> attention-report.md
+                echo "  - Link: https://github.com/rundeck-plugins/$repo/pull/$pr_number" >> attention-report.md
+                echo "" >> attention-report.md
+                
+                needs_attention=$((needs_attention + 1))
+              fi
+            done
+          done
+          
+          # Close JSON
+          current_state="${current_state%,}}"
+          
+          # Save current state
+          echo "$current_state" | jq '.' > pr-tracking/pr-state.json
+          
+          # Add summary
+          echo "---" >> attention-report.md
+          echo "" >> attention-report.md
+          echo "**Total PRs needing attention: $needs_attention**" >> attention-report.md
+          
+          # Save report
+          cp attention-report.md pr-tracking/attention-$(date +%Y-%m-%d).md
+          
+          cat attention-report.md
+          
+      - name: Commit and Push to pr-tracking branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add pr-tracking/
+          git commit -m "PR attention report: $(date +%Y-%m-%d)" || echo "No changes"
+          git push origin pr-tracking
