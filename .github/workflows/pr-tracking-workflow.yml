@@ -25,13 +25,11 @@ jobs:
           mkdir -p pr-tracking
           
           # Get team members (maintainers)
-          # GitHub team API requires team ID or uses different endpoint
-          # For now, use org members and filter later if needed
-          echo "Fetching org members (team API not accessible with current token permissions)"
-          team_members=$(gh api orgs/rundeck-plugins/members --paginate --jq '.[].login' | tr '\n' ' ')
+          # GITHUB_TOKEN doesn't have permission to read org members
+          # Using hardcoded list of automation-proddev team members
+          team_members="bhamdoun carlosrfranco ddarby-hike fdevans gbhutani-pd grappaport-pd gschueler ibozas jayas006 Jesus-Osuna-M jplassnibatt jsboak jtobard ltamaster Lucasrvdev lynchypin megg-pd mrdubr pd-githubowner pd-snyk-integration ronaveva smartinellibenedetti"
           
           echo "Team members count: $(echo $team_members | wc -w)"
-          echo "Team members: $team_members"
           
           echo "# PR Report - $(date +%Y-%m-%d)" > pr-count.md
           echo "" >> pr-count.md
