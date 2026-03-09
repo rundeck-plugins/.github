@@ -54,10 +54,10 @@ jobs:
           # Check if today's entry already exists, update or append
           today=$(date +%Y-%m-%d)
           if grep -q "^$today," pr-tracking/history.csv; then
-            # Update existing entry
-            sed -i.bak "/^$today,/c\\
-$today,$total_prs,$repos_with_prs" pr-tracking/history.csv
-            rm -f pr-tracking/history.csv.bak
+            # Update existing entry - remove old line and append new
+            grep -v "^$today," pr-tracking/history.csv > pr-tracking/history.csv.tmp
+            mv pr-tracking/history.csv.tmp pr-tracking/history.csv
+            echo "$today,$total_prs,$repos_with_prs" >> pr-tracking/history.csv
           else
             # Append new entry
             echo "$today,$total_prs,$repos_with_prs" >> pr-tracking/history.csv
