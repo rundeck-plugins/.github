@@ -63,7 +63,9 @@ jobs:
             repo_attention=0
             prs=$(gh pr list --repo rundeck-plugins/$repo --state open --json number,title,updatedAt,author --limit 50)
             
-            echo "$prs" | jq -c '.[]' | while read -r pr; do
+            pr_count=$(echo "$prs" | jq 'length')
+            for ((i=0; i<pr_count; i++)); do
+              pr=$(echo "$prs" | jq -r ".[$i]")
               pr_number=$(echo "$pr" | jq -r '.number')
               pr_title=$(echo "$pr" | jq -r '.title')
               pr_updated=$(echo "$pr" | jq -r '.updatedAt')
