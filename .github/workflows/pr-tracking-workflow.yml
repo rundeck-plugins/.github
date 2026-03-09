@@ -1,4 +1,4 @@
-name: Weekly PR Count Tracker
+name: PR Tracking and Attention Report
 
 on:
   schedule:
@@ -18,11 +18,18 @@ jobs:
           git fetch origin pr-tracking:pr-tracking 2>/dev/null || git checkout -b pr-tracking
           git checkout pr-tracking
         
-      - name: Count Open PRs Across All Repos
+      - name: Analyze PRs and Generate Reports
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "# PR Count Report - $(date +%Y-%m-%d)" > pr-count.md
+          mkdir -p pr-tracking
+          
+          # Get team members (maintainers)
+          team_members=$(gh api orgs/rundeck-plugins/teams/automation-proddev/members --paginate -q '.[].login' | tr '\n' '|' | sed 's/|$//')
+          
+          echo "# PR Report - $(date +%Y-%m-%d)" > pr-count.md
+          echo "" >> pr-count.md
+          echo "## Summary" >> pr-count.md
           echo "" >> pr-count.md
           
           # Get all repos in the org
@@ -30,25 +37,101 @@ jobs:
           
           total_prs=0
           repos_with_prs=0
+          needs_attention=0
           
-          echo "| Repository | Open PRs |" >> pr-count.md
-          echo "|------------|----------|" >> pr-count.md
+          echo "| Repository | Open PRs | Needs Attention |" >> pr-count.md
+          echo "|------------|----------|-----------------|" >> pr-count.md
+          
+          # Temp file for attention details
+          > attention-details.md
           
           for repo in $repos; do
+            # Count total PRs
             count=$(gh pr list --repo rundeck-plugins/$repo --state open --json number -q 'length')
-            if [ "$count" -gt 0 ]; then
-              echo "| $repo | $count |" >> pr-count.md
-              total_prs=$((total_prs + count))
-              repos_with_prs=$((repos_with_prs + 1))
+            
+            if [ "$count" -eq 0 ]; then
+              continue
             fi
+            
+            # Analyze which PRs need attention
+            repo_attention=0
+            prs=$(gh pr list --repo rundeck-plugins/$repo --state open --json number,title,updatedAt,author --limit 50)
+            
+            echo "$prs" | jq -c '.[]' | while read -r pr; do
+              pr_number=$(echo "$pr" | jq -r '.number')
+              pr_title=$(echo "$pr" | jq -r '.title')
+              pr_updated=$(echo "$pr" | jq -r '.updatedAt')
+              pr_author=$(echo "$pr" | jq -r '.author.login')
+              
+              # Get last comment/event
+              timeline=$(gh api "repos/rundeck-plugins/$repo/issues/$pr_number/timeline" --paginate -q '.[] | select(.event == "commented" or .event == "committed") | {event: .event, actor: (.actor.login // .author.login // .committer.login), created_at: .created_at}' | jq -s '.')
+              
+              if [ "$(echo "$timeline" | jq 'length')" -eq 0 ]; then
+                # No activity yet, check if author is community
+                if ! echo "$pr_author" | grep -qE "^($team_members)$"; then
+                  last_actor="$pr_author"
+                  last_event="opened"
+                  is_community=true
+                else
+                  is_community=false
+                fi
+              else
+                # Get most recent activity
+                last_activity=$(echo "$timeline" | jq -r '.[-1]')
+                last_actor=$(echo "$last_activity" | jq -r '.actor')
+                last_event=$(echo "$last_activity" | jq -r '.event')
+                
+                # Check if last actor is community (not in team)
+                if echo "$last_actor" | grep -qE "^($team_members)$"; then
+                  is_community=false
+                else
+                  is_community=true
+                fi
+              fi
+              
+              # Flag if community was last to act
+              if [ "$is_community" = "true" ]; then
+                repo_attention=$((repo_attention + 1))
+                
+                # Save details for attention section
+                echo "- **$repo #$pr_number**: $pr_title" >> attention-details.md
+                echo "  - Last activity: $last_event by @$last_actor" >> attention-details.md
+                echo "  - Link: https://github.com/rundeck-plugins/$repo/pull/$pr_number" >> attention-details.md
+                echo "" >> attention-details.md
+              fi
+            done
+            
+            # Add to summary table
+            if [ "$repo_attention" -gt 0 ]; then
+              echo "| $repo | $count | **$repo_attention** |" >> pr-count.md
+            else
+              echo "| $repo | $count | 0 |" >> pr-count.md
+            fi
+            
+            total_prs=$((total_prs + count))
+            repos_with_prs=$((repos_with_prs + 1))
+            needs_attention=$((needs_attention + repo_attention))
           done
           
           echo "" >> pr-count.md
           echo "**Total Open PRs:** $total_prs across $repos_with_prs repositories" >> pr-count.md
+          echo "**PRs Needing Attention:** $needs_attention" >> pr-count.md
+          
+          # Add attention details section
+          if [ "$needs_attention" -gt 0 ]; then
+            echo "" >> pr-count.md
+            echo "---" >> pr-count.md
+            echo "" >> pr-count.md
+            echo "## PRs Needing Attention" >> pr-count.md
+            echo "" >> pr-count.md
+            echo "PRs where community has most recent activity (comment or commit):" >> pr-count.md
+            echo "" >> pr-count.md
+            cat attention-details.md >> pr-count.md
+          fi
           
           # Create CSV with headers if it doesn't exist
           if [ ! -f pr-tracking/history.csv ]; then
-            echo "date,total_prs,repos_with_prs" > pr-tracking/history.csv
+            echo "date,total_prs,repos_with_prs,needs_attention" > pr-tracking/history.csv
           fi
           
           # Check if today's entry already exists, update or append
@@ -57,10 +140,10 @@ jobs:
             # Update existing entry - remove old line and append new
             grep -v "^$today," pr-tracking/history.csv > pr-tracking/history.csv.tmp
             mv pr-tracking/history.csv.tmp pr-tracking/history.csv
-            echo "$today,$total_prs,$repos_with_prs" >> pr-tracking/history.csv
+            echo "$today,$total_prs,$repos_with_prs,$needs_attention" >> pr-tracking/history.csv
           else
             # Append new entry
-            echo "$today,$total_prs,$repos_with_prs" >> pr-tracking/history.csv
+            echo "$today,$total_prs,$repos_with_prs,$needs_attention" >> pr-tracking/history.csv
           fi
           
           # Save markdown report (overwrite if exists)
@@ -73,5 +156,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add pr-tracking/
-          git commit -m "Weekly PR count: $(date +%Y-%m-%d)" || echo "No changes"
+          git commit -m "Daily PR report: $(date +%Y-%m-%d)" || echo "No changes"
           git push origin pr-tracking
