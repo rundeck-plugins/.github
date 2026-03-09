@@ -25,16 +25,13 @@ jobs:
           mkdir -p pr-tracking
           
           # Get team members (maintainers)
-          # Try team first, fall back to org members if team not accessible
-          team_members=$(gh api --paginate orgs/rundeck-plugins/teams/automation-proddev/members -q '.[].login' 2>/dev/null | tr '\n' ' ')
+          # GitHub team API requires team ID or uses different endpoint
+          # For now, use org members and filter later if needed
+          echo "Fetching org members (team API not accessible with current token permissions)"
+          team_members=$(gh api --paginate orgs/rundeck-plugins/members -q '.[].login' | tr '\n' ' ')
           
-          if [ -z "$team_members" ]; then
-            echo "Warning: Could not fetch team members, using org members instead"
-            team_members=$(gh api --paginate orgs/rundeck-plugins/members -q '.[].login' | tr '\n' ' ')
-          fi
-          
-          echo "Team members: $team_members"
           echo "Team members count: $(echo $team_members | wc -w)"
+          echo "First 5 members: $(echo $team_members | cut -d' ' -f1-5)"
           
           echo "# PR Report - $(date +%Y-%m-%d)" > pr-count.md
           echo "" >> pr-count.md
