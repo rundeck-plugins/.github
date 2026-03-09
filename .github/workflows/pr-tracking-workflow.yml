@@ -26,12 +26,14 @@ jobs:
           
           # Get team members (maintainers)
           # Try team first, fall back to org members if team not accessible
-          team_members=$(gh api orgs/rundeck-plugins/teams/automation-proddev/members --paginate -q '.[].login' 2>/dev/null | tr '\n' '|' | sed 's/|$//')
+          team_members=$(gh api orgs/rundeck-plugins/teams/automation-proddev/members --paginate -q '.[].login' 2>/dev/null | tr '\n' ' ')
           
           if [ -z "$team_members" ]; then
             echo "Warning: Could not fetch team members, using org members instead"
-            team_members=$(gh api orgs/rundeck-plugins/members --paginate -q '.[].login' | tr '\n' '|' | sed 's/|$//')
+            team_members=$(gh api orgs/rundeck-plugins/members --paginate -q '.[].login' | tr '\n' ' ')
           fi
+          
+          echo "Team members count: $(echo $team_members | wc -w)"
           
           echo "# PR Report - $(date +%Y-%m-%d)" > pr-count.md
           echo "" >> pr-count.md
@@ -76,12 +78,12 @@ jobs:
               
               if [ "$(echo "$timeline" | jq 'length')" -eq 0 ]; then
                 # No activity yet, check if author is community
-                if ! echo "$pr_author" | grep -qE "^($team_members)$"; then
-                  last_actor="$pr_author"
-                  last_event="opened"
-                  is_community=true
-                else
+                last_actor="$pr_author"
+                last_event="opened"
+                if echo " $team_members " | grep -q " $pr_author "; then
                   is_community=false
+                else
+                  is_community=true
                 fi
               else
                 # Get most recent activity
@@ -90,7 +92,7 @@ jobs:
                 last_event=$(echo "$last_activity" | jq -r '.event')
                 
                 # Check if last actor is community (not in team)
-                if echo "$last_actor" | grep -qE "^($team_members)$"; then
+                if echo " $team_members " | grep -q " $last_actor "; then
                   is_community=false
                 else
                   is_community=true
