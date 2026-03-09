@@ -25,7 +25,13 @@ jobs:
           mkdir -p pr-tracking
           
           # Get team members (maintainers)
-          team_members=$(gh api orgs/rundeck-plugins/teams/automation-proddev/members --paginate -q '.[].login' | tr '\n' '|' | sed 's/|$//')
+          # Try team first, fall back to org members if team not accessible
+          team_members=$(gh api orgs/rundeck-plugins/teams/automation-proddev/members --paginate -q '.[].login' 2>/dev/null | tr '\n' '|' | sed 's/|$//')
+          
+          if [ -z "$team_members" ]; then
+            echo "Warning: Could not fetch team members, using org members instead"
+            team_members=$(gh api orgs/rundeck-plugins/members --paginate -q '.[].login' | tr '\n' '|' | sed 's/|$//')
+          fi
           
           echo "# PR Report - $(date +%Y-%m-%d)" > pr-count.md
           echo "" >> pr-count.md
