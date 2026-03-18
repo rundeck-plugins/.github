@@ -113,9 +113,9 @@ jobs:
             
             # Add to summary table
             if [ "$repo_attention" -gt 0 ]; then
-              echo "| $repo | $count | **$repo_attention** |" >> pr-count.md
+              echo "| [$repo](https://github.com/rundeck-plugins/$repo) | $count | **$repo_attention** |" >> pr-count.md
             else
-              echo "| $repo | $count | 0 |" >> pr-count.md
+              echo "| [$repo](https://github.com/rundeck-plugins/$repo) | $count | 0 |" >> pr-count.md
             fi
             
             total_prs=$((total_prs + count))
