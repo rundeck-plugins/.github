@@ -51,6 +51,12 @@ jobs:
           > attention-details.md
           
           for repo in $repos; do
+            # Check if repo is archived
+            is_archived=$(gh repo view rundeck-plugins/$repo --json isArchived -q '.isArchived')
+            if [ "$is_archived" = "true" ]; then
+              continue
+            fi
+            
             # Count total PRs
             count=$(gh pr list --repo rundeck-plugins/$repo --state open --json number -q 'length')
             
