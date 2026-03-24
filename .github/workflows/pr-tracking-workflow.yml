@@ -76,30 +76,33 @@ jobs:
               pr_updated=$(echo "$pr" | jq -r '.updatedAt')
               pr_author=$(echo "$pr" | jq -r '.author.login')
               
-              # Get last comment/event, excluding Copilot
-              timeline=$(gh api "repos/rundeck-plugins/$repo/issues/$pr_number/timeline" --paginate -q '.[] | select(.event == "commented" or .event == "committed") | select((.actor.login // .author.login // .committer.login) != "copilot-ai") | {event: .event, actor: (.actor.login // .author.login // .committer.login), created_at: .created_at}' | jq -s '.')
+              # Get last comment and review, excluding Copilot
+              last_comment=$(gh api "repos/rundeck-plugins/$repo/issues/$pr_number/comments" --paginate -q '.[] | select(.user.login != "copilot-pull-request-reviewer[bot]") | {user: .user.login, created_at: .created_at}' | jq -s '.[-1]')
+              last_review=$(gh api "repos/rundeck-plugins/$repo/pulls/$pr_number/reviews" --paginate -q '.[] | select(.user.login != "copilot-pull-request-reviewer[bot]") | {user: .user.login, submitted_at: .submitted_at}' | jq -s '.[-1]')
               
-              if [ "$(echo "$timeline" | jq 'length')" -eq 0 ]; then
-                # No activity yet, check if author is community
+              # Determine most recent activity
+              comment_time=$(echo "$last_comment" | jq -r '.created_at // empty')
+              review_time=$(echo "$last_review" | jq -r '.submitted_at // empty')
+              
+              if [ -z "$comment_time" ] && [ -z "$review_time" ]; then
+                # No comments or reviews, use PR author
                 last_actor="$pr_author"
                 last_event="opened"
-                if echo " $team_members " | grep -q " $pr_author "; then
-                  is_community=false
-                else
-                  is_community=true
-                fi
+              elif [ -z "$review_time" ] || [[ "$comment_time" > "$review_time" ]]; then
+                # Comment is more recent
+                last_actor=$(echo "$last_comment" | jq -r '.user')
+                last_event="commented"
               else
-                # Get most recent activity
-                last_activity=$(echo "$timeline" | jq -r '.[-1]')
-                last_actor=$(echo "$last_activity" | jq -r '.actor')
-                last_event=$(echo "$last_activity" | jq -r '.event')
-                
-                # Check if last actor is community (not in team)
-                if echo " $team_members " | grep -q " $last_actor "; then
-                  is_community=false
-                else
-                  is_community=true
-                fi
+                # Review is more recent
+                last_actor=$(echo "$last_review" | jq -r '.user')
+                last_event="reviewed"
+              fi
+              
+              # Check if last actor is community (not in team)
+              if echo " $team_members " | grep -q " $last_actor "; then
+                is_community=false
+              else
+                is_community=true
               fi
               
               # Debug output
