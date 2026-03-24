@@ -76,8 +76,8 @@ jobs:
               pr_updated=$(echo "$pr" | jq -r '.updatedAt')
               pr_author=$(echo "$pr" | jq -r '.author.login')
               
-              # Get last comment/event
-              timeline=$(gh api "repos/rundeck-plugins/$repo/issues/$pr_number/timeline" --paginate -q '.[] | select(.event == "commented" or .event == "committed") | {event: .event, actor: (.actor.login // .author.login // .committer.login), created_at: .created_at}' | jq -s '.')
+              # Get last comment/event, excluding Copilot
+              timeline=$(gh api "repos/rundeck-plugins/$repo/issues/$pr_number/timeline" --paginate -q '.[] | select(.event == "commented" or .event == "committed") | select((.actor.login // .author.login // .committer.login) != "copilot-ai") | {event: .event, actor: (.actor.login // .author.login // .committer.login), created_at: .created_at}' | jq -s '.')
               
               if [ "$(echo "$timeline" | jq 'length')" -eq 0 ]; then
                 # No activity yet, check if author is community
