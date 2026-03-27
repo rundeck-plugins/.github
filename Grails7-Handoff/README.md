@@ -68,6 +68,15 @@ If you prefer manual setup:
 - All plugins maintain backward compatibility with Rundeck 5.x
 - Temporary `-grails7` version suffix during development (removed at release)
 
+### Integration Architecture
+
+**Note for Integration Work:** These plugins integrate into the main application via ua-runner:
+- Plugins are built and published from rundeck-plugins repos
+- ua-runner embeds them as `rbaPlugins` dependencies
+- rundeckpro extracts them from ua-runner JAR
+- For integration details, see `rundeckpro/GRAILS7_HANDOFF/QUICK_START.md` (Plugin Bundling Architecture section)
+- **This documentation focuses on plugin development only**
+
 ---
 
 ## Document Index
