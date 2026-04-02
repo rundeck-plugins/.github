@@ -24,7 +24,7 @@ jobs:
       snyk-detection-depth: '10'
       
       # Optional: GitHub runner type (default: 'ubuntu-latest')
-      # Options: ubuntu-latest, ubuntu-20.04, windows-latest, macos-latest
+      # Note: Only Ubuntu runners are supported (workflow uses Linux Snyk CLI)
       runs-on: 'ubuntu-latest'
     secrets:
       # Organization secrets - automatically available to all repos

@@ -17,7 +17,7 @@ The `snyk-scan-reusable.yml` workflow provides:
 - **Flexible Snyk Settings**: Customizable detection depth and organization settings
 - **Branch-Aware Monitoring**: Only sends data to Snyk dashboard from main/master branches
 - **Multi-Project Support**: Scans all projects in a repository with `--all-projects`
-- **Non-Blocking Tests**: Security tests run but don't fail the workflow (uses `|| true`)
+- **Blocking Security Tests**: Workflow fails on high-severity vulnerabilities to prevent insecure merges
 
 ## Quick Start
 
@@ -127,7 +127,7 @@ All configuration parameters have sensible defaults and are completely optional.
 | `java-version` | `'17'` | Java version for the build environment (8, 11, 17, 21) |
 | `java-distribution` | `'zulu'` | Java distribution (temurin, zulu, adopt, corretto, microsoft) |
 | `snyk-detection-depth` | `'10'` | How many levels deep to scan dependencies |
-| `runs-on` | `'ubuntu-latest'` | GitHub runner type (ubuntu-latest, ubuntu-20.04, windows-latest, macos-latest) |
+| `runs-on` | `'ubuntu-latest'` | GitHub runner type (ubuntu-latest or ubuntu-20.04 only - workflow uses Linux Snyk CLI) |
 
 > **Note**: All parameters have sensible defaults. Most repositories can use the minimal configuration without specifying any parameters.
 
