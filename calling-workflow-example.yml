@@ -11,13 +11,13 @@ jobs:
   security:
     uses: rundeck-plugins/.github/.github/workflows/snyk-scan-reusable.yml@main
     with:
-      # Optional: Java version for build environment (default: '11')
+      # Optional: Java version for build environment (default: '17')
       # Supported versions: 8, 11, 17, 21
-      java-version: '11'
+      java-version: '17'
       
-      # Optional: Java distribution (default: 'temurin')
+      # Optional: Java distribution (default: 'zulu')
       # Options: temurin, zulu, adopt, corretto, microsoft, etc.
-      java-distribution: 'temurin'
+      java-distribution: 'zulu'
       
       # Optional: Snyk detection depth (default: '10')
       # Higher values scan deeper but take longer

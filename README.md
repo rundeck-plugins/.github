@@ -36,7 +36,7 @@ No additional configuration is required. All parameters are optional with sensib
 - Pre-configured organization secrets
 - Non-blocking security tests
 - Results integrated with Snyk dashboard
-- Support for Java 8, 11, 17, and 21
+- Support for Java 8, 11, 17, and 21 (default: 17)
 
 ### Benefits
 
