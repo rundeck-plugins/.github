@@ -6,12 +6,12 @@ on:
       java-version:
         description: 'Java version to use'
         required: false
-        default: '11'
+        default: '17'
         type: string
       java-distribution:
         description: 'Java distribution to use'
         required: false
-        default: 'temurin'
+        default: 'zulu'
         type: string
       snyk-detection-depth:
         description: 'Snyk detection depth'

@@ -17,7 +17,7 @@ The `snyk-scan-reusable.yml` workflow provides:
 - **Flexible Snyk Settings**: Customizable detection depth and organization settings
 - **Branch-Aware Monitoring**: Only sends data to Snyk dashboard from main/master branches
 - **Multi-Project Support**: Scans all projects in a repository with `--all-projects`
-- **Non-Blocking Tests**: Security tests run but don't fail the workflow (uses `|| true`)
+- **Blocking Security Tests**: Workflow fails on high-severity vulnerabilities to prevent insecure merges
 
 ## Quick Start
 
@@ -61,7 +61,7 @@ jobs:
       SNYK_ORG_ID: ${{ secrets.SNYK_ORG_ID }}
 ```
 
-**Option B: Custom Configuration Example with Java 17 instead of Default**
+**Option B: Custom Configuration Example with Java 11 Override**
 ```yaml
 name: Security Scan
 
@@ -76,8 +76,8 @@ jobs:
   security:
     uses: rundeck-plugins/.github/.github/workflows/snyk-scan-reusable.yml@main
     with:
-      java-version: '17'           # Custom Java version
-      java-distribution: 'zulu'    # Custom Java distribution
+      java-version: '11'           # Override to Java 11 for legacy code
+      java-distribution: 'temurin' # Custom Java distribution
       snyk-detection-depth: '15'   # Deeper dependency scanning
       runs-on: 'ubuntu-20.04'      # Specific runner version
     secrets:
@@ -85,13 +85,13 @@ jobs:
       SNYK_ORG_ID: ${{ secrets.SNYK_ORG_ID }}
 ```
 
-> **All parameters under `with:` are optional!** The workflow uses sensible defaults (Java 11, Temurin distribution, detection depth 10, ubuntu-latest runner) that work for most Java projects.
+> **All parameters under `with:` are optional!** The workflow uses sensible defaults (Java 17, zulu distribution, detection depth 10, ubuntu-latest runner) that work for most Java projects.
 
 #### Step 2: Customize Parameters (Optional)
 All configuration parameters have sensible defaults and are completely optional. Only customize if your project has specific requirements:
 
-- **java-version**: Only change if your project requires a different Java version than 11
-- **java-distribution**: Only change if you have specific vendor requirements
+- **java-version**: Only change if your project requires a different Java version than 17 (e.g., legacy code still on Java 11)
+- **java-distribution**: Only change if you have specific vendor requirements (default is zulu)
 - **snyk-detection-depth**: Only increase if you need deeper dependency scanning (impacts performance)
 - **runs-on**: Only change if you need a specific runner environment
 
@@ -124,10 +124,10 @@ All configuration parameters have sensible defaults and are completely optional.
 ### Input Parameters (All Optional)
 | Parameter | Default | Description |
 |-----------|---------|-------------|
-| `java-version` | `'11'` | Java version for the build environment (8, 11, 17, 21) |
-| `java-distribution` | `'temurin'` | Java distribution (temurin, zulu, adopt, corretto, microsoft) |
+| `java-version` | `'17'` | Java version for the build environment (8, 11, 17, 21) |
+| `java-distribution` | `'zulu'` | Java distribution (temurin, zulu, adopt, corretto, microsoft) |
 | `snyk-detection-depth` | `'10'` | How many levels deep to scan dependencies |
-| `runs-on` | `'ubuntu-latest'` | GitHub runner type (ubuntu-latest, ubuntu-20.04, windows-latest, macos-latest) |
+| `runs-on` | `'ubuntu-latest'` | GitHub runner type (ubuntu-latest or ubuntu-20.04 only - workflow uses Linux Snyk CLI) |
 
 > **Note**: All parameters have sensible defaults. Most repositories can use the minimal configuration without specifying any parameters.
 

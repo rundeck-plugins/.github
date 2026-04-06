@@ -34,9 +34,9 @@ No additional configuration is required. All parameters are optional with sensib
 
 - Automatic detection of main/master branches
 - Pre-configured organization secrets
-- Non-blocking security tests
+- Blocking security tests (workflow fails on high-severity vulnerabilities)
 - Results integrated with Snyk dashboard
-- Support for Java 8, 11, 17, and 21
+- Support for Java 8, 11, 17, and 21 (default: 17)
 
 ### Benefits
 
