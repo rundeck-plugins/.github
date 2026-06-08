@@ -68,15 +68,27 @@ jobs:
       - name: Confirm Snyk Identity
         run: snyk whoami --experimental
 
-      - name: Check for Python requirements
+      - name: Check for Python project
         id: check_python
         run: |
+          # Snyk natively scans pip (requirements.txt) and Poetry (pyproject.toml + poetry.lock).
+          # It does NOT scan PEP 621 / setuptools pyproject.toml or setup.py-only projects, so
+          # those are installed and exported to a requirements.txt for Snyk to pick up.
           if [ -f "requirements.txt" ]; then
             echo "has_python=true" >> $GITHUB_OUTPUT
-            echo "Found requirements.txt - will install Python dependencies"
+            echo "python_kind=requirements" >> $GITHUB_OUTPUT
+            echo "Found requirements.txt - Snyk scans this natively"
+          elif [ -f "pyproject.toml" ] && [ -f "poetry.lock" ]; then
+            echo "has_python=true" >> $GITHUB_OUTPUT
+            echo "python_kind=poetry" >> $GITHUB_OUTPUT
+            echo "Found Poetry project - Snyk scans this natively"
+          elif [ -f "pyproject.toml" ] || [ -f "setup.py" ]; then
+            echo "has_python=true" >> $GITHUB_OUTPUT
+            echo "python_kind=project" >> $GITHUB_OUTPUT
+            echo "Found PEP 621/setuptools project - will export resolved deps for Snyk"
           else
             echo "has_python=false" >> $GITHUB_OUTPUT
-            echo "No requirements.txt found - skipping Python setup"
+            echo "No Python manifest found - skipping Python setup"
           fi
 
       - name: Set up Python
@@ -85,11 +97,22 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install Python dependencies
-        if: steps.check_python.outputs.has_python == 'true'
+      - name: Install Python dependencies (requirements.txt)
+        if: steps.check_python.outputs.python_kind == 'requirements'
         run: |
           echo "Installing Python dependencies from requirements.txt"
           pip install -r requirements.txt
+
+      - name: Install and export Python dependencies (pyproject.toml / setup.py)
+        if: steps.check_python.outputs.python_kind == 'project'
+        run: |
+          echo "Installing project and resolving dependencies"
+          pip install .
+          echo "Exporting resolved dependencies to requirements.txt for Snyk"
+          # Exclude the project's own local (file://) install so Snyk only sees real deps
+          pip freeze | grep -v ' @ ' > requirements.txt
+          echo "Generated requirements.txt:"
+          cat requirements.txt
       - name: Run Snyk monitor (main/master branch only)
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: snyk monitor --all-projects --project-tags=GitHubTopic=category-distributed --detection-depth=${{ inputs.snyk-detection-depth }}
