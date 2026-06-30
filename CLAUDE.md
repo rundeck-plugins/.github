@@ -5,7 +5,6 @@ Canonical, org-wide working guide for AI coding agents (Claude, Cursor, Copilot)
 - This file (`CLAUDE.md`) is the single source of truth.
 - `AGENTS.md` in this repo mirrors it (it points back here) for tools that prefer that filename.
 - Each plugin repo carries a generated `.github/copilot-instructions.md` that links here and inlines the shared essentials (see `templates/copilot-instructions.shared.md`).
-- The local multi-repo workspace `.cursorrules` is a thin pointer to this file.
 - Plugin inventory, types, and per-plugin specifics live in [`PLUGINS_OVERVIEW.md`](PLUGINS_OVERVIEW.md).
 
 ---

@@ -1,6 +1,29 @@
 # Organization Infrastructure Repository
 
-This repository provides shared security scanning infrastructure for all repositories in the rundeck-plugins organization.
+This repository is the starting point for working across the `rundeck-plugins` organization. It holds the org-wide engineering guide for AI agents and humans, shared security scanning infrastructure, and bulk-operation scripts.
+
+## Getting Started
+
+Start here, whether you're a contributor or pointing an AI agent at the org:
+
+1. **Read the engineering guide.** [`CLAUDE.md`](CLAUDE.md) is the canonical guide: working agreements, build/release and branch conventions, security scanning, and environment notes. [`AGENTS.md`](AGENTS.md) mirrors it. Plugin inventory and per-plugin specifics are in [`PLUGINS_OVERVIEW.md`](PLUGINS_OVERVIEW.md).
+2. **Set up a local workspace.** Create a container folder and clone the repos into it (the folder itself is just a container, not a git repo):
+
+   ```bash
+   mkdir -p ~/Documents/GitHub/rundeck-plugins && cd ~/Documents/GitHub/rundeck-plugins
+   git clone https://github.com/rundeck-plugins/.github.git
+   # Clone all active (non-archived) repos in parallel:
+   gh repo list rundeck-plugins --no-archived --limit 200 --json name -q '.[].name' \
+     | xargs -P4 -I{} gh repo clone rundeck-plugins/{}
+   ```
+
+3. **Let the per-repo instructions do the work.** Every active repo has a generated `.github/copilot-instructions.md` that points back to this guide and inlines the essentials, so Copilot/Cursor/Claude follow the same conventions in any repo. Don't hand-edit those files; edit [`templates/copilot-instructions.shared.md`](templates/copilot-instructions.shared.md) and re-run the sync script.
+4. **Use the bulk-ops scripts** in [`scripts/`](scripts) for multi-repo work:
+   - `scripts/org-sync.sh status` - read-only branch / dirty / ahead-behind report across all clones.
+   - `scripts/org-sync.sh sync --discard` - re-point every clone to its default branch (discards local changes).
+   - `scripts/sync-copilot-instructions.sh` - stamp the shared Copilot template into each repo (`--check` to report drift only).
+
+Default branch for all active repos is `main`.
 
 ## Purpose
 
