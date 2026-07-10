@@ -22,6 +22,8 @@ Start here, whether you're a contributor or pointing an AI agent at the org:
    - `scripts/org-sync.sh status` - read-only branch / dirty / ahead-behind report across all clones.
    - `scripts/org-sync.sh sync --discard` - re-point every clone to its default branch (discards local changes).
    - `scripts/sync-copilot-instructions.sh` - stamp the shared Copilot template into each repo (`--check` to report drift only).
+5. **Use the shared Agent Skills** in [`skills/`](skills) for repeatable workflows:
+   - [`skills/rundeck-plugin-versions`](skills/rundeck-plugin-versions) - bump a released plugin's version across `rundeck`, `rundeckpro`, and `ua-runner`, or run a pre-release drift sweep. Install with `cp -R skills/rundeck-plugin-versions ~/.cursor/skills/`.
 
 Default branch for all active repos is `main`.
 
