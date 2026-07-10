@@ -1,20 +1,21 @@
 # Plugin version mapping (single source of truth for the rundeck-plugins version-bump skill)
-# Columns (tab-separated): plugin_repo  core_artifact  rundeckpro_prop  ua_runner_prop
+# Columns (tab-separated): plugin_repo  core_prop  rundeckpro_prop  ua_runner_prop
 #   plugin_repo     = repo name under github.com/rundeck-plugins (also the gh release source)
-#   core_artifact   = artifact name in rundeck/build.yaml (org.rundeck.plugins:<artifact>:<ver>), or - if Core does not bundle it
+#   core_prop       = property name in rundeck/gradle.properties (<prop>=<ver>), or - if Core does not bundle it
 #   rundeckpro_prop = property name in rundeckpro/gradle.properties, or - if not consumed
 #   ua_runner_prop  = property name in ua-runner/gradle.properties, or - if not consumed
 # Notes:
-#   - Core (rundeck) reads build.yaml at build time; the matching gradle.properties props are vestigial.
+#   - Core (rundeck) reads these *PluginVersion props from gradle.properties; build.gradle interpolates
+#     them into bundledPlugins and testbuild.groovy reads them. build.yaml no longer carries versions.
 #   - kubernetes uses kubernetesVersion in rundeckpro but kubernetesPluginVersion in ua-runner.
 #   - nixy-step-plugins publishes one release that drives nixystepVersion (4 artifacts share it).
-ansible-plugin	ansible-plugin	-	-
-aws-s3-model-source	aws-s3-model-source	-	-
-py-winrm-plugin	py-winrm-plugin	-	-
-openssh-node-execution	openssh-node-execution	-	-
-multiline-regex-datacapture-filter	multiline-regex-datacapture-filter	-	-
-attribute-match-node-enhancer	attribute-match-node-enhancer	-	-
-sshj-plugin	sshj-plugin	-	-
+ansible-plugin	ansiblePluginVersion	-	-
+aws-s3-model-source	awsS3ModelSourceVersion	-	-
+py-winrm-plugin	pyWinrmPluginVersion	-	-
+openssh-node-execution	opensshNodeExecutionVersion	-	-
+multiline-regex-datacapture-filter	multilineRegexDatacaptureFilterVersion	-	-
+attribute-match-node-enhancer	attributeMatchNodeEnhancerVersion	-	-
+sshj-plugin	sshjPluginVersion	-	-
 http-step	-	httpStepVersion	httpStepVersion
 slack-incoming-webhook-plugin	-	slackWebhookVersion	-
 aws-s3-steps	-	awsS3StepsVersion	awsS3StepsVersion

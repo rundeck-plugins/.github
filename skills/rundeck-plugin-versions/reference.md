@@ -6,21 +6,21 @@ Machine-readable source of truth: [`mapping.tsv`](mapping.tsv). This file is the
 
 | Repo | Operative version location | How it is consumed |
 |------|----------------------------|--------------------|
-| `rundeck` (Core) | `build.yaml` - `org.rundeck.plugins:<artifact>:<version>` | Loaded by `build.gradle` and `testbuild.groovy` at build time |
+| `rundeck` (Core) | `gradle.properties` - `<prop>=<version>` | `build.gradle` interpolates the `*PluginVersion` props into `bundledPlugins`; `testbuild.groovy` reads them |
 | `rundeckpro` (Enterprise) | `gradle.properties` - `<prop>=<version>` | Referenced in `enterprise/build.gradle`, `plugins/azure-plugins/build.gradle`, `testbuild.groovy` |
 | `ua-runner` | `gradle.properties` - `<prop>=<version>` | Referenced in `runner-agent/build.gradle` |
 
 ## Mapping (plugin repo -> version location per consuming repo)
 
-| Plugin repo | Core (`build.yaml`) | rundeckpro prop | ua-runner prop |
-|-------------|---------------------|-----------------|----------------|
-| ansible-plugin | `ansible-plugin` | - (testbuild only) | - |
-| aws-s3-model-source | `aws-s3-model-source` | - | - |
-| py-winrm-plugin | `py-winrm-plugin` | - | - |
-| openssh-node-execution | `openssh-node-execution` | - | - |
-| multiline-regex-datacapture-filter | `multiline-regex-datacapture-filter` | - | - |
-| attribute-match-node-enhancer | `attribute-match-node-enhancer` | - | - |
-| sshj-plugin | `sshj-plugin` | - | - |
+| Plugin repo | Core prop (`gradle.properties`) | rundeckpro prop | ua-runner prop |
+|-------------|--------------------------------|-----------------|----------------|
+| ansible-plugin | `ansiblePluginVersion` | - (testbuild only) | - |
+| aws-s3-model-source | `awsS3ModelSourceVersion` | - | - |
+| py-winrm-plugin | `pyWinrmPluginVersion` | - | - |
+| openssh-node-execution | `opensshNodeExecutionVersion` | - | - |
+| multiline-regex-datacapture-filter | `multilineRegexDatacaptureFilterVersion` | - | - |
+| attribute-match-node-enhancer | `attributeMatchNodeEnhancerVersion` | - | - |
+| sshj-plugin | `sshjPluginVersion` | - | - |
 | http-step | - | `httpStepVersion` | `httpStepVersion` |
 | slack-incoming-webhook-plugin | - | `slackWebhookVersion` | - |
 | aws-s3-steps | - | `awsS3StepsVersion` | `awsS3StepsVersion` |
@@ -39,7 +39,7 @@ Machine-readable source of truth: [`mapping.tsv`](mapping.tsv). This file is the
 
 ## Gotchas (verified)
 
-- **Core has vestigial props.** `rundeck/gradle.properties` defines `ansiblePluginVersion`, `awsS3ModelSourceVersion`, `pyWinrmPluginVersion`, `opensshNodeExecutionVersion`, `multilineRegexDatacaptureFilterVersion`, `attributeMatchNodeEnhancerVersion`, `sshjPluginVersion`, but nothing reads them. `build.yaml` is authoritative. Update `build.yaml`; optionally sync the props for tidiness (they can also be pruned - out of scope).
+- **Core reads plugin versions from `gradle.properties`.** `rundeck/gradle.properties` defines `ansiblePluginVersion`, `awsS3ModelSourceVersion`, `pyWinrmPluginVersion`, `opensshNodeExecutionVersion`, `multilineRegexDatacaptureFilterVersion`, `attributeMatchNodeEnhancerVersion`, `sshjPluginVersion`. `build.gradle` interpolates these into `bundledPlugins` and `testbuild.groovy` reads them; `build.yaml` no longer carries versions (it is a pointer comment). Update the property.
 - **kubernetes property name differs by repo:** `kubernetesVersion` in rundeckpro, `kubernetesPluginVersion` in ua-runner. rundeckpro also defines `kubernetesPluginVersion`, which is vestigial there.
 - **rundeckpro also carries vestigial Core-overlap props** (`sshjPluginVersion`, `opensshNodeExecutionVersion`, `pyWinrmPluginVersion`, `awsS3ModelSourceVersion`, `multilineRegexDatacaptureFilterVersion`, `attributeMatchNodeEnhancerVersion`); only `ansiblePluginVersion` is used, and only by `testbuild.groovy`.
 - **nixy-step-plugins is multi-module:** one release drives `nixystepVersion`, which feeds four artifacts (`waitfor`, `file`, `local-script`, `command`).

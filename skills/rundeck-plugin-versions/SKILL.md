@@ -45,7 +45,7 @@ scripts/check-versions.sh --rundeck DIR --rundeckpro DIR --ua-runner DIR
 
 ## Edit rules (critical)
 
-- `rundeck` (Core): authoritative location is `build.yaml` (`org.rundeck.plugins:<artifact>:<version>`). The matching `gradle.properties` props are vestigial; update `build.yaml`.
+- `rundeck` (Core): authoritative location is `gradle.properties` (`<name>PluginVersion` props, e.g. `ansiblePluginVersion`). `build.gradle` interpolates them into `bundledPlugins` and `testbuild.groovy` reads them; `build.yaml` no longer carries versions. Edit the property.
 - `rundeckpro` and `ua-runner`: edit the property in `gradle.properties`.
 - `kubernetes` uses `kubernetesVersion` in rundeckpro but `kubernetesPluginVersion` in ua-runner.
 - `nixy-step-plugins`: one release drives `nixystepVersion` (four artifacts share it).
@@ -70,7 +70,7 @@ Details:
 3. `LATEST=$(scripts/plugin-latest.sh ansible-plugin)`.
 4. From `mapping.tsv`, determine which repos/locations reference the plugin.
 5. Branch name suggestion: `bump-<plugin>-<version>`. Edit:
-   - Core: replace the version in the `org.rundeck.plugins:<artifact>:<old>` line of `build.yaml`.
+   - Core: set `<prop>=<LATEST>` in `gradle.properties` (the `*PluginVersion` prop).
    - rundeckpro/ua-runner: set `<prop>=<LATEST>` in `gradle.properties`.
 6. Print `git diff` per repo and a summary table. Do not commit-push; the human reviews and opens PRs.
 

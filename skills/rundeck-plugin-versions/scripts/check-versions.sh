@@ -4,7 +4,7 @@
 #
 # For each plugin in mapping.tsv it compares the latest released version (GitHub Releases)
 # against the value currently used in each consuming repo:
-#   - rundeck (Core):   rundeck/build.yaml   (org.rundeck.plugins:<artifact>:<ver>)
+#   - rundeck (Core):   rundeck/gradle.properties   (<prop>=<ver>)
 #   - rundeckpro:       rundeckpro/gradle.properties   (<prop>=<ver>)
 #   - ua-runner:        ua-runner/gradle.properties    (<prop>=<ver>)
 #
@@ -46,12 +46,6 @@ warn_missing() { [ -e "$1" ] || echo "WARN: repo path not found: $1" >&2; }
 warn_missing "$RUNDECK"; warn_missing "$RUNDECKPRO"; warn_missing "$UARUNNER"
 
 # --- readers -----------------------------------------------------------------
-# Version in Core build.yaml for a given artifact.
-core_ver() {
-  local artifact="$1" f="$RUNDECK/build.yaml"
-  [ -f "$f" ] || { echo ""; return; }
-  grep -oE "org\.rundeck\.plugins:${artifact}:[0-9][^\"' ]*" "$f" 2>/dev/null | head -1 | awk -F: '{print $3}'
-}
 # Value of a property in a gradle.properties file.
 prop_ver() {
   local prop="$1" f="$2"
@@ -69,14 +63,14 @@ printf "%-38s %-10s %-12s %-12s %-12s %s\n" "PLUGIN" "LATEST" "CORE" "RUNDECKPRO
 printf "%-38s %-10s %-12s %-12s %-12s %s\n" "------" "------" "----" "----------" "---------" "------"
 
 drift=0 ; unknown=0
-while IFS=$'\t' read -r plugin core_artifact pro_prop ua_prop; do
+while IFS=$'\t' read -r plugin core_prop pro_prop ua_prop; do
   case "$plugin" in ''|\#*) continue ;; esac
   [ -n "$ONLY" ] && [ "$plugin" != "$ONLY" ] && continue
 
   latest="$("$SCRIPT_DIR/plugin-latest.sh" "$plugin" 2>/dev/null || true)"
 
   core_v="" ; pro_v="" ; ua_v=""
-  [ "$core_artifact" != "-" ] && core_v="$(core_ver "$core_artifact")"
+  [ "$core_prop" != "-" ] && core_v="$(prop_ver "$core_prop" "$RUNDECK/gradle.properties")"
   [ "$pro_prop" != "-" ] && pro_v="$(prop_ver "$pro_prop" "$RUNDECKPRO/gradle.properties")"
   [ "$ua_prop" != "-" ] && ua_v="$(prop_ver "$ua_prop" "$UARUNNER/gradle.properties")"
 
