@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout .github repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         
       - name: Create or checkout pr-tracking branch
         run: |
