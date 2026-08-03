@@ -1,0 +1,83 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Shared Renovate preset for all rundeck-plugins repos. Edit here, not in per-repo renovate.json files, which should just extend this via \"github>rundeck-plugins/.github\". See CLAUDE.md section 10.",
+  "extends": [
+    "config:recommended"
+  ],
+  "minimumReleaseAge": "4 days",
+  "commitMessagePrefix": "[RUN-0000] {{prettyTitle}}",
+  "internalChecksFilter": "flexible",
+  "dependencyDashboard": true,
+  "fetchChangeLogs": "off",
+  "hostRules": [
+    {
+      "description": "Renovate runs across ~35 plugin repos concurrently, and nearly all Gradle lookups land on Maven Central (see registryUrls scoping below). That request density is enough to trip repo1.maven.org's rate limiter (429s). Throttle our own concurrency instead of bursting and eating retry/backoff costs.",
+      "matchHost": "repo1.maven.org",
+      "concurrentRequestLimit": 4,
+      "maxRequestsPerSecond": 5
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "dependencyDashboardApproval": false
+  },
+  "packageRules": [
+    {
+      "description": "Defer major updates to manual selection from the Dependency Dashboard",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Group routine Gradle minor/patch dependency bumps",
+      "matchManagers": ["gradle"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "gradle minor/patch dependencies"
+    },
+    {
+      "description": "Spock's version suffix (e.g. -groovy-5.0) encodes the Groovy variant it's compiled against; that must move in lockstep with each plugin's own groovyVersion pin, not silently ride along on a 'minor' semver bump",
+      "matchPackageNames": ["/^org\\.spockframework:/"],
+      "groupName": "spock framework (manual review - groovy variant coupling)",
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Group low-risk GitHub Actions updates",
+      "matchManagers": ["github-actions"],
+      "groupName": "github actions"
+    },
+    {
+      "description": "Enable npm engine version updates (disabled by default in Renovate)",
+      "matchDepTypes": ["engines"],
+      "enabled": true
+    },
+    {
+      "description": "Group Node.js version (.nvmrc) with the npm engine pin so they update together",
+      "matchManagers": ["nvm", "npm"],
+      "matchDepNames": ["node", "npm"],
+      "groupName": "node and npm engine versions"
+    },
+    {
+      "description": "Default registry for the vast majority of Gradle dependencies instead of checking every globally-declared repo for every dependency",
+      "matchManagers": ["gradle"],
+      "registryUrls": [
+        "https://repo1.maven.org/maven2/"
+      ]
+    },
+    {
+      "description": "Gradle plugin marker artifacts resolve via the Gradle Plugin Portal, not plain Maven Central",
+      "matchManagers": ["gradle"],
+      "matchDepTypes": ["plugin"],
+      "registryUrls": [
+        "https://plugins.gradle.org/m2/",
+        "https://repo1.maven.org/maven2/"
+      ]
+    },
+    {
+      "description": "org.rundeck artifacts (rundeck-core, etc.) need PackageCloud and the Sonatype snapshots feed - plugins no longer publish to Maven Central",
+      "matchPackageNames": ["/^org\\.rundeck[.:]/"],
+      "registryUrls": [
+        "https://packagecloud.io/pagerduty/rundeck-plugins/maven2/",
+        "https://repo1.maven.org/maven2/",
+        "https://central.sonatype.com/repository/maven-snapshots/"
+      ]
+    }
+  ]
+}
