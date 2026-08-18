@@ -30,13 +30,22 @@ WORKSPACE="$(cd "$GITHUB_REPO_DIR/.." && pwd)"
 CHECK=0
 while [ $# -gt 0 ]; do
   case "$1" in
-    --workspace) WORKSPACE="$2"; shift 2 ;;
+    --workspace)
+      [ $# -ge 2 ] || { echo "Missing value for --workspace" >&2; exit 2; }
+      WORKSPACE="$2"; shift 2 ;;
     --check) CHECK=1; shift ;;
     *) echo "Unknown arg: $1" >&2; exit 2 ;;
   esac
 done
 
 [ -f "$TEMPLATE" ] || { echo "Template not found: $TEMPLATE" >&2; exit 1; }
+
+[ -d "$WORKSPACE" ] || { echo "Workspace not found: $WORKSPACE" >&2; exit 1; }
+found_repo=0
+for d in "$WORKSPACE"/*/; do
+  [ -d "$d/.git" ] && { found_repo=1; break; }
+done
+[ "$found_repo" -eq 1 ] || { echo "No git repos found under $WORKSPACE" >&2; exit 1; }
 
 drift=0
 changed=0
