@@ -24,6 +24,7 @@ nixy-step-plugins	-	nixystepVersion	nixystepVersion
 pagerduty-notification	-	pagerdutyNotificationVersion	-
 rundeck-azure-storage-plugin	-	azureStorageVersion	azureStorageVersion
 rundeck-azure-plugin	-	rundeckAzurePluginVersion	-
+rundeck-ec2-nodes-plugin	-	rundeckEc2NodesPluginVersion	-
 vault-storage	-	vaultStorageVersion	vaultStorageVersion
 jq-json-logfilter	-	jqJsonLogfilterVersion	-
 http-notification	-	httpNotificationVersion	-
