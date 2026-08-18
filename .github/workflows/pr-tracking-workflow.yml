@@ -170,6 +170,83 @@ jobs:
           
           cat pr-count.md
           
+      - name: Check Release Drift
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Runs every day alongside the PR report (cheap: ~1-2 gh/API calls per
+          # active repo, well under the Actions token's per-repo rate limit, and
+          # lighter than the per-PR comment/review calls in the step above).
+          # Appends a section into the same day's report file the daily job
+          # already writes, so there's one report to read.
+          # continue-on-error above means a bug here can't take down the daily
+          # PR report that already ran and was written to disk.
+          today=$(date +%Y-%m-%d)
+          # Scoped to repos tagged with the "versioned-plugins" GitHub topic -
+          # real plugins we cut releases for on a regular cadence, not tooling/
+          # example/demo repos that happen to carry semver tags for their own
+          # reasons (build-zip, ui-job-metrics, etc.). "bundled-plugin" is a
+          # narrower topic (subset actually consumed by rundeck/rundeckpro/
+          # ua-runner) used by the separate rundeck-plugin-versions skill.
+          repos_json=$(gh repo list rundeck-plugins --topic versioned-plugins --no-archived --limit 100 --json name,defaultBranchRef)
+
+          {
+            echo ""
+            echo "---"
+            echo ""
+            echo "## Release Drift"
+            echo ""
+            echo "Plugins tagged \`versioned-plugins\` with commits on their default branch beyond the latest GitHub Release - candidates for a release before the next Rundeck/Rundeckpro GA."
+            echo ""
+            echo "| Repository | Latest Release | Commits Ahead | Status |"
+            echo "|------------|-----------------|----------------|--------|"
+          } >> pr-tracking/$today.md
+
+          needs_release=0
+          unknown=0
+
+          # defaultBranchRef comes from the same repo-list call above rather
+          # than a per-repo `gh repo view`, to keep this cheap at scale.
+          # Fed via process substitution (not a pipe) so the loop runs in the
+          # current shell - needs_release/unknown must survive past the loop.
+          while IFS=$'\t' read -r repo default_branch; do
+            # GitHub Releases are the source of truth for "latest released version"
+            # (same convention as skills/rundeck-plugin-versions) - raw git tags
+            # include legacy v-prefixed / -grails7 / -SNAPSHOT noise.
+            latest=$(gh release view --repo rundeck-plugins/$repo --json tagName -q .tagName 2>/dev/null || true)
+            if [ -z "$latest" ]; then
+              continue  # never released (examples/demos/tooling repos) - not a drift candidate
+            fi
+
+            ahead=$(gh api "repos/rundeck-plugins/$repo/compare/$latest...$default_branch" --jq '.ahead_by' 2>/dev/null || true)
+
+            if [ -z "$ahead" ]; then
+              echo "| [$repo](https://github.com/rundeck-plugins/$repo) | $latest | ? | UNKNOWN |" >> pr-tracking/$today.md
+              unknown=$((unknown + 1))
+            elif [ "$ahead" -gt 0 ]; then
+              echo "| [$repo](https://github.com/rundeck-plugins/$repo/compare/$latest...$default_branch) | $latest | $ahead | **NEEDS RELEASE** |" >> pr-tracking/$today.md
+              needs_release=$((needs_release + 1))
+            else
+              echo "| $repo | $latest | 0 | OK |" >> pr-tracking/$today.md
+            fi
+          done < <(echo "$repos_json" | jq -r '.[] | "\(.name)\t\(.defaultBranchRef.name)"')
+
+          {
+            echo ""
+            echo "**Plugins needing a release:** $needs_release ; **Unknown:** $unknown"
+          } >> pr-tracking/$today.md
+
+          # Separate daily history file (history.csv above stays PR-count-only)
+          if [ ! -f pr-tracking/release-drift-history.csv ]; then
+            echo "date,needs_release,unknown" > pr-tracking/release-drift-history.csv
+          fi
+          if grep -q "^$today," pr-tracking/release-drift-history.csv; then
+            grep -v "^$today," pr-tracking/release-drift-history.csv > pr-tracking/release-drift-history.csv.tmp
+            mv pr-tracking/release-drift-history.csv.tmp pr-tracking/release-drift-history.csv
+          fi
+          echo "$today,$needs_release,$unknown" >> pr-tracking/release-drift-history.csv
+
       - name: Commit and Push to pr-tracking branch
         run: |
           git config user.name "github-actions[bot]"
