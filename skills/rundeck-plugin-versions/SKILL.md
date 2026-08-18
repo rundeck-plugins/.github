@@ -101,6 +101,8 @@ Use to close version drift immediately instead of just reporting it: bundles eve
 
 Unlike Workflows A/B, this one *does* push a branch and open a PR (not to `main` - see "Do not auto-push" below, which still applies to `main` itself). It always diffs against `origin/main`'s actual content rather than whatever happens to be checked out, and restores the original branch in each repo afterward (repos are often mid-feature-work on a ticket branch, not `main`, when this runs).
 
+Each repo gets one stable branch (`bump-plugin-versions`, no date suffix). Re-running the script rebuilds that branch fresh off current `main` and force-pushes it every time, so it keeps **updating the same open PR in place** (via `gh pr edit`, same as Renovate's own PRs) instead of piling up a new dated branch/PR per run. If the previous PR for that branch was merged or closed, the next run starts a clean new one. Don't hand-edit the `bump-plugin-versions` branch between runs - it gets discarded and recreated.
+
 ## Do not auto-push
 
 Never push directly to `main`, and never merge a PR this skill opens - a human reviews and merges. Note some consuming repos may enforce PR rulesets (direct pushes to `main` rejected). Never add Cursor/agent co-author trailers to any commit. Workflows A and B additionally stop before even opening a PR (diffs only, human opens the PR); Workflow C opens the PR itself but still leaves merging to a human.
