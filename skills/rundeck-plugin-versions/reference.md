@@ -29,6 +29,7 @@ Machine-readable source of truth: [`mapping.tsv`](mapping.tsv). This file is the
 | pagerduty-notification | - | `pagerdutyNotificationVersion` | - |
 | rundeck-azure-storage-plugin | - | `azureStorageVersion` | `azureStorageVersion` |
 | rundeck-azure-plugin | - | `rundeckAzurePluginVersion` | - |
+| rundeck-ec2-nodes-plugin | - | `rundeckEc2NodesPluginVersion` | - |
 | vault-storage | - | `vaultStorageVersion` | `vaultStorageVersion` |
 | jq-json-logfilter | - | `jqJsonLogfilterVersion` | - |
 | http-notification | - | `httpNotificationVersion` | - |
@@ -44,10 +45,11 @@ Machine-readable source of truth: [`mapping.tsv`](mapping.tsv). This file is the
 - **rundeckpro also carries vestigial Core-overlap props** (`sshjPluginVersion`, `opensshNodeExecutionVersion`, `pyWinrmPluginVersion`, `awsS3ModelSourceVersion`, `multilineRegexDatacaptureFilterVersion`, `attributeMatchNodeEnhancerVersion`); only `ansiblePluginVersion` is used, and only by `testbuild.groovy`.
 - **nixy-step-plugins is multi-module:** one release drives `nixystepVersion`, which feeds four artifacts (`waitfor`, `file`, `local-script`, `command`).
 - **rundeck-azure-plugin** is consumed in `rundeckpro/plugins/azure-plugins/build.gradle` (not `enterprise/build.gradle`), but its property still lives in `rundeckpro/gradle.properties`.
+- **rundeck-ec2-nodes-plugin** is consumed in `rundeckpro/plugins/cloud-aws-plugins/build.gradle` as a real `pluginLibs` dependency (verified 2026-08-18, grep for `rundeck-ec2-nodes-plugin` in that file). It is not vestigial - keep it in the operative dependency list.
 
 ## Property name != repo name
 
-Notable renames to watch: `slack-incoming-webhook-plugin`->`slackWebhookVersion`, `puppet-apply-step`->`puppetApplyVersion`, `rundeck-azure-storage-plugin`->`azureStorageVersion`, `rundeck-azure-plugin`->`rundeckAzurePluginVersion`, `rundeck-ec2-nodes-plugin`->`rundeckEc2NodesPluginVersion` (defined in rundeckpro but currently not in the operative dependency list).
+Notable renames to watch: `slack-incoming-webhook-plugin`->`slackWebhookVersion`, `puppet-apply-step`->`puppetApplyVersion`, `rundeck-azure-storage-plugin`->`azureStorageVersion`, `rundeck-azure-plugin`->`rundeckAzurePluginVersion`, `rundeck-ec2-nodes-plugin`->`rundeckEc2NodesPluginVersion`.
 
 ## Maintaining this mapping
 
