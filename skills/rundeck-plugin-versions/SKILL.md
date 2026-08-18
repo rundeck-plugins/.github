@@ -88,11 +88,29 @@ Use just before a Rundeck product release to ensure every plugin is at its lates
 
 The report marks any value that differs from the latest release with `*` and prints a per-plugin `OK` / `DRIFT` / `UNKNOWN` status; it exits non-zero if any drift exists (useful as a release gate). `check-versions.sh` is read-only.
 
+## Workflow C - proactive PR sweep
+
+Use to close version drift immediately instead of just reporting it: bundles every bump a consuming repo needs into one branch/commit/PR per repo (not one PR per plugin), then opens it for human review.
+
+```
+- [ ] 1. Confirm/resolve the three repo paths
+- [ ] 2. Dry run: scripts/bump-versions-pr.sh --dry-run
+- [ ] 3. Run for real: scripts/bump-versions-pr.sh
+- [ ] 4. Report the PR URLs opened (one per repo that needed a bump)
+```
+
+Unlike Workflows A/B, this one *does* push a branch and open a PR (not to `main` - see "Do not auto-push" below, which still applies to `main` itself). It always diffs against `origin/main`'s actual content rather than whatever happens to be checked out, and restores the original branch in each repo afterward (repos are often mid-feature-work on a ticket branch, not `main`, when this runs).
+
 ## Do not auto-push
 
-Make edits on branches and report diffs only. The user opens PRs. Note some consuming repos may enforce PR rulesets (direct pushes to `main` rejected). Never add Cursor/agent co-author trailers to any commit.
+Never push directly to `main`, and never merge a PR this skill opens - a human reviews and merges. Note some consuming repos may enforce PR rulesets (direct pushes to `main` rejected). Never add Cursor/agent co-author trailers to any commit. Workflows A and B additionally stop before even opening a PR (diffs only, human opens the PR); Workflow C opens the PR itself but still leaves merging to a human.
+
+## Gotcha: don't read gradle.properties from the working tree
+
+`check-versions.sh` and `bump-versions-pr.sh` both snapshot `origin/main`'s `gradle.properties` via `git show origin/main:gradle.properties` rather than reading the working-tree file directly. Reading the working tree is wrong whenever a repo is checked out on an in-progress feature branch that's stale relative to `main` (common - these are active repos) - it can report false drift, miss real drift, or (as happened once for real) make a proactive PR's commit message claim more changes than actually happened. Keep this pattern if you're modifying either script.
 
 ## Scripts
 
 - `scripts/plugin-latest.sh <plugin-repo>` - latest released version (gh release, clean-semver tag fallback).
 - `scripts/check-versions.sh [--root DIR | --rundeck DIR --rundeckpro DIR --ua-runner DIR] [--plugin NAME]` - read-only drift report across the three repos.
+- `scripts/bump-versions-pr.sh [--root DIR | --rundeck DIR --rundeckpro DIR --ua-runner DIR] [--dry-run]` - opens one PR per repo bundling every bump it needs.

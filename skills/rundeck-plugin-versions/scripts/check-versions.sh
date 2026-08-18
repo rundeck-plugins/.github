@@ -53,6 +53,28 @@ prop_ver() {
   grep -E "^[[:space:]]*${prop}[[:space:]]*=" "$f" 2>/dev/null | head -1 | sed -E 's/^[^=]*=[[:space:]]*//; s/[[:space:]]*$//'
 }
 
+# Snapshot origin/main's actual gradle.properties rather than reading the
+# working tree directly. If a repo happens to be checked out on a stale
+# feature branch, reading the working tree would report false drift (or
+# mask real drift) - this was found for real running an early version of
+# the companion bump-versions-pr.sh against rundeck while it was on an
+# in-progress feature branch.
+snapshot_main_props() {
+  local dir="$1"
+  [ -d "$dir" ] || { echo ""; return; }
+  git -C "$dir" fetch origin --quiet 2>/dev/null || true
+  local tmp
+  tmp="$(mktemp)"
+  git -C "$dir" show origin/main:gradle.properties > "$tmp" 2>/dev/null || true
+  echo "$tmp"
+}
+
+RUNDECK_SNAPSHOT="$(snapshot_main_props "$RUNDECK")"
+RUNDECKPRO_SNAPSHOT="$(snapshot_main_props "$RUNDECKPRO")"
+UARUNNER_SNAPSHOT="$(snapshot_main_props "$UARUNNER")"
+cleanup_snapshots() { rm -f "$RUNDECK_SNAPSHOT" "$RUNDECKPRO_SNAPSHOT" "$UARUNNER_SNAPSHOT" 2>/dev/null || true; }
+trap cleanup_snapshots EXIT
+
 cell() { # value latest -> "value" or "value*" (mismatch) or "-"
   local val="$1" latest="$2"
   if [ -z "$val" ]; then echo "-"; return; fi
@@ -70,9 +92,9 @@ while IFS=$'\t' read -r plugin core_prop pro_prop ua_prop; do
   latest="$("$SCRIPT_DIR/plugin-latest.sh" "$plugin" 2>/dev/null || true)"
 
   core_v="" ; pro_v="" ; ua_v=""
-  [ "$core_prop" != "-" ] && core_v="$(prop_ver "$core_prop" "$RUNDECK/gradle.properties")"
-  [ "$pro_prop" != "-" ] && pro_v="$(prop_ver "$pro_prop" "$RUNDECKPRO/gradle.properties")"
-  [ "$ua_prop" != "-" ] && ua_v="$(prop_ver "$ua_prop" "$UARUNNER/gradle.properties")"
+  [ "$core_prop" != "-" ] && core_v="$(prop_ver "$core_prop" "$RUNDECK_SNAPSHOT")"
+  [ "$pro_prop" != "-" ] && pro_v="$(prop_ver "$pro_prop" "$RUNDECKPRO_SNAPSHOT")"
+  [ "$ua_prop" != "-" ] && ua_v="$(prop_ver "$ua_prop" "$UARUNNER_SNAPSHOT")"
 
   status="OK"
   if [ -z "$latest" ]; then
