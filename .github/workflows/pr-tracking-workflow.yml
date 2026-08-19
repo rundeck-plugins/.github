@@ -39,35 +39,48 @@ jobs:
           
           # Get all repos in the org
           repos=$(gh repo list rundeck-plugins --limit 100 --json name -q '.[].name')
-          
+
           total_prs=0
           repos_with_prs=0
+          total_issues=0
+          repos_with_issues=0
           needs_attention=0
-          
-          echo "| Repository | Open PRs | Needs Attention |" >> pr-count.md
-          echo "|------------|----------|-----------------|" >> pr-count.md
-          
+
+          # Buffer rows and sort by open-issue count (descending) before
+          # writing the table - the point of adding this column is to spot
+          # repos with a growing issue backlog at a glance, so put the
+          # noisiest ones first rather than whatever order gh repo list returns.
+          > rows.tsv
+
           # Temp file for attention details
           > attention-details.md
-          
+
           for repo in $repos; do
             # Check if repo is archived
             is_archived=$(gh repo view rundeck-plugins/$repo --json isArchived -q '.isArchived')
             if [ "$is_archived" = "true" ]; then
               continue
             fi
-            
-            # Count total PRs
+
+            # Count total PRs. `gh pr list` (not the raw /issues API, which
+            # mixes PRs and issues together) so this stays PR-only.
             count=$(gh pr list --repo rundeck-plugins/$repo --state open --json number -q 'length')
-            
-            if [ "$count" -eq 0 ]; then
+            # `gh issue list` is issue-only by construction, same reasoning
+            # in reverse - it never counts open PRs as issues. Excludes
+            # Renovate's "Dependency Dashboard" issue, which sits open in
+            # every Renovate-enabled repo permanently and isn't a real
+            # backlog signal.
+            issue_count=$(gh issue list --repo rundeck-plugins/$repo --state open --json title -q '[.[] | select(.title != "Dependency Dashboard")] | length')
+
+            if [ "$count" -eq 0 ] && [ "$issue_count" -eq 0 ]; then
               continue
             fi
-            
+
             # Analyze which PRs need attention
             repo_attention=0
+            if [ "$count" -gt 0 ]; then
             prs=$(gh pr list --repo rundeck-plugins/$repo --state open --json number,title,updatedAt,author --limit 50)
-            
+
             pr_count=$(echo "$prs" | jq 'length')
             for ((i=0; i<pr_count; i++)); do
               pr=$(echo "$prs" | jq -r ".[$i]")
@@ -119,21 +132,33 @@ jobs:
                 echo "" >> attention-details.md
               fi
             done
-            
-            # Add to summary table
-            if [ "$repo_attention" -gt 0 ]; then
-              echo "| [$repo](https://github.com/rundeck-plugins/$repo/pulls) | $count | **$repo_attention** |" >> pr-count.md
-            else
-              echo "| [$repo](https://github.com/rundeck-plugins/$repo/pulls) | $count | 0 |" >> pr-count.md
             fi
-            
+
+            # Buffer the row (see rows.tsv comment above) instead of
+            # writing straight to pr-count.md, so it can be sorted by
+            # open-issue count before the table is written out.
+            issues_link="[$issue_count](https://github.com/rundeck-plugins/$repo/issues)"
+            if [ "$repo_attention" -gt 0 ]; then
+              row="| [$repo](https://github.com/rundeck-plugins/$repo/pulls) | $count | $issues_link | **$repo_attention** |"
+            else
+              row="| [$repo](https://github.com/rundeck-plugins/$repo/pulls) | $count | $issues_link | 0 |"
+            fi
+            printf '%s\t%s\n' "$issue_count" "$row" >> rows.tsv
+
             total_prs=$((total_prs + count))
-            repos_with_prs=$((repos_with_prs + 1))
+            [ "$count" -gt 0 ] && repos_with_prs=$((repos_with_prs + 1))
+            total_issues=$((total_issues + issue_count))
+            [ "$issue_count" -gt 0 ] && repos_with_issues=$((repos_with_issues + 1))
             needs_attention=$((needs_attention + repo_attention))
           done
-          
+
+          echo "| Repository | Open PRs | Open Issues | Needs Attention |" >> pr-count.md
+          echo "|------------|----------|-------------|-----------------|" >> pr-count.md
+          sort -t $'\t' -k1,1nr rows.tsv | cut -f2- >> pr-count.md
+
           echo "" >> pr-count.md
           echo "**Total Open PRs:** $total_prs across $repos_with_prs repositories" >> pr-count.md
+          echo "**Total Open Issues:** $total_issues across $repos_with_issues repositories" >> pr-count.md
           echo "**PRs Needing Attention:** $needs_attention" >> pr-count.md
           
           # Add attention details section
@@ -164,6 +189,18 @@ jobs:
             # Append new entry
             echo "$today,$total_prs,$repos_with_prs,$needs_attention" >> pr-tracking/history.csv
           fi
+
+          # Separate history file for issue counts (kept apart from
+          # history.csv above so its existing schema/header don't shift
+          # under already-written rows).
+          if [ ! -f pr-tracking/issues-history.csv ]; then
+            echo "date,total_issues,repos_with_issues" > pr-tracking/issues-history.csv
+          fi
+          if grep -q "^$today," pr-tracking/issues-history.csv; then
+            grep -v "^$today," pr-tracking/issues-history.csv > pr-tracking/issues-history.csv.tmp
+            mv pr-tracking/issues-history.csv.tmp pr-tracking/issues-history.csv
+          fi
+          echo "$today,$total_issues,$repos_with_issues" >> pr-tracking/issues-history.csv
           
           # Save markdown report (overwrite if exists)
           cp pr-count.md pr-tracking/$today.md
