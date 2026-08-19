@@ -64,13 +64,17 @@ jobs:
 
             # Count total PRs. `gh pr list` (not the raw /issues API, which
             # mixes PRs and issues together) so this stays PR-only.
-            count=$(gh pr list --repo rundeck-plugins/$repo --state open --json number -q 'length')
+            # --limit explicitly set well above gh's default of 30 - that
+            # default silently truncated results (a real miss: it dropped
+            # rundeck-ec2-nodes-plugin's oldest open issue, #27, from a
+            # manual count run off this same pattern before this fix).
+            count=$(gh pr list --repo rundeck-plugins/$repo --state open --json number --limit 500 -q 'length')
             # `gh issue list` is issue-only by construction, same reasoning
             # in reverse - it never counts open PRs as issues. Excludes
             # Renovate's "Dependency Dashboard" issue, which sits open in
             # every Renovate-enabled repo permanently and isn't a real
             # backlog signal.
-            issue_count=$(gh issue list --repo rundeck-plugins/$repo --state open --json title -q '[.[] | select(.title != "Dependency Dashboard")] | length')
+            issue_count=$(gh issue list --repo rundeck-plugins/$repo --state open --json title --limit 500 -q '[.[] | select(.title != "Dependency Dashboard")] | length')
 
             if [ "$count" -eq 0 ] && [ "$issue_count" -eq 0 ]; then
               continue
@@ -79,7 +83,7 @@ jobs:
             # Analyze which PRs need attention
             repo_attention=0
             if [ "$count" -gt 0 ]; then
-            prs=$(gh pr list --repo rundeck-plugins/$repo --state open --json number,title,updatedAt,author --limit 50)
+            prs=$(gh pr list --repo rundeck-plugins/$repo --state open --json number,title,updatedAt,author --limit 500)
 
             pr_count=$(echo "$prs" | jq 'length')
             for ((i=0; i<pr_count; i++)); do
