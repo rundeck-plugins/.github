@@ -292,6 +292,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add pr-tracking/
+          # Stable link to the latest report (same URL every day), taken
+          # after the Release Drift step so it includes that section too -
+          # copying earlier (e.g. right after pr-count.md is written)
+          # would miss whatever that step appends to $today.md. History is
+          # unaffected; pr-tracking/$today.md still exists for every day.
+latest_report=$(ls -1t pr-tracking/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md | head -n 1)
+cp "$latest_report" pr-tracking/latest.md
           git commit -m "Daily PR report: $(date +%Y-%m-%d)" || echo "No changes"
           git push origin pr-tracking
