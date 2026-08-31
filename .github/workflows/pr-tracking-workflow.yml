@@ -297,8 +297,7 @@ jobs:
           # copying earlier (e.g. right after pr-count.md is written)
           # would miss whatever that step appends to $today.md. History is
           # unaffected; pr-tracking/$today.md still exists for every day.
-          today=$(date +%Y-%m-%d)
-          cp "pr-tracking/$today.md" pr-tracking/latest.md
-          git add pr-tracking/
+latest_report=$(ls -1t pr-tracking/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md | head -n 1)
+cp "$latest_report" pr-tracking/latest.md
           git commit -m "Daily PR report: $(date +%Y-%m-%d)" || echo "No changes"
           git push origin pr-tracking
