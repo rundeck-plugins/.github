@@ -184,6 +184,12 @@ jobs:
           
           # Check if today's entry already exists, update or append
           today=$(date +%Y-%m-%d)
+          # Share this exact value with later steps via $GITHUB_ENV instead
+          # of letting them recompute their own `date` call - each `run:`
+          # block is a fresh shell, so a later step's `date +%Y-%m-%d` could
+          # in principle disagree with this one if the job happened to
+          # straddle a UTC midnight between steps.
+          echo "today=$today" >> "$GITHUB_ENV"
           if grep -q "^$today," pr-tracking/history.csv; then
             # Update existing entry - remove old line and append new
             grep -v "^$today," pr-tracking/history.csv > pr-tracking/history.csv.tmp
@@ -223,7 +229,9 @@ jobs:
           # already writes, so there's one report to read.
           # continue-on-error above means a bug here can't take down the daily
           # PR report that already ran and was written to disk.
-          today=$(date +%Y-%m-%d)
+          # $today comes from $GITHUB_ENV (set in the step above) rather
+          # than a fresh `date` call, so this step's appends always land on
+          # the exact same file that step wrote to.
           # Scoped to repos tagged with the "versioned-plugins" GitHub topic -
           # real plugins we cut releases for on a regular cadence, not tooling/
           # example/demo repos that happen to carry semver tags for their own
@@ -297,7 +305,10 @@ jobs:
           # copying earlier (e.g. right after pr-count.md is written)
           # would miss whatever that step appends to $today.md. History is
           # unaffected; pr-tracking/$today.md still exists for every day.
-latest_report=$(ls -1t pr-tracking/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md | head -n 1)
-cp "$latest_report" pr-tracking/latest.md
-          git commit -m "Daily PR report: $(date +%Y-%m-%d)" || echo "No changes"
+          # $today comes from $GITHUB_ENV (set in the first step) rather
+          # than a fresh `date` call or a filesystem-mtime glob, so this is
+          # guaranteed to be the exact file the earlier steps wrote to.
+          cp "pr-tracking/$today.md" pr-tracking/latest.md
+          git add pr-tracking/
+          git commit -m "Daily PR report: $today" || echo "No changes"
           git push origin pr-tracking
