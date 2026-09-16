@@ -14,13 +14,13 @@ Machine-readable source of truth: [`mapping.tsv`](mapping.tsv). This file is the
 
 | Plugin repo | Core prop (`gradle.properties`) | rundeckpro prop | ua-runner prop |
 |-------------|--------------------------------|-----------------|----------------|
-| ansible-plugin | `ansiblePluginVersion` | - (testbuild only) | - |
-| aws-s3-model-source | `awsS3ModelSourceVersion` | - | - |
-| py-winrm-plugin | `pyWinrmPluginVersion` | - | - |
-| openssh-node-execution | `opensshNodeExecutionVersion` | - | - |
-| multiline-regex-datacapture-filter | `multilineRegexDatacaptureFilterVersion` | - | - |
-| attribute-match-node-enhancer | `attributeMatchNodeEnhancerVersion` | - | - |
-| sshj-plugin | `sshjPluginVersion` | - | - |
+| ansible-plugin | `ansiblePluginVersion` | `ansiblePluginVersion` (testbuild.groovy) | - |
+| aws-s3-model-source | `awsS3ModelSourceVersion` | `awsS3ModelSourceVersion` (testbuild.groovy) | - |
+| py-winrm-plugin | `pyWinrmPluginVersion` | `pyWinrmPluginVersion` (testbuild.groovy) | - |
+| openssh-node-execution | `opensshNodeExecutionVersion` | `opensshNodeExecutionVersion` (testbuild.groovy) | - |
+| multiline-regex-datacapture-filter | `multilineRegexDatacaptureFilterVersion` | `multilineRegexDatacaptureFilterVersion` (testbuild.groovy) | - |
+| attribute-match-node-enhancer | `attributeMatchNodeEnhancerVersion` | `attributeMatchNodeEnhancerVersion` (testbuild.groovy) | - |
+| sshj-plugin | `sshjPluginVersion` | `sshjPluginVersion` (testbuild.groovy) | - |
 | http-step | - | `httpStepVersion` | `httpStepVersion` |
 | slack-incoming-webhook-plugin | - | `slackWebhookVersion` | - |
 | aws-s3-steps | - | `awsS3StepsVersion` | `awsS3StepsVersion` |
@@ -42,7 +42,7 @@ Machine-readable source of truth: [`mapping.tsv`](mapping.tsv). This file is the
 
 - **Core reads plugin versions from `gradle.properties`.** `rundeck/gradle.properties` defines `ansiblePluginVersion`, `awsS3ModelSourceVersion`, `pyWinrmPluginVersion`, `opensshNodeExecutionVersion`, `multilineRegexDatacaptureFilterVersion`, `attributeMatchNodeEnhancerVersion`, `sshjPluginVersion`. `build.gradle` interpolates these into `bundledPlugins` and `testbuild.groovy` reads them; `build.yaml` no longer carries versions (it is a pointer comment). Update the property.
 - **kubernetes property name differs by repo:** `kubernetesVersion` in rundeckpro, `kubernetesPluginVersion` in ua-runner. rundeckpro also defines `kubernetesPluginVersion`, which is vestigial there.
-- **rundeckpro also carries vestigial Core-overlap props** (`sshjPluginVersion`, `opensshNodeExecutionVersion`, `pyWinrmPluginVersion`, `awsS3ModelSourceVersion`, `multilineRegexDatacaptureFilterVersion`, `attributeMatchNodeEnhancerVersion`); only `ansiblePluginVersion` is used, and only by `testbuild.groovy`.
+- **rundeckpro's Core-overlap props are NOT vestigial** (`ansiblePluginVersion`, `sshjPluginVersion`, `opensshNodeExecutionVersion`, `pyWinrmPluginVersion`, `awsS3ModelSourceVersion`, `multilineRegexDatacaptureFilterVersion`, `attributeMatchNodeEnhancerVersion`) - all seven are genuinely read by `testbuild.groovy`'s expected-plugin-version map (verified 2026-09-16, grep each prop name in that file: each appears exactly once, in the same map `ansiblePluginVersion` is in). A prior version of this note claimed only `ansiblePluginVersion` was real and the rest were vestigial; that was wrong and caused `bump-versions-pr.sh` to skip 5 real bumps in a rundeckpro PR. Bump these in rundeckpro whenever their Core value changes, same as any other consumed prop.
 - **nixy-step-plugins is multi-module:** one release drives `nixystepVersion`, which feeds four artifacts (`waitfor`, `file`, `local-script`, `command`).
 - **rundeck-azure-plugin** is consumed in `rundeckpro/plugins/azure-plugins/build.gradle` (not `enterprise/build.gradle`), but its property still lives in `rundeckpro/gradle.properties`.
 - **rundeck-ec2-nodes-plugin** is consumed in `rundeckpro/plugins/cloud-aws-plugins/build.gradle` as a real `pluginLibs` dependency (verified 2026-08-18, grep for `rundeck-ec2-nodes-plugin` in that file). It is not vestigial - keep it in the operative dependency list.

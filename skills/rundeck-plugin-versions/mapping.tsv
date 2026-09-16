@@ -9,13 +9,13 @@
 #     them into bundledPlugins and testbuild.groovy reads them. build.yaml no longer carries versions.
 #   - kubernetes uses kubernetesVersion in rundeckpro but kubernetesPluginVersion in ua-runner.
 #   - nixy-step-plugins publishes one release that drives nixystepVersion (4 artifacts share it).
-ansible-plugin	ansiblePluginVersion	-	-
-aws-s3-model-source	awsS3ModelSourceVersion	-	-
-py-winrm-plugin	pyWinrmPluginVersion	-	-
-openssh-node-execution	opensshNodeExecutionVersion	-	-
-multiline-regex-datacapture-filter	multilineRegexDatacaptureFilterVersion	-	-
-attribute-match-node-enhancer	attributeMatchNodeEnhancerVersion	-	-
-sshj-plugin	sshjPluginVersion	-	-
+ansible-plugin	ansiblePluginVersion	ansiblePluginVersion	-
+aws-s3-model-source	awsS3ModelSourceVersion	awsS3ModelSourceVersion	-
+py-winrm-plugin	pyWinrmPluginVersion	pyWinrmPluginVersion	-
+openssh-node-execution	opensshNodeExecutionVersion	opensshNodeExecutionVersion	-
+multiline-regex-datacapture-filter	multilineRegexDatacaptureFilterVersion	multilineRegexDatacaptureFilterVersion	-
+attribute-match-node-enhancer	attributeMatchNodeEnhancerVersion	attributeMatchNodeEnhancerVersion	-
+sshj-plugin	sshjPluginVersion	sshjPluginVersion	-
 http-step	-	httpStepVersion	httpStepVersion
 slack-incoming-webhook-plugin	-	slackWebhookVersion	-
 aws-s3-steps	-	awsS3StepsVersion	awsS3StepsVersion
