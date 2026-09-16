@@ -9,19 +9,23 @@
 #     them into bundledPlugins and testbuild.groovy reads them. build.yaml no longer carries versions.
 #   - kubernetes uses kubernetesVersion in rundeckpro but kubernetesPluginVersion in ua-runner.
 #   - nixy-step-plugins publishes one release that drives nixystepVersion (4 artifacts share it).
-#   - VIA-SUBMODULE (deprecated 2026-09-17, kept supported in the scripts in case it's needed again)
-#     meant a repo had no property of its own to bump because it read a version straight out of a
-#     nested git submodule's gradle.properties at build time. Forrest's call: track a real property
-#     in ua-runner's own gradle.properties instead, even where a submodule-read path also exists in
-#     runner-agent/build.gradle's bundledCorePlugins map - don't rely on the submodule mechanism as
-#     the source of truth, keep an explicit, bumpable property like everywhere else.
-ansible-plugin	ansiblePluginVersion	ansiblePluginVersion	ansiblePluginVersion
+#   - VIA-SUBMODULE means ua-runner has no property of its own to bump for this plugin:
+#     runner-agent/build.gradle's bundledCorePlugins map reads the version straight out of the
+#     nested rundeck/ git submodule's gradle.properties at build time, via its own separate
+#     Properties object - it never reads ua-runner's own gradle.properties for these. A same-named
+#     property was added to ua-runner's gradle.properties on 2026-09-17 on the theory that an
+#     explicit property beats an implicit submodule read; that property turned out to be dead
+#     (verified by reading bundledCorePlugins itself, 2026-09-17), so it was removed and this
+#     reverted to VIA-SUBMODULE. The real version in effect is whatever commit ua-runner's
+#     rundeck/ submodule is pinned to - neither check-versions.sh nor bump-versions-pr.sh
+#     currently inspects that pinned commit, so drift here isn't yet caught by this skill.
+ansible-plugin	ansiblePluginVersion	ansiblePluginVersion	VIA-SUBMODULE
 aws-s3-model-source	awsS3ModelSourceVersion	awsS3ModelSourceVersion	-
-py-winrm-plugin	pyWinrmPluginVersion	pyWinrmPluginVersion	pyWinrmPluginVersion
-openssh-node-execution	opensshNodeExecutionVersion	opensshNodeExecutionVersion	opensshNodeExecutionVersion
+py-winrm-plugin	pyWinrmPluginVersion	pyWinrmPluginVersion	VIA-SUBMODULE
+openssh-node-execution	opensshNodeExecutionVersion	opensshNodeExecutionVersion	VIA-SUBMODULE
 multiline-regex-datacapture-filter	multilineRegexDatacaptureFilterVersion	multilineRegexDatacaptureFilterVersion	-
 attribute-match-node-enhancer	attributeMatchNodeEnhancerVersion	attributeMatchNodeEnhancerVersion	-
-sshj-plugin	sshjPluginVersion	sshjPluginVersion	sshjPluginVersion
+sshj-plugin	sshjPluginVersion	sshjPluginVersion	VIA-SUBMODULE
 http-step	-	httpStepVersion	httpStepVersion
 slack-incoming-webhook-plugin	-	slackWebhookVersion	-
 aws-s3-steps	-	awsS3StepsVersion	awsS3StepsVersion

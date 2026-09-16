@@ -119,6 +119,17 @@ Read-only, same spirit as `check-versions.sh`'s drift report but one level up: i
 
 Two real gaps this would have caught immediately instead of after a missed bump (both 2026-09-16/17): 7 plugins `mapping.tsv` called vestigial/unconsumed in `rundeckpro` that were actually bundled via a real dependency list in its root `build.gradle`, and `rundeck-ec2-nodes-plugin`'s verbose-syntax dependency in `rundeckpro/plugins/cloud-aws-plugins/build.gradle`. See `reference.md`'s Gotchas section for the full list of non-obvious consumption patterns found this way.
 
+## Release ordering across the three repos (not automated - track manually)
+
+The three PRs Workflow C opens are **not independent releases** - there is a real cross-repo dependency chain this skill does not model or enforce, so track it by hand each cycle:
+
+1. **rundeck (Core)**'s PR (bumps its own `gradle.properties`) should merge - and ideally Core cuts a new release - before the next step is meaningful.
+2. **ua-runner**'s `rundeck/` submodule pointer needs advancing to a Core commit that includes step 1's merge. This is separate from ua-runner's own `bump-plugin-versions` PR (which only covers plugins with a real ua-runner property, e.g. `httpStepVersion`/`dockerVersion`/`vaultStorageVersion`) - advancing the submodule pointer is what actually updates `ansible-plugin`/`py-winrm-plugin`/`openssh-node-execution`/`sshj-plugin` in ua-runner (see `reference.md`'s Gotchas: these 4 are `VIA-SUBMODULE`, not a `gradle.properties` value).
+3. Once both of ua-runner's changes (its own PR + the submodule advance) are merged, **ua-runner needs an actual new GitHub Release cut** - merging alone doesn't produce one.
+4. **rundeckpro** consumes that ua-runner release as its own pinned `uaRunnerVersion` property in `gradle.properties` (currently `7.0.18`, separate from anything in `mapping.tsv`) - bump it once step 3 lands. rundeckpro's other 15+ direct plugin bumps in its own `bump-plugin-versions` PR are independent of this chain and don't need to wait.
+
+**rundeckpro also has its own `rundeck/` submodule pointer, but it is not a version source the way ua-runner's is** - rundeckpro's `build.gradle` does not read plugin versions out of its submodule's `gradle.properties` (verified by grep: no `rootProject.projectDir}/rundeck` reference exists there). Don't conflate the two repos' submodule roles - only ua-runner's actually feeds plugin versions into the bundle.
+
 ## Do not auto-push
 
 Never push directly to `main`, and never merge a PR this skill opens - a human reviews and merges. Note some consuming repos may enforce PR rulesets (direct pushes to `main` rejected). Never add Cursor/agent co-author trailers to any commit. Workflows A and B additionally stop before even opening a PR (diffs only, human opens the PR); Workflow C opens the PR itself but still leaves merging to a human.
