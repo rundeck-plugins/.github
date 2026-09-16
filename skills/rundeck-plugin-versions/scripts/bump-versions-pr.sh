@@ -78,6 +78,7 @@ process_repo() {
       4) prop="$ua_prop" ;;
     esac
     [ "$prop" = "-" ] && continue
+    [ "$prop" = "VIA-SUBMODULE" ] && continue  # no property to compare/bump - see mapping.tsv header
 
     local latest cur
     latest="$("$SCRIPT_DIR/plugin-latest.sh" "$plugin" 2>/dev/null || true)"
