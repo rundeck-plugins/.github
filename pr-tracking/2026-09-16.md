@@ -5,7 +5,7 @@
 | Repository | Open PRs | Open Issues | Needs Attention |
 |------------|----------|-------------|-----------------|
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 0 | [2](https://github.com/rundeck-plugins/git-plugin/issues) | 0 |
-| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [1](https://github.com/rundeck-plugins/ansible-plugin/issues) | 0 |
+| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/ansible-plugin/issues) | 0 |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | 0 |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 1 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | 0 |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | 0 |
@@ -29,7 +29,7 @@
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 2 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | 0 |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 31 across 23 repositories
+**Total Open PRs:** 30 across 23 repositories
 **Total Open Issues:** 4 across 3 repositories
 **PRs Needing Attention:** 4
 
@@ -52,7 +52,7 @@ PRs where community has most recent activity (comment or commit):
   - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/234
 
 - **rundeck-ec2-nodes-plugin #232**: [RUN-4954] Fix resource leaks and silent error handling in EC2ResourceModelSource
-  - Last activity: reviewed by @luismalamoc
+  - Last activity: reviewed by @ddarby-hike
   - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/232
 
 
@@ -64,6 +64,7 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 
 | Repository | Latest Release | Commits Ahead | Status |
 |------------|-----------------|----------------|--------|
+| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/compare/5.1.2...main) | 5.1.2 | 4 | **NEEDS RELEASE** |
 | [multiline-regex-datacapture-filter](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/compare/2.0.3...main) | 2.0.3 | 4 | **NEEDS RELEASE** |
 | [http-step](https://github.com/rundeck-plugins/http-step/compare/2.0.5...main) | 2.0.5 | 4 | **NEEDS RELEASE** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/compare/1.0.5...main) | 1.0.5 | 4 | **NEEDS RELEASE** |
@@ -74,7 +75,6 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/compare/3.0.5...main) | 3.0.5 | 3 | **NEEDS RELEASE** |
 | [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/compare/2.0.3...main) | 2.0.3 | 5 | **NEEDS RELEASE** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/compare/2.0.4...main) | 2.0.4 | 6 | **NEEDS RELEASE** |
-| ansible-plugin | 5.1.2 | 0 | OK |
 | [docker](https://github.com/rundeck-plugins/docker/compare/2.0.2...main) | 2.0.2 | 2 | **NEEDS RELEASE** |
 | [salt-step](https://github.com/rundeck-plugins/salt-step/compare/1.0.4...main) | 1.0.4 | 4 | **NEEDS RELEASE** |
 | [jq-json-logfilter](https://github.com/rundeck-plugins/jq-json-logfilter/compare/2.0.3...main) | 2.0.3 | 4 | **NEEDS RELEASE** |
@@ -90,4 +90,4 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 | openssh-node-execution | 3.0.2 | 0 | OK |
 | aws-s3-steps | 2.0.2 | 0 | OK |
 
-**Plugins needing a release:** 16 ; **Unknown:** 0
+**Plugins needing a release:** 17 ; **Unknown:** 0
