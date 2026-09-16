@@ -78,6 +78,7 @@ trap cleanup_snapshots EXIT
 cell() { # value latest -> "value" or "value*" (mismatch) or "-"
   local val="$1" latest="$2"
   if [ -z "$val" ]; then echo "-"; return; fi
+  if [ "$val" = "via-submodule" ]; then echo "$val"; return; fi
   if [ -n "$latest" ] && [ "$val" != "$latest" ]; then echo "${val}*"; else echo "$val"; fi
 }
 
@@ -94,14 +95,22 @@ while IFS=$'\t' read -r plugin core_prop pro_prop ua_prop; do
   core_v="" ; pro_v="" ; ua_v=""
   [ "$core_prop" != "-" ] && core_v="$(prop_ver "$core_prop" "$RUNDECK_SNAPSHOT")"
   [ "$pro_prop" != "-" ] && pro_v="$(prop_ver "$pro_prop" "$RUNDECKPRO_SNAPSHOT")"
-  [ "$ua_prop" != "-" ] && ua_v="$(prop_ver "$ua_prop" "$UARUNNER_SNAPSHOT")"
+  if [ "$ua_prop" = "VIA-SUBMODULE" ]; then
+    # No property of its own to check - ua-runner reads this straight out of
+    # the nested rundeck/ submodule's gradle.properties at build time (see
+    # mapping.tsv header). Shown distinctly so it doesn't read as "not
+    # consumed", which is what hid a real rundeckpro gap before.
+    ua_v="via-submodule"
+  elif [ "$ua_prop" != "-" ]; then
+    ua_v="$(prop_ver "$ua_prop" "$UARUNNER_SNAPSHOT")"
+  fi
 
   status="OK"
   if [ -z "$latest" ]; then
     status="UNKNOWN"; unknown=$((unknown+1))
   else
     for v in "$core_v" "$pro_v" "$ua_v"; do
-      if [ -n "$v" ] && [ "$v" != "$latest" ]; then status="DRIFT"; drift=$((drift+1)); break; fi
+      if [ -n "$v" ] && [ "$v" != "via-submodule" ] && [ "$v" != "$latest" ]; then status="DRIFT"; drift=$((drift+1)); break; fi
     done
   fi
 

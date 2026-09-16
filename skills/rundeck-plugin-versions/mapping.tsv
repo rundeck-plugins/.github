@@ -9,13 +9,19 @@
 #     them into bundledPlugins and testbuild.groovy reads them. build.yaml no longer carries versions.
 #   - kubernetes uses kubernetesVersion in rundeckpro but kubernetesPluginVersion in ua-runner.
 #   - nixy-step-plugins publishes one release that drives nixystepVersion (4 artifacts share it).
-ansible-plugin	ansiblePluginVersion	-	-
-aws-s3-model-source	awsS3ModelSourceVersion	-	-
-py-winrm-plugin	pyWinrmPluginVersion	-	-
-openssh-node-execution	opensshNodeExecutionVersion	-	-
-multiline-regex-datacapture-filter	multilineRegexDatacaptureFilterVersion	-	-
-attribute-match-node-enhancer	attributeMatchNodeEnhancerVersion	-	-
-sshj-plugin	sshjPluginVersion	-	-
+#   - ua_runner_prop = "VIA-SUBMODULE" means ua-runner has no property of its own to bump: it reads
+#     the version straight out of the nested rundeck/ submodule's gradle.properties at build time
+#     (runner-agent/build.gradle's bundledCorePlugins map). It cannot drift the way a duplicated
+#     property can, so there is nothing for bump-versions-pr.sh to do there - do not treat this as
+#     "not consumed" (that was the exact ambiguity that hid the rundeckpro gap this mapping used to
+#     have; verified 2026-09-17).
+ansible-plugin	ansiblePluginVersion	ansiblePluginVersion	VIA-SUBMODULE
+aws-s3-model-source	awsS3ModelSourceVersion	awsS3ModelSourceVersion	-
+py-winrm-plugin	pyWinrmPluginVersion	pyWinrmPluginVersion	VIA-SUBMODULE
+openssh-node-execution	opensshNodeExecutionVersion	opensshNodeExecutionVersion	VIA-SUBMODULE
+multiline-regex-datacapture-filter	multilineRegexDatacaptureFilterVersion	multilineRegexDatacaptureFilterVersion	-
+attribute-match-node-enhancer	attributeMatchNodeEnhancerVersion	attributeMatchNodeEnhancerVersion	-
+sshj-plugin	sshjPluginVersion	sshjPluginVersion	VIA-SUBMODULE
 http-step	-	httpStepVersion	httpStepVersion
 slack-incoming-webhook-plugin	-	slackWebhookVersion	-
 aws-s3-steps	-	awsS3StepsVersion	awsS3StepsVersion
