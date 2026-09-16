@@ -69,7 +69,7 @@ process_repo() {
   remote_props="$(mktemp)"
   git -C "$repo_dir" show origin/main:gradle.properties > "$remote_props" 2>/dev/null || true
 
-  local bumps_prop=() bumps_old=() bumps_new=() bumps_plugin=()
+  local bumps_prop=() bumps_old=() bumps_new=() bumps_plugin=() bumps_isnew=()
 
   while IFS=$'\t' read -r plugin core_prop pro_prop ua_prop; do
     case "$plugin" in ''|\#*) continue ;; esac
@@ -86,13 +86,27 @@ process_repo() {
     latest="$("$SCRIPT_DIR/plugin-latest.sh" "$plugin" 2>/dev/null || true)"
     [ -z "$latest" ] && continue
     cur="$(prop_ver "$prop" "$remote_props")"
-    [ -z "$cur" ] && continue
+    if [ -z "$cur" ]; then
+      # mapping.tsv tracks this property for this repo, but origin/main's
+      # gradle.properties has no such line at all - not "up to date," it's
+      # genuinely missing (e.g. added to mapping.tsv ahead of a PR that adds
+      # the line itself, or a previous run's PR hasn't merged yet). Add it
+      # fresh rather than silently skipping - see bump-plugin-versions
+      # branch handling below for why silently skipping used to erase these.
+      bumps_prop+=("$prop")
+      bumps_old+=("(new)")
+      bumps_new+=("$latest")
+      bumps_plugin+=("$plugin")
+      bumps_isnew+=(1)
+      continue
+    fi
     [ "$cur" = "$latest" ] && continue
 
     bumps_prop+=("$prop")
     bumps_old+=("$cur")
     bumps_new+=("$latest")
     bumps_plugin+=("$plugin")
+    bumps_isnew+=(0)
   done < "$MAPPING"
   rm -f "$remote_props"
 
@@ -104,7 +118,11 @@ process_repo() {
   echo "$repo_label: ${#bumps_prop[@]} bump(s) needed"
   local i
   for i in "${!bumps_prop[@]}"; do
-    echo "  - ${bumps_plugin[$i]}: ${bumps_prop[$i]} ${bumps_old[$i]} -> ${bumps_new[$i]}"
+    if [ "${bumps_isnew[$i]}" -eq 1 ]; then
+      echo "  - ${bumps_plugin[$i]}: ${bumps_prop[$i]} (new) -> ${bumps_new[$i]}"
+    else
+      echo "  - ${bumps_plugin[$i]}: ${bumps_prop[$i]} ${bumps_old[$i]} -> ${bumps_new[$i]}"
+    fi
   done
 
   if [ "$DRY_RUN" -eq 1 ]; then
@@ -149,8 +167,16 @@ process_repo() {
 
   for i in "${!bumps_prop[@]}"; do
     local prop="${bumps_prop[$i]}" new="${bumps_new[$i]}"
-    sed -i.bak -E "s/^([[:space:]]*${prop}[[:space:]]*=[[:space:]]*).*/\1${new}/" "$props_file"
-    rm -f "$props_file.bak"
+    if [ "${bumps_isnew[$i]}" -eq 1 ]; then
+      # No existing line to substitute - sed's s/// would silently no-op here,
+      # which is exactly how a manually-added, not-yet-merged property got
+      # wiped out on the next rebuild-from-main run (found 2026-09-17 testing
+      # rundeck-ec2-nodes-plugin's release against ua-runner#222). Append it.
+      printf '%s=%s\n' "$prop" "$new" >> "$props_file"
+    else
+      sed -i.bak -E "s/^([[:space:]]*${prop}[[:space:]]*=[[:space:]]*).*/\1${new}/" "$props_file"
+      rm -f "$props_file.bak"
+    fi
   done
 
   git -C "$repo_dir" add gradle.properties
