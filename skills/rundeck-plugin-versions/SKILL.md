@@ -103,6 +103,22 @@ Unlike Workflows A/B, this one *does* push a branch and open a PR (not to `main`
 
 Each repo gets one stable branch (`bump-plugin-versions`, no date suffix). Re-running the script rebuilds that branch fresh off current `main` and force-pushes it every time, so it keeps **updating the same open PR in place** (via `gh pr edit`, same as Renovate's own PRs) instead of piling up a new dated branch/PR per run. If the previous PR for that branch was merged or closed, the next run starts a clean new one. Don't hand-edit the `bump-plugin-versions` branch between runs - it gets discarded and recreated.
 
+## Workflow D - audit mapping.tsv itself
+
+Use before trusting a "not consumed" (`-`) cell, when adding a new plugin, or after a report seems to be missing a bump you expected (that's exactly how the two real gaps below were found - the hard way, one plugin at a time, after something else already went wrong).
+
+```
+- [ ] 1. Confirm/resolve the rundeckpro and ua-runner paths
+- [ ] 2. Run: scripts/audit-consumption.sh
+- [ ] 3. For each POSSIBLE GAP printed, read the surrounding line in that
+         file and decide: real gap (fix mapping.tsv, see reference.md's
+         Gotchas for the pattern) or false positive (e.g. a comment)
+```
+
+Read-only, same spirit as `check-versions.sh`'s drift report but one level up: it checks whether the *mapping itself* is right, not whether values are current. It greps each repo's whole tracked tree (not just root `gradle.properties`/`build.gradle`) for both compact (`"group:artifact:version"`) and verbose (`group: '...', name: '...'`) Gradle dependency syntax - a plain grep for the compact form alone is exactly what missed `rundeck-ec2-nodes-plugin`'s real (verbose-syntax) dependency the first time this kind of sweep was tried by hand.
+
+Two real gaps this would have caught immediately instead of after a missed bump (both 2026-09-16/17): 7 plugins `mapping.tsv` called vestigial/unconsumed in `rundeckpro` that were actually bundled via a real dependency list in its root `build.gradle`, and `rundeck-ec2-nodes-plugin`'s verbose-syntax dependency in `rundeckpro/plugins/cloud-aws-plugins/build.gradle`. See `reference.md`'s Gotchas section for the full list of non-obvious consumption patterns found this way.
+
 ## Do not auto-push
 
 Never push directly to `main`, and never merge a PR this skill opens - a human reviews and merges. Note some consuming repos may enforce PR rulesets (direct pushes to `main` rejected). Never add Cursor/agent co-author trailers to any commit. Workflows A and B additionally stop before even opening a PR (diffs only, human opens the PR); Workflow C opens the PR itself but still leaves merging to a human.
@@ -111,8 +127,13 @@ Never push directly to `main`, and never merge a PR this skill opens - a human r
 
 `check-versions.sh` and `bump-versions-pr.sh` both snapshot `origin/main`'s `gradle.properties` via `git show origin/main:gradle.properties` rather than reading the working-tree file directly. Reading the working tree is wrong whenever a repo is checked out on an in-progress feature branch that's stale relative to `main` (common - these are active repos) - it can report false drift, miss real drift, or (as happened once for real) make a proactive PR's commit message claim more changes than actually happened. Keep this pattern if you're modifying either script.
 
+## Gotcha: a missing property must not crash the whole script
+
+Both scripts' `prop_ver()` ends in a `grep | head | sed` pipeline. Under this repo's `set -euo pipefail`, `grep` finding no match (a property that's genuinely not there yet - e.g. added to `mapping.tsv` but the PR adding the actual property line hasn't merged) exits 1, and with `pipefail` that becomes the whole pipeline's exit status - which kills the *entire script* silently (no error message, just stops) when it happens inside a plain `var=$(...)` assignment, rather than being treated as the normal "not found" case it actually is. Found for real 2026-09-17: checking `ansible-plugin` right after adding it to `ua-runner`'s `mapping.tsv` column, before the PR adding the property had merged, silently killed `check-versions.sh` with zero output. Both copies of `prop_ver()` now end the pipeline with `|| true` - keep that if you touch either one.
+
 ## Scripts
 
 - `scripts/plugin-latest.sh <plugin-repo>` - latest released version (gh release, clean-semver tag fallback).
 - `scripts/check-versions.sh [--root DIR | --rundeck DIR --rundeckpro DIR --ua-runner DIR] [--plugin NAME]` - read-only drift report across the three repos.
 - `scripts/bump-versions-pr.sh [--root DIR | --rundeck DIR --rundeckpro DIR --ua-runner DIR] [--dry-run]` - opens one PR per repo bundling every bump it needs.
+- `scripts/audit-consumption.sh [--root DIR | --rundeckpro DIR --ua-runner DIR]` - read-only check that every `-` cell in `mapping.tsv` is actually right; see Workflow D.

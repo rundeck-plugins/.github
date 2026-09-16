@@ -49,8 +49,15 @@ warn_missing "$RUNDECK"; warn_missing "$RUNDECKPRO"; warn_missing "$UARUNNER"
 # Value of a property in a gradle.properties file.
 prop_ver() {
   local prop="$1" f="$2"
-  [ -f "$f" ] || { echo ""; return; }
-  grep -E "^[[:space:]]*${prop}[[:space:]]*=" "$f" 2>/dev/null | head -1 | sed -E 's/^[^=]*=[[:space:]]*//; s/[[:space:]]*$//'
+  [ -f "$f" ] || { echo ""; return 0; }
+  # A property that isn't present yet is a normal, expected outcome (e.g.
+  # newly added to mapping.tsv but not yet merged anywhere) - grep exits 1
+  # for "no match", and under this script's `set -e`/pipefail, that would
+  # otherwise silently kill the whole script rather than just report "not
+  # found" (found for real 2026-09-17: checking ansible-plugin against
+  # ua-runner's origin/main, which didn't have the property yet, aborted
+  # the script with zero output and no error message).
+  grep -E "^[[:space:]]*${prop}[[:space:]]*=" "$f" 2>/dev/null | head -1 | sed -E 's/^[^=]*=[[:space:]]*//; s/[[:space:]]*$//' || true
 }
 
 # Snapshot origin/main's actual gradle.properties rather than reading the
