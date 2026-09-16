@@ -9,19 +9,19 @@
 #     them into bundledPlugins and testbuild.groovy reads them. build.yaml no longer carries versions.
 #   - kubernetes uses kubernetesVersion in rundeckpro but kubernetesPluginVersion in ua-runner.
 #   - nixy-step-plugins publishes one release that drives nixystepVersion (4 artifacts share it).
-#   - ua_runner_prop = "VIA-SUBMODULE" means ua-runner has no property of its own to bump: it reads
-#     the version straight out of the nested rundeck/ submodule's gradle.properties at build time
-#     (runner-agent/build.gradle's bundledCorePlugins map). It cannot drift the way a duplicated
-#     property can, so there is nothing for bump-versions-pr.sh to do there - do not treat this as
-#     "not consumed" (that was the exact ambiguity that hid the rundeckpro gap this mapping used to
-#     have; verified 2026-09-17).
-ansible-plugin	ansiblePluginVersion	ansiblePluginVersion	VIA-SUBMODULE
+#   - VIA-SUBMODULE (deprecated 2026-09-17, kept supported in the scripts in case it's needed again)
+#     meant a repo had no property of its own to bump because it read a version straight out of a
+#     nested git submodule's gradle.properties at build time. Forrest's call: track a real property
+#     in ua-runner's own gradle.properties instead, even where a submodule-read path also exists in
+#     runner-agent/build.gradle's bundledCorePlugins map - don't rely on the submodule mechanism as
+#     the source of truth, keep an explicit, bumpable property like everywhere else.
+ansible-plugin	ansiblePluginVersion	ansiblePluginVersion	ansiblePluginVersion
 aws-s3-model-source	awsS3ModelSourceVersion	awsS3ModelSourceVersion	-
-py-winrm-plugin	pyWinrmPluginVersion	pyWinrmPluginVersion	VIA-SUBMODULE
-openssh-node-execution	opensshNodeExecutionVersion	opensshNodeExecutionVersion	VIA-SUBMODULE
+py-winrm-plugin	pyWinrmPluginVersion	pyWinrmPluginVersion	pyWinrmPluginVersion
+openssh-node-execution	opensshNodeExecutionVersion	opensshNodeExecutionVersion	opensshNodeExecutionVersion
 multiline-regex-datacapture-filter	multilineRegexDatacaptureFilterVersion	multilineRegexDatacaptureFilterVersion	-
 attribute-match-node-enhancer	attributeMatchNodeEnhancerVersion	attributeMatchNodeEnhancerVersion	-
-sshj-plugin	sshjPluginVersion	sshjPluginVersion	VIA-SUBMODULE
+sshj-plugin	sshjPluginVersion	sshjPluginVersion	sshjPluginVersion
 http-step	-	httpStepVersion	httpStepVersion
 slack-incoming-webhook-plugin	-	slackWebhookVersion	-
 aws-s3-steps	-	awsS3StepsVersion	awsS3StepsVersion

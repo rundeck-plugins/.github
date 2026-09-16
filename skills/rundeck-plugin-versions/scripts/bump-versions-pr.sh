@@ -46,8 +46,10 @@ UARUNNER="${UARUNNER:-$ROOT/ua-runner}"
 
 prop_ver() {
   local prop="$1" f="$2"
-  [ -f "$f" ] || { echo ""; return; }
-  grep -E "^[[:space:]]*${prop}[[:space:]]*=" "$f" 2>/dev/null | head -1 | sed -E 's/^[^=]*=[[:space:]]*//; s/[[:space:]]*$//'
+  [ -f "$f" ] || { echo ""; return 0; }
+  # See check-versions.sh's copy of this function for why the `|| true` matters:
+  # a property that isn't present yet is a normal outcome, not a script-ending error.
+  grep -E "^[[:space:]]*${prop}[[:space:]]*=" "$f" 2>/dev/null | head -1 | sed -E 's/^[^=]*=[[:space:]]*//; s/[[:space:]]*$//' || true
 }
 
 # col: 2=core prop column, 3=rundeckpro prop column, 4=ua-runner prop column
