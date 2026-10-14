@@ -1,4 +1,4 @@
-# PR Report - 2026-10-13
+# PR Report - 2026-10-14
 
 ## Summary
 
@@ -26,19 +26,35 @@
 | [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **2** |
 | [rundeck-plugin-examples](https://github.com/rundeck-plugins/rundeck-plugin-examples/pulls) | 1 | [0](https://github.com/rundeck-plugins/rundeck-plugin-examples/issues) | **1** |
 | [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | **1** |
-| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 4 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **3** |
+| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 5 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **4** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | **1** |
 
-**Total Open PRs:** 59 across 25 repositories
+**Total Open PRs:** 60 across 25 repositories
 **Total Open Issues:** 7 across 4 repositories
-**PRs Needing Attention:** 34
+**PRs Needing Attention:** 35
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **sshj-plugin #180**: [RUN-0000] Update dependency uuid to v14.0.3
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/180
+
+- **sshj-plugin #179**: [RUN-0000] Update Gradle to v8.14.6
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/179
+
+- **sshj-plugin #178**: [RUN-0000] Update dependency org.apache.commons:commons-lang3 to v3.21.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/178
+
+- **sshj-plugin #174**: [RUN-0000] Update dependency @types/node to v24.13.6
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/174
 
 - **pagerduty-notification #60**: [RUN-0000] Update Gradle to v8.14.6
   - Last activity: opened by @app/renovate
@@ -123,18 +139,6 @@ PRs where community has most recent activity (comment or commit):
 - **yaml-text-source #17**: [RUN-0000] Update Gradle to v8.14.6
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/yaml-text-source/pull/17
-
-- **sshj-plugin #179**: [RUN-0000] Update Gradle to v8.14.6
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/179
-
-- **sshj-plugin #178**: [RUN-0000] Update dependency org.apache.commons:commons-lang3 to v3.21.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/178
-
-- **sshj-plugin #174**: [RUN-0000] Update dependency @types/node to v24.13.6
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/174
 
 - **vault-storage #121**: [RUN-0000] Update Gradle to v8.14.6
   - Last activity: opened by @app/renovate
