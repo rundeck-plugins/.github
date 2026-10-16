@@ -1,12 +1,12 @@
-# PR Report - 2026-10-15
+# PR Report - 2026-10-16
 
 ## Summary
 
 | Repository | Open PRs | Open Issues | Needs Attention |
 |------------|----------|-------------|-----------------|
 | [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 6 | [3](https://github.com/rundeck-plugins/kubernetes/issues) | **5** |
+| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [2](https://github.com/rundeck-plugins/ansible-plugin/issues) | **1** |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 1 | [2](https://github.com/rundeck-plugins/git-plugin/issues) | **1** |
-| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [1](https://github.com/rundeck-plugins/ansible-plugin/issues) | **1** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 2 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | **1** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 2 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | **1** |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 3 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **2** |
@@ -31,7 +31,7 @@
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | **1** |
 
 **Total Open PRs:** 60 across 25 repositories
-**Total Open Issues:** 7 across 4 repositories
+**Total Open Issues:** 8 across 4 repositories
 **PRs Needing Attention:** 35
 
 ---
