@@ -1,12 +1,12 @@
-# PR Report - 2026-10-16
+# PR Report - 2026-10-17
 
 ## Summary
 
 | Repository | Open PRs | Open Issues | Needs Attention |
 |------------|----------|-------------|-----------------|
-| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 6 | [3](https://github.com/rundeck-plugins/kubernetes/issues) | **5** |
-| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [2](https://github.com/rundeck-plugins/ansible-plugin/issues) | **1** |
+| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 3 | [2](https://github.com/rundeck-plugins/ansible-plugin/issues) | 0 |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 1 | [2](https://github.com/rundeck-plugins/git-plugin/issues) | **1** |
+| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 3 | [2](https://github.com/rundeck-plugins/kubernetes/issues) | 0 |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 2 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | **1** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 2 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | **1** |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 3 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **2** |
@@ -30,9 +30,9 @@
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | **1** |
 
-**Total Open PRs:** 60 across 25 repositories
-**Total Open Issues:** 8 across 4 repositories
-**PRs Needing Attention:** 35
+**Total Open PRs:** 58 across 25 repositories
+**Total Open Issues:** 7 across 4 repositories
+**PRs Needing Attention:** 29
 
 ---
 
@@ -68,26 +68,6 @@ PRs where community has most recent activity (comment or commit):
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/git-plugin/pull/91
 
-- **kubernetes #229**: [RUN-0000] Update Gradle to v8.14.6
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/229
-
-- **kubernetes #228**: Inline Script: remove the script from the container when a step fails
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/228
-
-- **kubernetes #227**: Job Create: parse envFrom with yaml.safe_load
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/227
-
-- **kubernetes #225**: Send step INFO and DEBUG logging to stdout, keep warnings on stderr
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/225
-
-- **kubernetes #224**: Wait for Job: print the pod log once
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/224
-
 - **http-step #75**: [RUN-0000] Update Gradle to v8.14.6
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/http-step/pull/75
@@ -107,10 +87,6 @@ PRs where community has most recent activity (comment or commit):
 - **nixy-step-plugins #52**: [RUN-0000] Update Gradle to v8.14.6
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/nixy-step-plugins/pull/52
-
-- **ansible-plugin #473**: [RUN-0000] Update Gradle to v8.14.6
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/ansible-plugin/pull/473
 
 - **multiline-regex-datacapture-filter #41**: [RUN-0000] Update Gradle to v8.14.6
   - Last activity: opened by @app/renovate
@@ -189,6 +165,8 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 
 | Repository | Latest Release | Commits Ahead | Status |
 |------------|-----------------|----------------|--------|
+| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/compare/5.1.3...main) | 5.1.3 | 4 | **NEEDS RELEASE** |
+| [kubernetes](https://github.com/rundeck-plugins/kubernetes/compare/3.0.5...main) | 3.0.5 | 11 | **NEEDS RELEASE** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/compare/1.0.6...main) | 1.0.6 | 6 | **NEEDS RELEASE** |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/compare/2.0.5...main) | 2.0.5 | 1 | **NEEDS RELEASE** |
 | [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/compare/2.1.2...main) | 2.1.2 | 1 | **NEEDS RELEASE** |
@@ -204,11 +182,9 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 | [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/compare/2.0.2...main) | 2.0.2 | 4 | **NEEDS RELEASE** |
 | [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/compare/2.0.7...main) | 2.0.7 | 2 | **NEEDS RELEASE** |
 | [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/compare/3.3.0...main) | 3.3.0 | 4 | **NEEDS RELEASE** |
-| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/compare/5.1.3...main) | 5.1.3 | 2 | **NEEDS RELEASE** |
 | [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/compare/2.0.2...main) | 2.0.2 | 4 | **NEEDS RELEASE** |
 | [http-notification](https://github.com/rundeck-plugins/http-notification/compare/2.0.6...main) | 2.0.6 | 2 | **NEEDS RELEASE** |
 | [jq-json-logfilter](https://github.com/rundeck-plugins/jq-json-logfilter/compare/2.0.4...main) | 2.0.4 | 2 | **NEEDS RELEASE** |
-| [kubernetes](https://github.com/rundeck-plugins/kubernetes/compare/3.0.5...main) | 3.0.5 | 4 | **NEEDS RELEASE** |
 | multiline-regex-datacapture-filter | 2.0.5 | 0 | OK |
 | [openssh-node-execution](https://github.com/rundeck-plugins/openssh-node-execution/compare/3.0.2...main) | 3.0.2 | 2 | **NEEDS RELEASE** |
 | docker | 2.0.4 | 0 | OK |
