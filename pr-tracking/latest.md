@@ -1,12 +1,12 @@
-# PR Report - 2026-10-17
+# PR Report - 2026-10-18
 
 ## Summary
 
 | Repository | Open PRs | Open Issues | Needs Attention |
 |------------|----------|-------------|-----------------|
-| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 3 | [2](https://github.com/rundeck-plugins/ansible-plugin/issues) | 0 |
-| [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 1 | [2](https://github.com/rundeck-plugins/git-plugin/issues) | **1** |
-| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 3 | [2](https://github.com/rundeck-plugins/kubernetes/issues) | 0 |
+| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 5 | [2](https://github.com/rundeck-plugins/ansible-plugin/issues) | **2** |
+| [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 3 | [2](https://github.com/rundeck-plugins/git-plugin/issues) | **3** |
+| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 4 | [2](https://github.com/rundeck-plugins/kubernetes/issues) | **3** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 2 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | **1** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 2 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | **1** |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 3 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **2** |
@@ -30,15 +30,35 @@
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | **1** |
 
-**Total Open PRs:** 58 across 25 repositories
+**Total Open PRs:** 63 across 25 repositories
 **Total Open Issues:** 7 across 4 repositories
-**PRs Needing Attention:** 29
+**PRs Needing Attention:** 36
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **ansible-plugin #478**: Load inventories that contain !vault encrypted variables
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/ansible-plugin/pull/478
+
+- **ansible-plugin #477**: Keep the hosts of groups that also have child groups
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/ansible-plugin/pull/477
+
+- **kubernetes #230**: Warn when the Kubernetes API certificate is not verified
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/230
+
+- **kubernetes #228**: Inline Script: remove the script from the container when a step fails
+  - Last activity: commented by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/228
+
+- **kubernetes #225**: Send step INFO and DEBUG logging to stdout, keep warnings on stderr
+  - Last activity: commented by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/225
 
 - **sshj-plugin #180**: [RUN-0000] Update dependency uuid to v14.0.3
   - Last activity: opened by @app/renovate
@@ -63,6 +83,14 @@ PRs where community has most recent activity (comment or commit):
 - **http-notification #57**: [RUN-0000] Update Gradle to v8.14.6
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/http-notification/pull/57
+
+- **git-plugin #93**: Fix undefined `op` variable in Git add/commit/push step error handling
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/git-plugin/pull/93
+
+- **git-plugin #92**: Support checking out a tag as well as a branch
+  - Last activity: reviewed by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/git-plugin/pull/92
 
 - **git-plugin #91**: [RUN-0000] Update Gradle to v8.14.6
   - Last activity: opened by @app/renovate
