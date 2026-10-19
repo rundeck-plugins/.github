@@ -1,7 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    "docker:pinDigests",
+    "helpers:pinGitHubActionDigests"
   ],
   "minimumReleaseAge": "4 days",
   "commitMessagePrefix": "[RUN-0000]",
@@ -71,9 +73,12 @@
       "groupName": "atlassian jira rest client"
     },
     {
-      "description": "Group low-risk GitHub Actions updates",
+      "description": "Group GitHub Actions digest, patch, and minor updates into one weekly PR. No automerge: a re-pointed action cannot reach CI without review. Majors stay on the Dependency Dashboard via the rule above.",
       "matchManagers": ["github-actions"],
-      "groupName": "github actions"
+      "matchUpdateTypes": ["digest", "pinDigest", "patch", "minor"],
+      "groupName": "github actions",
+      "schedule": ["before 6am on monday"],
+      "automerge": false
     },
     {
       "description": "Never batch our own runner/sidecar artifact with unrelated updates",
@@ -175,6 +180,41 @@
       "registryUrls": [
         "https://m2proxy.atlassian.com/repository/public/",
         "https://repo1.maven.org/maven2/"
+      ]
+    },
+    {
+      "description": "Pin every container image to tag@sha256 so the same commit always pulls the same image and a re-pointed upstream tag cannot reach CI without a reviewed PR",
+      "matchDatasources": ["docker"],
+      "pinDigests": true
+    },
+    {
+      "description": "CI and test images: every non-major update (digest refresh, patch, minor) goes into one grouped weekly PR with human review. No automerge.",
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["digest", "pinDigest", "patch", "minor"],
+      "groupName": "docker images (ci)",
+      "schedule": ["before 6am on monday"],
+      "automerge": false
+    },
+    {
+      "description": "SNAPSHOT tags are per-pipeline builds of our own images and are not pinned or updated",
+      "matchDatasources": ["docker"],
+      "matchCurrentValue": "/SNAPSHOT/",
+      "enabled": false
+    },
+    {
+      "description": "rundeck/node-demo only publishes latest, which has no release timestamp; without this its digest refreshes wait on minimumReleaseAge forever",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["rundeck/node-demo"],
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Image refs the built-in managers cannot see (Groovy, Gradle, shell, Makefile, compose build args). Annotate the line above the ref with '# renovate: datasource=docker depName=<image>' (or '//' in Groovy/Gradle). The ref must be '<image>:<tag>@sha256:<digest>'",
+      "managerFilePatterns": ["/\\.(groovy|gradle|sh|ya?ml)$/", "/(^|/)Makefile$/"],
+      "matchStrings": [
+        "(?:#|//)\\s*renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\s*\\n[^\\n]*?:(?<currentValue>[^\\s@\"'}:]+)@(?<currentDigest>sha256:[a-f0-9]{64})"
       ]
     }
   ]
