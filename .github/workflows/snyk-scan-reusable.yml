@@ -41,15 +41,10 @@ jobs:
       SNYK_ORG_ID: ${{ secrets.SNYK_ORG_ID }}
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        
-      - name: Set up JDK ${{ inputs.java-version }}
-        uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+      - uses: ./.github/actions/setup-java
         with:
           java-version: ${{ inputs.java-version }}
           distribution: ${{ inputs.java-distribution }}
-          
       - name: Install Snyk CLI
         run: |
           curl -Lo snyk https://github.com/snyk/cli/releases/latest/download/snyk-linux
