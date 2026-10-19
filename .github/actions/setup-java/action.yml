@@ -1,0 +1,29 @@
+name: Checkout and set up Java
+description: Pinned checkout and setup-java for Rundeck plugins. Defaults to Java 17 and Zulu.
+
+inputs:
+  java-version:
+    description: Java version
+    required: false
+    default: '17'
+  distribution:
+    description: JDK distribution
+    required: false
+    default: zulu
+  fetch-depth:
+    description: checkout fetch-depth
+    required: false
+    default: '0'
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        fetch-depth: ${{ inputs.fetch-depth }}
+    - name: Set up JDK
+      uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5.7.0
+      with:
+        java-version: ${{ inputs.java-version }}
+        distribution: ${{ inputs.distribution }}
