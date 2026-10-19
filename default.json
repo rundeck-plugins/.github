@@ -84,7 +84,7 @@
       "description": "Calls to rundeck-plugins/.github stay on @main so a merge there reaches every plugin. Digest-pinning those refs would freeze each caller on one commit.",
       "matchManagers": ["github-actions"],
       "matchDepTypes": ["action", "workflow"],
-      "matchPackageNames": ["/^rundeck-plugins\\/\\.github\\//"],
+      "matchPackageNames": ["rundeck-plugins/.github"],
       "matchCurrentValue": "/^main$/",
       "pinDigests": false
     },
