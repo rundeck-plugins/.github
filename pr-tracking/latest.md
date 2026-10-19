@@ -1,12 +1,15 @@
-# PR Report - 2026-10-18
+# PR Report - 2026-10-19
 
 ## Summary
 
 | Repository | Open PRs | Open Issues | Needs Attention |
 |------------|----------|-------------|-----------------|
+| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 9 | [6](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **8** |
 | [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 5 | [2](https://github.com/rundeck-plugins/ansible-plugin/issues) | **2** |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 3 | [2](https://github.com/rundeck-plugins/git-plugin/issues) | **3** |
 | [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 4 | [2](https://github.com/rundeck-plugins/kubernetes/issues) | **3** |
+| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 8 | [2](https://github.com/rundeck-plugins/sshj-plugin/issues) | **7** |
+| [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/pulls) | 4 | [1](https://github.com/rundeck-plugins/rundeck-azure-plugin/issues) | **1** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 2 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | **1** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 2 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | **1** |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 3 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **2** |
@@ -20,19 +23,17 @@
 | [openssh-node-execution](https://github.com/rundeck-plugins/openssh-node-execution/pulls) | 1 | [0](https://github.com/rundeck-plugins/openssh-node-execution/issues) | 0 |
 | [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/pulls) | 2 | [0](https://github.com/rundeck-plugins/pagerduty-notification/issues) | **1** |
 | [puppet-apply-step](https://github.com/rundeck-plugins/puppet-apply-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/puppet-apply-step/issues) | 0 |
-| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **2** |
-| [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/rundeck-azure-plugin/issues) | 0 |
 | [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | **1** |
 | [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **2** |
 | [rundeck-plugin-examples](https://github.com/rundeck-plugins/rundeck-plugin-examples/pulls) | 1 | [0](https://github.com/rundeck-plugins/rundeck-plugin-examples/issues) | **1** |
+| [salt-step](https://github.com/rundeck-plugins/salt-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/salt-step/issues) | **1** |
 | [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | **1** |
-| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 5 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **4** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | **1** |
 
-**Total Open PRs:** 63 across 25 repositories
-**Total Open Issues:** 7 across 4 repositories
-**PRs Needing Attention:** 36
+**Total Open PRs:** 74 across 26 repositories
+**Total Open Issues:** 16 across 7 repositories
+**PRs Needing Attention:** 47
 
 ---
 
@@ -40,8 +41,40 @@
 
 PRs where community has most recent activity (comment or commit):
 
-- **ansible-plugin #478**: Load inventories that contain !vault encrypted variables
+- **salt-step #61**: [RUN-0000] Update Gradle to v8.14.6
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/salt-step/pull/61
+
+- **sshj-plugin #185**: [RUN-0000] Update Node.js to v24.22.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/185
+
+- **sshj-plugin #184**: Fix connection retry loop reconnecting after success
   - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/184
+
+- **sshj-plugin #182**: Add opt-in strict host key checking
+  - Last activity: reviewed by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/182
+
+- **sshj-plugin #180**: [RUN-0000] Update dependency uuid to v14.0.3
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/180
+
+- **sshj-plugin #179**: [RUN-0000] Update Gradle to v8.14.6
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/179
+
+- **sshj-plugin #178**: [RUN-0000] Update dependency org.apache.commons:commons-lang3 to v3.21.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/178
+
+- **sshj-plugin #174**: [RUN-0000] Update dependency @types/node to v24.13.6
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/174
+
+- **ansible-plugin #478**: Load inventories that contain !vault encrypted variables
+  - Last activity: commented by @solidus1983
   - Link: https://github.com/rundeck-plugins/ansible-plugin/pull/478
 
 - **ansible-plugin #477**: Keep the hosts of groups that also have child groups
@@ -59,22 +92,6 @@ PRs where community has most recent activity (comment or commit):
 - **kubernetes #225**: Send step INFO and DEBUG logging to stdout, keep warnings on stderr
   - Last activity: commented by @skywalkw3r
   - Link: https://github.com/rundeck-plugins/kubernetes/pull/225
-
-- **sshj-plugin #180**: [RUN-0000] Update dependency uuid to v14.0.3
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/180
-
-- **sshj-plugin #179**: [RUN-0000] Update Gradle to v8.14.6
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/179
-
-- **sshj-plugin #178**: [RUN-0000] Update dependency org.apache.commons:commons-lang3 to v3.21.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/178
-
-- **sshj-plugin #174**: [RUN-0000] Update dependency @types/node to v24.13.6
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/174
 
 - **pagerduty-notification #60**: [RUN-0000] Update Gradle to v8.14.6
   - Last activity: opened by @app/renovate
@@ -123,6 +140,30 @@ PRs where community has most recent activity (comment or commit):
 - **multiline-regex-datacapture-filter #40**: [RUN-0000] Update actions/upload-artifact action to v7.0.2
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pull/40
+
+- **py-winrm-plugin #147**: Redact proxy credentials in winrm-exec debug log
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/147
+
+- **py-winrm-plugin #145**: Fail instead of appending when the copy destination already exists
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/145
+
+- **py-winrm-plugin #143**: Fix destination directory/filename split in file copier
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/143
+
+- **py-winrm-plugin #141**: Fail the step when the shell setting is not cmd or powershell
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/141
+
+- **py-winrm-plugin #139**: Treat unexpanded config references as unset in the WinRM Check step
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/139
+
+- **py-winrm-plugin #137**: Fix NameError in WinRM Check step
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/137
 
 - **py-winrm-plugin #135**: Add support for client certificate based authentication
   - Last activity: opened by @sideshowcecil
@@ -183,6 +224,10 @@ PRs where community has most recent activity (comment or commit):
 - **docker #96**: [RUN-0000] Update Gradle to v8.14.6
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/docker/pull/96
+
+- **rundeck-azure-plugin #101**: Honor configured path for Execution Log Storage blob names
+  - Last activity: reviewed by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/rundeck-azure-plugin/pull/101
 
 
 ---
