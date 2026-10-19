@@ -81,6 +81,14 @@
       "automerge": false
     },
     {
+      "description": "Calls to rundeck-plugins/.github stay on @main so a merge there reaches every plugin. Digest-pinning those refs would freeze each caller on one commit.",
+      "matchManagers": ["github-actions"],
+      "matchDepTypes": ["action", "workflow"],
+      "matchPackageNames": ["/^rundeck-plugins\\/\\.github\\//"],
+      "matchCurrentValue": "/^main$/",
+      "pinDigests": false
+    },
+    {
       "description": "Never batch our own runner/sidecar artifact with unrelated updates",
       "matchPackageNames": ["com.rundeck.sidecar:pd-runner-api"],
       "groupName": null,
