@@ -40,6 +40,10 @@
 
 PRs where community has most recent activity (comment or commit):
 
+- **.github #24**: Update actions/setup-java action to v6
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/.github/pull/24
+
 - **ansible-plugin #478**: Load inventories that contain !vault encrypted variables
   - Last activity: commented by @solidus1983
   - Link: https://github.com/rundeck-plugins/ansible-plugin/pull/478
@@ -59,10 +63,6 @@ PRs where community has most recent activity (comment or commit):
 - **sshj-plugin #188**: [RUN-0000] Update dependency @types/node to v24.19.2
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/188
-
-- **.github #24**: Update actions/setup-java action to v6
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/.github/pull/24
 
 - **vault-storage #123**: [RUN-0000] Update gradle minor/patch dependencies to v1.18.15-jdk5
   - Last activity: opened by @app/renovate
