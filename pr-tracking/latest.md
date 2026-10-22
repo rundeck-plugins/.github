@@ -1,4 +1,4 @@
-# PR Report - 2026-10-21
+# PR Report - 2026-10-22
 
 ## Summary
 
@@ -8,7 +8,7 @@
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 0 | [1](https://github.com/rundeck-plugins/git-plugin/issues) | 0 |
 | [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 3 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **1** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | 0 |
-| [.github](https://github.com/rundeck-plugins/.github/pulls) | 1 | [0](https://github.com/rundeck-plugins/.github/issues) | **1** |
+| [.github](https://github.com/rundeck-plugins/.github/pulls) | 2 | [0](https://github.com/rundeck-plugins/.github/issues) | **2** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 1 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | 0 |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **1** |
 | [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 1 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | 0 |
@@ -24,15 +24,16 @@
 | [puppet-apply-step](https://github.com/rundeck-plugins/puppet-apply-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/puppet-apply-step/issues) | 0 |
 | [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-plugin/issues) | 0 |
 | [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | 0 |
-| [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **1** |
+| [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **2** |
+| [rundeck-plugin-examples](https://github.com/rundeck-plugins/rundeck-plugin-examples/pulls) | 1 | [0](https://github.com/rundeck-plugins/rundeck-plugin-examples/issues) | **1** |
 | [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | 0 |
 | [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **1** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 2 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **1** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 34 across 24 repositories
+**Total Open PRs:** 37 across 25 repositories
 **Total Open Issues:** 5 across 4 repositories
-**PRs Needing Attention:** 8
+**PRs Needing Attention:** 11
 
 ---
 
@@ -40,9 +41,25 @@
 
 PRs where community has most recent activity (comment or commit):
 
+- **.github #25**: Update actions/setup-python action to v7.1.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/.github/pull/25
+
 - **.github #24**: Update actions/setup-java action to v6
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/.github/pull/24
+
+- **rundeck-ec2-nodes-plugin #247**: [RUN-5105] Separate multi-region query errors with newlines
+  - Last activity: opened by @ddarby-hike
+  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/247
+
+- **rundeck-ec2-nodes-plugin #246**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.56.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/246
+
+- **rundeck-plugin-examples #37**: [RUN-0000] Update dependency com.fasterxml.jackson:jackson-bom to v2.22.4
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-plugin-examples/pull/37
 
 - **ansible-plugin #478**: Load inventories that contain !vault encrypted variables
   - Last activity: commented by @solidus1983
@@ -55,10 +72,6 @@ PRs where community has most recent activity (comment or commit):
 - **aws-s3-model-source #60**: [RUN-0000] Update dependency net.bytebuddy:byte-buddy to v1.18.15-jdk5
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/60
-
-- **rundeck-ec2-nodes-plugin #246**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.56.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/246
 
 - **sshj-plugin #188**: [RUN-0000] Update dependency @types/node to v24.19.2
   - Last activity: opened by @app/renovate
