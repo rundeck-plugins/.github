@@ -1,4 +1,4 @@
-# PR Report - 2026-10-22
+# PR Report - 2026-10-23
 
 ## Summary
 
@@ -6,7 +6,7 @@
 |------------|----------|-------------|-----------------|
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 0 | [1](https://github.com/rundeck-plugins/git-plugin/issues) | 0 |
 | [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 1 | [1](https://github.com/rundeck-plugins/kubernetes/issues) | 0 |
-| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 3 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | 0 |
+| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 3 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **2** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | 0 |
 | [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | 0 |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 1 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | 0 |
@@ -31,7 +31,7 @@
 
 **Total Open PRs:** 30 across 23 repositories
 **Total Open Issues:** 4 across 4 repositories
-**PRs Needing Attention:** 3
+**PRs Needing Attention:** 5
 
 ---
 
@@ -51,6 +51,14 @@ PRs where community has most recent activity (comment or commit):
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/vault-storage/pull/123
 
+- **py-winrm-plugin #145**: Fail instead of appending when the copy destination already exists
+  - Last activity: reviewed by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/145
+
+- **py-winrm-plugin #135**: Add support for client certificate based authentication
+  - Last activity: commented by @sideshowcecil
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/135
+
 
 ---
 
@@ -69,9 +77,12 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/compare/2.0.6...main) | 2.0.6 | 8 | **NEEDS RELEASE** |
 | [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/compare/2.0.7...main) | 2.0.7 | 15 | **NEEDS RELEASE** |
 | [kubernetes](https://github.com/rundeck-plugins/kubernetes/compare/3.0.5...main) | 3.0.5 | 24 | **NEEDS RELEASE** |
+| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/compare/3.3.0...main) | 3.3.0 | 26 | **NEEDS RELEASE** |
 | [salt-step](https://github.com/rundeck-plugins/salt-step/compare/1.0.5...main) | 1.0.5 | 4 | **NEEDS RELEASE** |
 | [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/compare/2.0.2...main) | 2.0.2 | 9 | **NEEDS RELEASE** |
 | [nixy-step-plugins](https://github.com/rundeck-plugins/nixy-step-plugins/compare/2.2.0...main) | 2.2.0 | 7 | **NEEDS RELEASE** |
+| [docker](https://github.com/rundeck-plugins/docker/compare/2.0.4...main) | 2.0.4 | 5 | **NEEDS RELEASE** |
+| [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/compare/2.0.2...main) | 2.0.2 | 9 | **NEEDS RELEASE** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/compare/3.0.2...main) | 3.0.2 | 9 | **NEEDS RELEASE** |
 | [http-notification](https://github.com/rundeck-plugins/http-notification/compare/2.0.6...main) | 2.0.6 | 7 | **NEEDS RELEASE** |
 | [jq-json-logfilter](https://github.com/rundeck-plugins/jq-json-logfilter/compare/2.0.4...main) | 2.0.4 | 7 | **NEEDS RELEASE** |
@@ -80,6 +91,7 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 | [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/compare/2.0.5...main) | 2.0.5 | 5 | **NEEDS RELEASE** |
 | [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/compare/2.0.4...main) | 2.0.4 | 7 | **NEEDS RELEASE** |
 | [multiline-regex-datacapture-filter](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/compare/2.0.5...main) | 2.0.5 | 5 | **NEEDS RELEASE** |
+| [puppet-apply-step](https://github.com/rundeck-plugins/puppet-apply-step/compare/3.0.2...main) | 3.0.2 | 5 | **NEEDS RELEASE** |
 | [openssh-node-execution](https://github.com/rundeck-plugins/openssh-node-execution/compare/3.0.2...main) | 3.0.2 | 5 | **NEEDS RELEASE** |
 
-**Plugins needing a release:** 21 ; **Unknown:** 0
+**Plugins needing a release:** 25 ; **Unknown:** 0
