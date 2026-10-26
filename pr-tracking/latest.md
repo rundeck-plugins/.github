@@ -1,12 +1,12 @@
-# PR Report - 2026-10-25
+# PR Report - 2026-10-26
 
 ## Summary
 
 | Repository | Open PRs | Open Issues | Needs Attention |
 |------------|----------|-------------|-----------------|
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 0 | [1](https://github.com/rundeck-plugins/git-plugin/issues) | 0 |
-| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 1 | [1](https://github.com/rundeck-plugins/kubernetes/issues) | 0 |
-| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 3 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **2** |
+| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 2 | [1](https://github.com/rundeck-plugins/kubernetes/issues) | **1** |
+| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 4 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **3** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | 0 |
 | [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | 0 |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 1 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | 0 |
@@ -19,19 +19,20 @@
 | [multiline-regex-datacapture-filter](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pulls) | 1 | [0](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/issues) | 0 |
 | [nixy-step-plugins](https://github.com/rundeck-plugins/nixy-step-plugins/pulls) | 1 | [0](https://github.com/rundeck-plugins/nixy-step-plugins/issues) | 0 |
 | [openssh-node-execution](https://github.com/rundeck-plugins/openssh-node-execution/pulls) | 1 | [0](https://github.com/rundeck-plugins/openssh-node-execution/issues) | 0 |
-| [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/pulls) | 1 | [0](https://github.com/rundeck-plugins/pagerduty-notification/issues) | 0 |
+| [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/pulls) | 2 | [0](https://github.com/rundeck-plugins/pagerduty-notification/issues) | **1** |
 | [puppet-apply-step](https://github.com/rundeck-plugins/puppet-apply-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/puppet-apply-step/issues) | 0 |
 | [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-plugin/issues) | 0 |
-| [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | 0 |
+| [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | **1** |
 | [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **1** |
+| [salt-step](https://github.com/rundeck-plugins/salt-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/salt-step/issues) | **1** |
 | [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | 0 |
-| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | 0 |
-| [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 2 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **1** |
+| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **1** |
+| [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 30 across 23 repositories
+**Total Open PRs:** 37 across 24 repositories
 **Total Open Issues:** 4 across 4 repositories
-**PRs Needing Attention:** 5
+**PRs Needing Attention:** 12
 
 ---
 
@@ -39,17 +40,17 @@
 
 PRs where community has most recent activity (comment or commit):
 
-- **aws-s3-model-source #60**: [RUN-0000] Update dependency net.bytebuddy:byte-buddy to v1.18.15-jdk5
+- **kubernetes #233**: [RUN-0000] Update actions/setup-python action to v7.1.0
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/60
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/233
 
-- **rundeck-ec2-nodes-plugin #246**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.56.0
+- **pagerduty-notification #62**: [RUN-0000] Update dependency com.squareup.okhttp3:okhttp to v5.5.1
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/246
+  - Link: https://github.com/rundeck-plugins/pagerduty-notification/pull/62
 
-- **vault-storage #123**: [RUN-0000] Update gradle minor/patch dependencies to v1.18.15-jdk5
+- **py-winrm-plugin #150**: [RUN-0000] Pin ubuntu Docker tag to 1f1a2d5
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/vault-storage/pull/123
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/150
 
 - **py-winrm-plugin #145**: Fail instead of appending when the copy destination already exists
   - Last activity: reviewed by @skywalkw3r
@@ -58,6 +59,34 @@ PRs where community has most recent activity (comment or commit):
 - **py-winrm-plugin #135**: Add support for client certificate based authentication
   - Last activity: commented by @sideshowcecil
   - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/135
+
+- **vault-storage #124**: [RUN-0000] Pin mysql Docker tag to 4bc6bc9
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/vault-storage/pull/124
+
+- **vault-storage #123**: [RUN-0000] Update gradle minor/patch dependencies to v1.18.15-jdk5
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/vault-storage/pull/123
+
+- **salt-step #62**: [RUN-0000] Pin dependencies
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/salt-step/pull/62
+
+- **rundeck-azure-storage-plugin #29**: [RUN-0000] Update step-security/harden-runner action to v2.22.2
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pull/29
+
+- **sshj-plugin #189**: [RUN-0000] Pin dependencies
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/189
+
+- **aws-s3-model-source #60**: [RUN-0000] Update dependency net.bytebuddy:byte-buddy to v1.18.15-jdk5
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/60
+
+- **rundeck-ec2-nodes-plugin #246**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.56.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/246
 
 
 ---
