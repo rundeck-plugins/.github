@@ -1,4 +1,4 @@
-# PR Report - 2026-10-26
+# PR Report - 2026-10-27
 
 ## Summary
 
@@ -9,14 +9,14 @@
 | [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 4 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **3** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | 0 |
 | [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | 0 |
-| [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 1 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | 0 |
+| [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 2 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | **1** |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **1** |
 | [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 1 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | 0 |
 | [docker](https://github.com/rundeck-plugins/docker/pulls) | 1 | [0](https://github.com/rundeck-plugins/docker/issues) | 0 |
 | [http-notification](https://github.com/rundeck-plugins/http-notification/pulls) | 1 | [0](https://github.com/rundeck-plugins/http-notification/issues) | 0 |
-| [http-step](https://github.com/rundeck-plugins/http-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/http-step/issues) | 0 |
+| [http-step](https://github.com/rundeck-plugins/http-step/pulls) | 2 | [0](https://github.com/rundeck-plugins/http-step/issues) | **1** |
 | [jq-json-logfilter](https://github.com/rundeck-plugins/jq-json-logfilter/pulls) | 1 | [0](https://github.com/rundeck-plugins/jq-json-logfilter/issues) | 0 |
-| [multiline-regex-datacapture-filter](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pulls) | 1 | [0](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/issues) | 0 |
+| [multiline-regex-datacapture-filter](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pulls) | 2 | [0](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/issues) | **1** |
 | [nixy-step-plugins](https://github.com/rundeck-plugins/nixy-step-plugins/pulls) | 1 | [0](https://github.com/rundeck-plugins/nixy-step-plugins/issues) | 0 |
 | [openssh-node-execution](https://github.com/rundeck-plugins/openssh-node-execution/pulls) | 1 | [0](https://github.com/rundeck-plugins/openssh-node-execution/issues) | 0 |
 | [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/pulls) | 2 | [0](https://github.com/rundeck-plugins/pagerduty-notification/issues) | **1** |
@@ -24,21 +24,46 @@
 | [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-plugin/issues) | 0 |
 | [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | **1** |
 | [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **1** |
+| [rundeck-plugin-examples](https://github.com/rundeck-plugins/rundeck-plugin-examples/pulls) | 1 | [0](https://github.com/rundeck-plugins/rundeck-plugin-examples/issues) | **1** |
 | [salt-step](https://github.com/rundeck-plugins/salt-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/salt-step/issues) | **1** |
 | [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | 0 |
-| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **1** |
+| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **2** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 37 across 24 repositories
+**Total Open PRs:** 42 across 25 repositories
 **Total Open Issues:** 4 across 4 repositories
-**PRs Needing Attention:** 12
+**PRs Needing Attention:** 17
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **sshj-plugin #190**: [RUN-0000] Update dependency org.rundeck:rundeck-core to v6.3.0-20261022
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/190
+
+- **sshj-plugin #189**: [RUN-0000] Pin dependencies
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/189
+
+- **attribute-match-node-enhancer #66**: [RUN-0000] Update dependency org.rundeck:rundeck-core to v6.3.0-20261022
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/attribute-match-node-enhancer/pull/66
+
+- **rundeck-plugin-examples #38**: [RUN-0000] Update dependency org.rundeck:rundeck-core to v6.3.0-20261022
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-plugin-examples/pull/38
+
+- **http-step #77**: [RUN-0000] Update dependency org.rundeck:rundeck-core to v6.3.0-20261022
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/http-step/pull/77
+
+- **multiline-regex-datacapture-filter #43**: [RUN-0000] Update dependency org.rundeck:rundeck-core to v6.3.0-20261022
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pull/43
 
 - **kubernetes #233**: [RUN-0000] Update actions/setup-python action to v7.1.0
   - Last activity: opened by @app/renovate
@@ -75,10 +100,6 @@ PRs where community has most recent activity (comment or commit):
 - **rundeck-azure-storage-plugin #29**: [RUN-0000] Update step-security/harden-runner action to v2.22.2
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pull/29
-
-- **sshj-plugin #189**: [RUN-0000] Pin dependencies
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/189
 
 - **aws-s3-model-source #60**: [RUN-0000] Update dependency net.bytebuddy:byte-buddy to v1.18.15-jdk5
   - Last activity: opened by @app/renovate
