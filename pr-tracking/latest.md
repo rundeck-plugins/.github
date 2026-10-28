@@ -1,4 +1,4 @@
-# PR Report - 2026-10-27
+# PR Report - 2026-10-28
 
 ## Summary
 
@@ -8,6 +8,7 @@
 | [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 2 | [1](https://github.com/rundeck-plugins/kubernetes/issues) | **1** |
 | [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 4 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **3** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | 0 |
+| [ui-job-metrics](https://github.com/rundeck-plugins/ui-job-metrics/pulls) | 1 | [1](https://github.com/rundeck-plugins/ui-job-metrics/issues) | **1** |
 | [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | 0 |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 2 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | **1** |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **1** |
@@ -31,9 +32,9 @@
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 42 across 25 repositories
-**Total Open Issues:** 4 across 4 repositories
-**PRs Needing Attention:** 17
+**Total Open PRs:** 43 across 26 repositories
+**Total Open Issues:** 5 across 5 repositories
+**PRs Needing Attention:** 18
 
 ---
 
@@ -108,6 +109,10 @@ PRs where community has most recent activity (comment or commit):
 - **rundeck-ec2-nodes-plugin #246**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.56.0
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/246
+
+- **ui-job-metrics #16**: Read job attributes as strings so numeric or JSON-like job names don't break the metrics tab
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/ui-job-metrics/pull/16
 
 
 ---
