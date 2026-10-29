@@ -1,9 +1,10 @@
-# PR Report - 2026-10-28
+# PR Report - 2026-10-29
 
 ## Summary
 
 | Repository | Open PRs | Open Issues | Needs Attention |
 |------------|----------|-------------|-----------------|
+| [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 3 | [2](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | **2** |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 0 | [1](https://github.com/rundeck-plugins/git-plugin/issues) | 0 |
 | [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 2 | [1](https://github.com/rundeck-plugins/kubernetes/issues) | **1** |
 | [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 4 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **3** |
@@ -27,14 +28,13 @@
 | [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **1** |
 | [rundeck-plugin-examples](https://github.com/rundeck-plugins/rundeck-plugin-examples/pulls) | 1 | [0](https://github.com/rundeck-plugins/rundeck-plugin-examples/issues) | **1** |
 | [salt-step](https://github.com/rundeck-plugins/salt-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/salt-step/issues) | **1** |
-| [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | 0 |
 | [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **2** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 43 across 26 repositories
-**Total Open Issues:** 5 across 5 repositories
-**PRs Needing Attention:** 18
+**Total Open PRs:** 45 across 26 repositories
+**Total Open Issues:** 7 across 6 repositories
+**PRs Needing Attention:** 20
 
 ---
 
@@ -109,6 +109,14 @@ PRs where community has most recent activity (comment or commit):
 - **rundeck-ec2-nodes-plugin #246**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.56.0
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/246
+
+- **slack-incoming-webhook-plugin #84**: Set connect and read timeouts on the Slack webhook request
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pull/84
+
+- **slack-incoming-webhook-plugin #83**: Escape job data in the default Slack message
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pull/83
 
 - **ui-job-metrics #16**: Read job attributes as strings so numeric or JSON-like job names don't break the metrics tab
   - Last activity: opened by @skywalkw3r
