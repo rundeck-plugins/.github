@@ -1,4 +1,4 @@
-# PR Report - 2026-10-29
+# PR Report - 2026-10-30
 
 ## Summary
 
@@ -28,19 +28,27 @@
 | [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **1** |
 | [rundeck-plugin-examples](https://github.com/rundeck-plugins/rundeck-plugin-examples/pulls) | 1 | [0](https://github.com/rundeck-plugins/rundeck-plugin-examples/issues) | **1** |
 | [salt-step](https://github.com/rundeck-plugins/salt-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/salt-step/issues) | **1** |
-| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **2** |
+| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 5 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **4** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 45 across 26 repositories
+**Total Open PRs:** 47 across 26 repositories
 **Total Open Issues:** 7 across 6 repositories
-**PRs Needing Attention:** 20
+**PRs Needing Attention:** 22
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **sshj-plugin #192**: [RUN-0000] Update dependency follow-redirects to v1.16.2
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/192
+
+- **sshj-plugin #191**: Cleanup ssh client connections on copy fails
+  - Last activity: opened by @sideshowcecil
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/191
 
 - **sshj-plugin #190**: [RUN-0000] Update dependency org.rundeck:rundeck-core to v6.3.0-20261022
   - Last activity: opened by @app/renovate
