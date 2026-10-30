@@ -16,24 +16,24 @@
 | [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 1 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | 0 |
 | [docker](https://github.com/rundeck-plugins/docker/pulls) | 1 | [0](https://github.com/rundeck-plugins/docker/issues) | 0 |
 | [http-notification](https://github.com/rundeck-plugins/http-notification/pulls) | 1 | [0](https://github.com/rundeck-plugins/http-notification/issues) | 0 |
-| [http-step](https://github.com/rundeck-plugins/http-step/pulls) | 2 | [0](https://github.com/rundeck-plugins/http-step/issues) | **1** |
+| [http-step](https://github.com/rundeck-plugins/http-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/http-step/issues) | 0 |
 | [jq-json-logfilter](https://github.com/rundeck-plugins/jq-json-logfilter/pulls) | 1 | [0](https://github.com/rundeck-plugins/jq-json-logfilter/issues) | 0 |
 | [multiline-regex-datacapture-filter](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pulls) | 1 | [0](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/issues) | 0 |
 | [nixy-step-plugins](https://github.com/rundeck-plugins/nixy-step-plugins/pulls) | 1 | [0](https://github.com/rundeck-plugins/nixy-step-plugins/issues) | 0 |
 | [openssh-node-execution](https://github.com/rundeck-plugins/openssh-node-execution/pulls) | 1 | [0](https://github.com/rundeck-plugins/openssh-node-execution/issues) | 0 |
-| [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/pulls) | 2 | [0](https://github.com/rundeck-plugins/pagerduty-notification/issues) | **1** |
+| [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/pulls) | 1 | [0](https://github.com/rundeck-plugins/pagerduty-notification/issues) | 0 |
 | [puppet-apply-step](https://github.com/rundeck-plugins/puppet-apply-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/puppet-apply-step/issues) | 0 |
 | [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-plugin/issues) | 0 |
 | [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | **1** |
 | [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **1** |
-| [salt-step](https://github.com/rundeck-plugins/salt-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/salt-step/issues) | **1** |
+| [salt-step](https://github.com/rundeck-plugins/salt-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/salt-step/issues) | 0 |
 | [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **2** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 42 across 25 repositories
+**Total Open PRs:** 40 across 25 repositories
 **Total Open Issues:** 7 across 6 repositories
-**PRs Needing Attention:** 17
+**PRs Needing Attention:** 14
 
 ---
 
@@ -49,17 +49,9 @@ PRs where community has most recent activity (comment or commit):
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/189
 
-- **http-step #77**: [RUN-0000] Update dependency org.rundeck:rundeck-core to v6.3.0-20261022
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/http-step/pull/77
-
 - **kubernetes #233**: [RUN-0000] Update actions/setup-python action to v7.1.0
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/kubernetes/pull/233
-
-- **pagerduty-notification #62**: [RUN-0000] Update dependency com.squareup.okhttp3:okhttp to v5.5.1
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/pagerduty-notification/pull/62
 
 - **py-winrm-plugin #150**: [RUN-0000] Pin ubuntu Docker tag to 1f1a2d5
   - Last activity: opened by @app/renovate
@@ -80,10 +72,6 @@ PRs where community has most recent activity (comment or commit):
 - **vault-storage #123**: [RUN-0000] Update gradle minor/patch dependencies to v1.18.15-jdk5
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/vault-storage/pull/123
-
-- **salt-step #62**: [RUN-0000] Pin dependencies
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/salt-step/pull/62
 
 - **rundeck-azure-storage-plugin #29**: [RUN-0000] Update step-security/harden-runner action to v2.22.2
   - Last activity: opened by @app/renovate
@@ -118,6 +106,8 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 
 | Repository | Latest Release | Commits Ahead | Status |
 |------------|-----------------|----------------|--------|
+| [http-step](https://github.com/rundeck-plugins/http-step/compare/2.0.7...main) | 2.0.7 | 9 | **NEEDS RELEASE** |
+| [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/compare/2.0.5...main) | 2.0.5 | 7 | **NEEDS RELEASE** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/compare/1.0.7...main) | 1.0.7 | 5 | **NEEDS RELEASE** |
 | [multiline-regex-datacapture-filter](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/compare/2.0.5...main) | 2.0.5 | 7 | **NEEDS RELEASE** |
 | [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/compare/1.0.10...main) | 1.0.10 | 28 | **NEEDS RELEASE** |
@@ -125,7 +115,6 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 | [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/compare/2.1.2...main) | 2.1.2 | 11 | **NEEDS RELEASE** |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/compare/2.0.4...main) | 2.0.4 | 11 | **NEEDS RELEASE** |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/compare/2.0.5...main) | 2.0.5 | 8 | **NEEDS RELEASE** |
-| [http-step](https://github.com/rundeck-plugins/http-step/compare/2.0.7...main) | 2.0.7 | 7 | **NEEDS RELEASE** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/compare/2.0.6...main) | 2.0.6 | 8 | **NEEDS RELEASE** |
 | [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/compare/2.0.7...main) | 2.0.7 | 15 | **NEEDS RELEASE** |
 | [kubernetes](https://github.com/rundeck-plugins/kubernetes/compare/3.0.5...main) | 3.0.5 | 24 | **NEEDS RELEASE** |
@@ -139,7 +128,6 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 | [http-notification](https://github.com/rundeck-plugins/http-notification/compare/2.0.6...main) | 2.0.6 | 7 | **NEEDS RELEASE** |
 | [jq-json-logfilter](https://github.com/rundeck-plugins/jq-json-logfilter/compare/2.0.4...main) | 2.0.4 | 7 | **NEEDS RELEASE** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/compare/3.0.6...main) | 3.0.6 | 7 | **NEEDS RELEASE** |
-| [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/compare/2.0.5...main) | 2.0.5 | 5 | **NEEDS RELEASE** |
 | [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/compare/2.0.4...main) | 2.0.4 | 7 | **NEEDS RELEASE** |
 | [puppet-apply-step](https://github.com/rundeck-plugins/puppet-apply-step/compare/3.0.2...main) | 3.0.2 | 5 | **NEEDS RELEASE** |
 | [openssh-node-execution](https://github.com/rundeck-plugins/openssh-node-execution/compare/3.0.2...main) | 3.0.2 | 5 | **NEEDS RELEASE** |
