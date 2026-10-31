@@ -1,4 +1,4 @@
-# PR Report - 2026-10-30
+# PR Report - 2026-10-31
 
 ## Summary
 
@@ -6,7 +6,7 @@
 |------------|----------|-------------|-----------------|
 | [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 3 | [2](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | **2** |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 0 | [1](https://github.com/rundeck-plugins/git-plugin/issues) | 0 |
-| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 2 | [1](https://github.com/rundeck-plugins/kubernetes/issues) | **1** |
+| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 1 | [1](https://github.com/rundeck-plugins/kubernetes/issues) | 0 |
 | [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 4 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **3** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | 0 |
 | [ui-job-metrics](https://github.com/rundeck-plugins/ui-job-metrics/pulls) | 1 | [1](https://github.com/rundeck-plugins/ui-job-metrics/issues) | **1** |
@@ -24,16 +24,16 @@
 | [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/pulls) | 1 | [0](https://github.com/rundeck-plugins/pagerduty-notification/issues) | 0 |
 | [puppet-apply-step](https://github.com/rundeck-plugins/puppet-apply-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/puppet-apply-step/issues) | 0 |
 | [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-plugin/issues) | 0 |
-| [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | **1** |
+| [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | 0 |
 | [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **1** |
 | [salt-step](https://github.com/rundeck-plugins/salt-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/salt-step/issues) | 0 |
 | [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **2** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 40 across 25 repositories
+**Total Open PRs:** 38 across 25 repositories
 **Total Open Issues:** 7 across 6 repositories
-**PRs Needing Attention:** 14
+**PRs Needing Attention:** 12
 
 ---
 
@@ -48,10 +48,6 @@ PRs where community has most recent activity (comment or commit):
 - **sshj-plugin #189**: [RUN-0000] Pin dependencies
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/189
-
-- **kubernetes #233**: [RUN-0000] Update actions/setup-python action to v7.1.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/233
 
 - **py-winrm-plugin #150**: [RUN-0000] Pin ubuntu Docker tag to 1f1a2d5
   - Last activity: opened by @app/renovate
@@ -72,10 +68,6 @@ PRs where community has most recent activity (comment or commit):
 - **vault-storage #123**: [RUN-0000] Update gradle minor/patch dependencies to v1.18.15-jdk5
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/vault-storage/pull/123
-
-- **rundeck-azure-storage-plugin #29**: [RUN-0000] Update step-security/harden-runner action to v2.22.2
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pull/29
 
 - **aws-s3-model-source #60**: [RUN-0000] Update dependency net.bytebuddy:byte-buddy to v1.18.15-jdk5
   - Last activity: opened by @app/renovate
@@ -106,6 +98,8 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 
 | Repository | Latest Release | Commits Ahead | Status |
 |------------|-----------------|----------------|--------|
+| [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/compare/2.0.2...main) | 2.0.2 | 11 | **NEEDS RELEASE** |
+| [kubernetes](https://github.com/rundeck-plugins/kubernetes/compare/3.0.5...main) | 3.0.5 | 26 | **NEEDS RELEASE** |
 | [http-step](https://github.com/rundeck-plugins/http-step/compare/2.0.7...main) | 2.0.7 | 9 | **NEEDS RELEASE** |
 | [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/compare/2.0.5...main) | 2.0.5 | 7 | **NEEDS RELEASE** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/compare/1.0.7...main) | 1.0.7 | 5 | **NEEDS RELEASE** |
@@ -117,13 +111,11 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/compare/2.0.5...main) | 2.0.5 | 8 | **NEEDS RELEASE** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/compare/2.0.6...main) | 2.0.6 | 8 | **NEEDS RELEASE** |
 | [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/compare/2.0.7...main) | 2.0.7 | 15 | **NEEDS RELEASE** |
-| [kubernetes](https://github.com/rundeck-plugins/kubernetes/compare/3.0.5...main) | 3.0.5 | 24 | **NEEDS RELEASE** |
 | [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/compare/3.3.0...main) | 3.3.0 | 26 | **NEEDS RELEASE** |
 | [salt-step](https://github.com/rundeck-plugins/salt-step/compare/1.0.5...main) | 1.0.5 | 4 | **NEEDS RELEASE** |
 | [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/compare/2.0.2...main) | 2.0.2 | 9 | **NEEDS RELEASE** |
 | [nixy-step-plugins](https://github.com/rundeck-plugins/nixy-step-plugins/compare/2.2.0...main) | 2.2.0 | 7 | **NEEDS RELEASE** |
 | [docker](https://github.com/rundeck-plugins/docker/compare/2.0.4...main) | 2.0.4 | 5 | **NEEDS RELEASE** |
-| [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/compare/2.0.2...main) | 2.0.2 | 9 | **NEEDS RELEASE** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/compare/3.0.2...main) | 3.0.2 | 9 | **NEEDS RELEASE** |
 | [http-notification](https://github.com/rundeck-plugins/http-notification/compare/2.0.6...main) | 2.0.6 | 7 | **NEEDS RELEASE** |
 | [jq-json-logfilter](https://github.com/rundeck-plugins/jq-json-logfilter/compare/2.0.4...main) | 2.0.4 | 7 | **NEEDS RELEASE** |
