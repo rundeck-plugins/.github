@@ -1,4 +1,4 @@
-# PR Report - 2026-10-31
+# PR Report - 2026-11-01
 
 ## Summary
 
@@ -27,19 +27,23 @@
 | [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | 0 |
 | [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **1** |
 | [salt-step](https://github.com/rundeck-plugins/salt-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/salt-step/issues) | 0 |
-| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **2** |
+| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 4 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **3** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 38 across 25 repositories
+**Total Open PRs:** 39 across 25 repositories
 **Total Open Issues:** 7 across 6 repositories
-**PRs Needing Attention:** 12
+**PRs Needing Attention:** 13
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **sshj-plugin #193**: [RUN-0000] Update dependency axios to v1.21.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/193
 
 - **sshj-plugin #191**: Cleanup ssh client connections on copy fails
   - Last activity: opened by @sideshowcecil
