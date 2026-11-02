@@ -1,10 +1,10 @@
-# PR Report - 2026-11-01
+# PR Report - 2026-11-02
 
 ## Summary
 
 | Repository | Open PRs | Open Issues | Needs Attention |
 |------------|----------|-------------|-----------------|
-| [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 3 | [2](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | **2** |
+| [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 4 | [3](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | **3** |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 0 | [1](https://github.com/rundeck-plugins/git-plugin/issues) | 0 |
 | [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 1 | [1](https://github.com/rundeck-plugins/kubernetes/issues) | 0 |
 | [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 4 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **3** |
@@ -13,7 +13,7 @@
 | [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | 0 |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 1 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | 0 |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **1** |
-| [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 1 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | 0 |
+| [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | **1** |
 | [docker](https://github.com/rundeck-plugins/docker/pulls) | 1 | [0](https://github.com/rundeck-plugins/docker/issues) | 0 |
 | [http-notification](https://github.com/rundeck-plugins/http-notification/pulls) | 1 | [0](https://github.com/rundeck-plugins/http-notification/issues) | 0 |
 | [http-step](https://github.com/rundeck-plugins/http-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/http-step/issues) | 0 |
@@ -31,15 +31,19 @@
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 39 across 25 repositories
-**Total Open Issues:** 7 across 6 repositories
-**PRs Needing Attention:** 13
+**Total Open PRs:** 41 across 25 repositories
+**Total Open Issues:** 8 across 6 repositories
+**PRs Needing Attention:** 15
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **aws-s3-steps #31**: [RUN-0000] Update gradle/actions digest to 8da46b5
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/aws-s3-steps/pull/31
 
 - **sshj-plugin #193**: [RUN-0000] Update dependency axios to v1.21.0
   - Last activity: opened by @app/renovate
@@ -80,6 +84,10 @@ PRs where community has most recent activity (comment or commit):
 - **rundeck-ec2-nodes-plugin #246**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.56.0
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/246
+
+- **slack-incoming-webhook-plugin #86**: Report the real failure when the Slack request returns no response body
+  - Last activity: reviewed by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pull/86
 
 - **slack-incoming-webhook-plugin #84**: Set connect and read timeouts on the Slack webhook request
   - Last activity: opened by @skywalkw3r
