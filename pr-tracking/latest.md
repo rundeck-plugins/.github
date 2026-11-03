@@ -1,4 +1,4 @@
-# PR Report - 2026-11-02
+# PR Report - 2026-11-03
 
 ## Summary
 
@@ -13,7 +13,7 @@
 | [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | 0 |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 1 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | 0 |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **1** |
-| [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | **1** |
+| [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | 0 |
 | [docker](https://github.com/rundeck-plugins/docker/pulls) | 1 | [0](https://github.com/rundeck-plugins/docker/issues) | 0 |
 | [http-notification](https://github.com/rundeck-plugins/http-notification/pulls) | 1 | [0](https://github.com/rundeck-plugins/http-notification/issues) | 0 |
 | [http-step](https://github.com/rundeck-plugins/http-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/http-step/issues) | 0 |
@@ -33,17 +33,13 @@
 
 **Total Open PRs:** 41 across 25 repositories
 **Total Open Issues:** 8 across 6 repositories
-**PRs Needing Attention:** 15
+**PRs Needing Attention:** 14
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
-
-- **aws-s3-steps #31**: [RUN-0000] Update gradle/actions digest to 8da46b5
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/aws-s3-steps/pull/31
 
 - **sshj-plugin #193**: [RUN-0000] Update dependency axios to v1.21.0
   - Last activity: opened by @app/renovate
