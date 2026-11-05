@@ -1,4 +1,4 @@
-# PR Report - 2026-11-04
+# PR Report - 2026-11-05
 
 ## Summary
 
@@ -10,7 +10,8 @@
 | [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 4 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **3** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | 0 |
 | [ui-job-metrics](https://github.com/rundeck-plugins/ui-job-metrics/pulls) | 1 | [1](https://github.com/rundeck-plugins/ui-job-metrics/issues) | **1** |
-| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | 0 |
+| [.github](https://github.com/rundeck-plugins/.github/pulls) | 1 | [0](https://github.com/rundeck-plugins/.github/issues) | **1** |
+| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | 0 |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 1 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | 0 |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **1** |
 | [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | 0 |
@@ -31,15 +32,19 @@
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 41 across 25 repositories
+**Total Open PRs:** 41 across 26 repositories
 **Total Open Issues:** 8 across 6 repositories
-**PRs Needing Attention:** 14
+**PRs Needing Attention:** 15
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **.github #26**: Update actions/setup-java action to v6.2.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/.github/pull/26
 
 - **sshj-plugin #193**: [RUN-0000] Update dependency axios to v1.21.0
   - Last activity: opened by @app/renovate
@@ -106,6 +111,7 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 
 | Repository | Latest Release | Commits Ahead | Status |
 |------------|-----------------|----------------|--------|
+| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/compare/5.1.3...main) | 5.1.3 | 25 | **NEEDS RELEASE** |
 | [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/compare/2.0.2...main) | 2.0.2 | 11 | **NEEDS RELEASE** |
 | [kubernetes](https://github.com/rundeck-plugins/kubernetes/compare/3.0.5...main) | 3.0.5 | 26 | **NEEDS RELEASE** |
 | [http-step](https://github.com/rundeck-plugins/http-step/compare/2.0.7...main) | 2.0.7 | 9 | **NEEDS RELEASE** |
@@ -113,7 +119,6 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/compare/1.0.7...main) | 1.0.7 | 5 | **NEEDS RELEASE** |
 | [multiline-regex-datacapture-filter](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/compare/2.0.5...main) | 2.0.5 | 7 | **NEEDS RELEASE** |
 | [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/compare/1.0.10...main) | 1.0.10 | 28 | **NEEDS RELEASE** |
-| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/compare/5.1.3...main) | 5.1.3 | 18 | **NEEDS RELEASE** |
 | [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/compare/2.1.2...main) | 2.1.2 | 11 | **NEEDS RELEASE** |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/compare/2.0.4...main) | 2.0.4 | 11 | **NEEDS RELEASE** |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/compare/2.0.5...main) | 2.0.5 | 8 | **NEEDS RELEASE** |
