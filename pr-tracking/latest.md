@@ -1,4 +1,4 @@
-# PR Report - 2026-11-05
+# PR Report - 2026-11-06
 
 ## Summary
 
@@ -7,11 +7,11 @@
 | [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 4 | [3](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | **3** |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 0 | [1](https://github.com/rundeck-plugins/git-plugin/issues) | 0 |
 | [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 1 | [1](https://github.com/rundeck-plugins/kubernetes/issues) | 0 |
-| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 4 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **3** |
+| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 5 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **4** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | 0 |
 | [ui-job-metrics](https://github.com/rundeck-plugins/ui-job-metrics/pulls) | 1 | [1](https://github.com/rundeck-plugins/ui-job-metrics/issues) | **1** |
 | [.github](https://github.com/rundeck-plugins/.github/pulls) | 1 | [0](https://github.com/rundeck-plugins/.github/issues) | **1** |
-| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | 0 |
+| [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | **1** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 1 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | 0 |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **1** |
 | [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | 0 |
@@ -32,9 +32,9 @@
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 41 across 26 repositories
+**Total Open PRs:** 43 across 26 repositories
 **Total Open Issues:** 8 across 6 repositories
-**PRs Needing Attention:** 15
+**PRs Needing Attention:** 17
 
 ---
 
@@ -42,21 +42,9 @@
 
 PRs where community has most recent activity (comment or commit):
 
-- **.github #26**: Update actions/setup-java action to v6.2.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/.github/pull/26
-
-- **sshj-plugin #193**: [RUN-0000] Update dependency axios to v1.21.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/193
-
-- **sshj-plugin #191**: Cleanup ssh client connections on copy fails
-  - Last activity: opened by @sideshowcecil
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/191
-
-- **sshj-plugin #189**: [RUN-0000] Pin dependencies
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/189
+- **py-winrm-plugin #151**: [RUN-5017] Declare WinRM remote command shell
+  - Last activity: opened by @luismalamoc
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/151
 
 - **py-winrm-plugin #150**: [RUN-0000] Pin ubuntu Docker tag to 1f1a2d5
   - Last activity: opened by @app/renovate
@@ -70,6 +58,30 @@ PRs where community has most recent activity (comment or commit):
   - Last activity: commented by @sideshowcecil
   - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/135
 
+- **rundeck-ec2-nodes-plugin #246**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.56.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/246
+
+- **.github #26**: Update actions/setup-java action to v6.2.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/.github/pull/26
+
+- **ansible-plugin #481**: Stop the whole ansible-playbook process tree on abort or timeout
+  - Last activity: opened by @Lusitaniae
+  - Link: https://github.com/rundeck-plugins/ansible-plugin/pull/481
+
+- **sshj-plugin #193**: [RUN-0000] Update dependency axios to v1.21.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/193
+
+- **sshj-plugin #191**: Cleanup ssh client connections on copy fails
+  - Last activity: opened by @sideshowcecil
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/191
+
+- **sshj-plugin #189**: [RUN-0000] Pin dependencies
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/189
+
 - **vault-storage #124**: [RUN-0000] Pin mysql Docker tag to 4bc6bc9
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/vault-storage/pull/124
@@ -81,10 +93,6 @@ PRs where community has most recent activity (comment or commit):
 - **aws-s3-model-source #60**: [RUN-0000] Update dependency net.bytebuddy:byte-buddy to v1.18.15-jdk5
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/60
-
-- **rundeck-ec2-nodes-plugin #246**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.56.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/246
 
 - **slack-incoming-webhook-plugin #86**: Report the real failure when the Slack request returns no response body
   - Last activity: reviewed by @skywalkw3r
@@ -119,7 +127,7 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/compare/1.0.7...main) | 1.0.7 | 5 | **NEEDS RELEASE** |
 | [multiline-regex-datacapture-filter](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/compare/2.0.5...main) | 2.0.5 | 7 | **NEEDS RELEASE** |
 | [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/compare/1.0.10...main) | 1.0.10 | 28 | **NEEDS RELEASE** |
-| [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/compare/2.1.2...main) | 2.1.2 | 11 | **NEEDS RELEASE** |
+| rundeck-ec2-nodes-plugin | 2.1.3 | 0 | OK |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/compare/2.0.4...main) | 2.0.4 | 11 | **NEEDS RELEASE** |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/compare/2.0.5...main) | 2.0.5 | 8 | **NEEDS RELEASE** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/compare/2.0.6...main) | 2.0.6 | 8 | **NEEDS RELEASE** |
@@ -137,4 +145,4 @@ Plugins tagged `versioned-plugins` with commits on their default branch beyond t
 | [puppet-apply-step](https://github.com/rundeck-plugins/puppet-apply-step/compare/3.0.2...main) | 3.0.2 | 5 | **NEEDS RELEASE** |
 | [openssh-node-execution](https://github.com/rundeck-plugins/openssh-node-execution/compare/3.0.2...main) | 3.0.2 | 5 | **NEEDS RELEASE** |
 
-**Plugins needing a release:** 25 ; **Unknown:** 0
+**Plugins needing a release:** 24 ; **Unknown:** 0
