@@ -1,4 +1,4 @@
-# PR Report - 2026-11-06
+# PR Report - 2026-11-07
 
 ## Summary
 
@@ -9,7 +9,6 @@
 | [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 1 | [1](https://github.com/rundeck-plugins/kubernetes/issues) | 0 |
 | [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 4 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **2** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | 0 |
-| [ui-job-metrics](https://github.com/rundeck-plugins/ui-job-metrics/pulls) | 1 | [1](https://github.com/rundeck-plugins/ui-job-metrics/issues) | **1** |
 | [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | **1** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 1 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | 0 |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **1** |
@@ -30,9 +29,9 @@
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 2 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **1** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 37 across 24 repositories
-**Total Open Issues:** 8 across 6 repositories
-**PRs Needing Attention:** 11
+**Total Open PRs:** 36 across 23 repositories
+**Total Open Issues:** 7 across 5 repositories
+**PRs Needing Attention:** 10
 
 ---
 
@@ -65,7 +64,7 @@ PRs where community has most recent activity (comment or commit):
   - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/135
 
 - **ansible-plugin #481**: Stop the whole ansible-playbook process tree on abort or timeout
-  - Last activity: opened by @Lusitaniae
+  - Last activity: reviewed by @Lusitaniae
   - Link: https://github.com/rundeck-plugins/ansible-plugin/pull/481
 
 - **slack-incoming-webhook-plugin #86**: Report the real failure when the Slack request returns no response body
@@ -79,10 +78,6 @@ PRs where community has most recent activity (comment or commit):
 - **slack-incoming-webhook-plugin #83**: Escape job data in the default Slack message
   - Last activity: opened by @skywalkw3r
   - Link: https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pull/83
-
-- **ui-job-metrics #16**: Read job attributes as strings so numeric or JSON-like job names don't break the metrics tab
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/ui-job-metrics/pull/16
 
 
 ---
