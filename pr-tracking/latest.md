@@ -1,4 +1,4 @@
-# PR Report - 2026-11-08
+# PR Report - 2026-11-09
 
 ## Summary
 
@@ -24,20 +24,24 @@
 | [puppet-apply-step](https://github.com/rundeck-plugins/puppet-apply-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/puppet-apply-step/issues) | 0 |
 | [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-plugin/issues) | 0 |
 | [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | 0 |
-| [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | 0 |
+| [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **1** |
 | [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **2** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 2 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **1** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 36 across 23 repositories
+**Total Open PRs:** 37 across 23 repositories
 **Total Open Issues:** 7 across 5 repositories
-**PRs Needing Attention:** 10
+**PRs Needing Attention:** 11
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **rundeck-ec2-nodes-plugin #249**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.57.9
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/249
 
 - **aws-s3-model-source #62**: [RUN-0000] Update dependency net.bytebuddy:byte-buddy to v1.18.17-jdk5
   - Last activity: opened by @app/renovate
