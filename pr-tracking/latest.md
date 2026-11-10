@@ -1,4 +1,4 @@
-# PR Report - 2026-11-09
+# PR Report - 2026-11-10
 
 ## Summary
 
@@ -11,7 +11,7 @@
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | 0 |
 | [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | **1** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 1 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | 0 |
-| [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **1** |
+| [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 3 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **2** |
 | [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | 0 |
 | [docker](https://github.com/rundeck-plugins/docker/pulls) | 1 | [0](https://github.com/rundeck-plugins/docker/issues) | 0 |
 | [http-notification](https://github.com/rundeck-plugins/http-notification/pulls) | 1 | [0](https://github.com/rundeck-plugins/http-notification/issues) | 0 |
@@ -29,9 +29,9 @@
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 2 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **1** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 37 across 23 repositories
+**Total Open PRs:** 38 across 23 repositories
 **Total Open Issues:** 7 across 5 repositories
-**PRs Needing Attention:** 11
+**PRs Needing Attention:** 12
 
 ---
 
@@ -39,13 +39,17 @@
 
 PRs where community has most recent activity (comment or commit):
 
-- **rundeck-ec2-nodes-plugin #249**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.57.9
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/249
+- **aws-s3-model-source #63**: [RUN-5123] Migrate to AWS SDK for Java v2
+  - Last activity: reviewed by @ncofreortiz-hub
+  - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/63
 
 - **aws-s3-model-source #62**: [RUN-0000] Update dependency net.bytebuddy:byte-buddy to v1.18.17-jdk5
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/62
+
+- **rundeck-ec2-nodes-plugin #249**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.57.9
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/249
 
 - **vault-storage #126**: [RUN-0000] Update gradle minor/patch dependencies
   - Last activity: opened by @app/renovate
