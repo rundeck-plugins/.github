@@ -1,12 +1,12 @@
-# PR Report - 2026-11-10
+# PR Report - 2026-11-11
 
 ## Summary
 
 | Repository | Open PRs | Open Issues | Needs Attention |
 |------------|----------|-------------|-----------------|
 | [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 4 | [3](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | **3** |
+| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 5 | [2](https://github.com/rundeck-plugins/kubernetes/issues) | **4** |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 0 | [1](https://github.com/rundeck-plugins/git-plugin/issues) | 0 |
-| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 1 | [1](https://github.com/rundeck-plugins/kubernetes/issues) | 0 |
 | [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 4 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **2** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | 0 |
 | [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | **1** |
@@ -24,20 +24,28 @@
 | [puppet-apply-step](https://github.com/rundeck-plugins/puppet-apply-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/puppet-apply-step/issues) | 0 |
 | [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-plugin/issues) | 0 |
 | [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | 0 |
-| [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **1** |
+| [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **2** |
 | [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **2** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 2 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **1** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
 
-**Total Open PRs:** 38 across 23 repositories
-**Total Open Issues:** 7 across 5 repositories
-**PRs Needing Attention:** 12
+**Total Open PRs:** 43 across 23 repositories
+**Total Open Issues:** 8 across 5 repositories
+**PRs Needing Attention:** 17
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **rundeck-ec2-nodes-plugin #250**: [RUN-5169] Stop logging "Connection pool shut down" traces when source closes mid-refresh
+  - Last activity: reviewed by @ddarby-hike
+  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/250
+
+- **rundeck-ec2-nodes-plugin #249**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.57.9
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/249
 
 - **aws-s3-model-source #63**: [RUN-5123] Migrate to AWS SDK for Java v2
   - Last activity: reviewed by @ncofreortiz-hub
@@ -46,10 +54,6 @@ PRs where community has most recent activity (comment or commit):
 - **aws-s3-model-source #62**: [RUN-0000] Update dependency net.bytebuddy:byte-buddy to v1.18.17-jdk5
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/62
-
-- **rundeck-ec2-nodes-plugin #249**: [RUN-0000] Update dependency software.amazon.awssdk:bom to v2.57.9
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/249
 
 - **vault-storage #126**: [RUN-0000] Update gradle minor/patch dependencies
   - Last activity: opened by @app/renovate
@@ -74,6 +78,22 @@ PRs where community has most recent activity (comment or commit):
 - **ansible-plugin #481**: Stop the whole ansible-playbook process tree on abort or timeout
   - Last activity: reviewed by @Lusitaniae
   - Link: https://github.com/rundeck-plugins/ansible-plugin/pull/481
+
+- **kubernetes #238**: Report wrongly typed step options cleanly on kubernetes client 37
+  - Last activity: reviewed by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/238
+
+- **kubernetes #237**: Create Job: ignore the Selectors option instead of sending it
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/237
+
+- **kubernetes #236**: Ephemeral container: don't require a target container
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/236
+
+- **kubernetes #234**: Fix node executor, file copier, and Deployment/Job delete on kubernetes client 37
+  - Last activity: commented by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/234
 
 - **slack-incoming-webhook-plugin #86**: Report the real failure when the Slack request returns no response body
   - Last activity: reviewed by @skywalkw3r
