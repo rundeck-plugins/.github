@@ -1,46 +1,138 @@
-# PR Report - 2026-11-15
+# PR Report - 2026-11-16
 
 ## Summary
 
 | Repository | Open PRs | Open Issues | Needs Attention |
 |------------|----------|-------------|-----------------|
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/git-plugin/issues) | **1** |
-| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 3 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **2** |
-| [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | 0 |
+| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 4 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **3** |
+| [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 2 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | **1** |
 | [.github](https://github.com/rundeck-plugins/.github/pulls) | 1 | [0](https://github.com/rundeck-plugins/.github/issues) | **1** |
 | [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | **1** |
-| [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 2 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | **1** |
+| [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 3 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | **2** |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 4 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **3** |
-| [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 1 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | 0 |
-| [docker](https://github.com/rundeck-plugins/docker/pulls) | 1 | [0](https://github.com/rundeck-plugins/docker/issues) | 0 |
+| [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | **1** |
+| [docker](https://github.com/rundeck-plugins/docker/pulls) | 2 | [0](https://github.com/rundeck-plugins/docker/issues) | **1** |
 | [http-notification](https://github.com/rundeck-plugins/http-notification/pulls) | 2 | [0](https://github.com/rundeck-plugins/http-notification/issues) | **1** |
-| [http-step](https://github.com/rundeck-plugins/http-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/http-step/issues) | 0 |
-| [jq-json-logfilter](https://github.com/rundeck-plugins/jq-json-logfilter/pulls) | 1 | [0](https://github.com/rundeck-plugins/jq-json-logfilter/issues) | 0 |
-| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 1 | [0](https://github.com/rundeck-plugins/kubernetes/issues) | 0 |
+| [http-step](https://github.com/rundeck-plugins/http-step/pulls) | 2 | [0](https://github.com/rundeck-plugins/http-step/issues) | **1** |
+| [jq-json-logfilter](https://github.com/rundeck-plugins/jq-json-logfilter/pulls) | 2 | [0](https://github.com/rundeck-plugins/jq-json-logfilter/issues) | **1** |
+| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 2 | [0](https://github.com/rundeck-plugins/kubernetes/issues) | **1** |
 | [multiline-regex-datacapture-filter](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pulls) | 2 | [0](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/issues) | **1** |
 | [nixy-step-plugins](https://github.com/rundeck-plugins/nixy-step-plugins/pulls) | 2 | [0](https://github.com/rundeck-plugins/nixy-step-plugins/issues) | **1** |
 | [openssh-node-execution](https://github.com/rundeck-plugins/openssh-node-execution/pulls) | 1 | [0](https://github.com/rundeck-plugins/openssh-node-execution/issues) | 0 |
-| [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/pulls) | 1 | [0](https://github.com/rundeck-plugins/pagerduty-notification/issues) | 0 |
+| [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/pulls) | 2 | [0](https://github.com/rundeck-plugins/pagerduty-notification/issues) | **1** |
 | [puppet-apply-step](https://github.com/rundeck-plugins/puppet-apply-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/puppet-apply-step/issues) | 0 |
 | [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/rundeck-azure-plugin/issues) | **1** |
 | [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | **1** |
-| [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **1** |
+| [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **2** |
 | [rundeck-plugin-examples](https://github.com/rundeck-plugins/rundeck-plugin-examples/pulls) | 3 | [0](https://github.com/rundeck-plugins/rundeck-plugin-examples/issues) | **3** |
 | [salt-step](https://github.com/rundeck-plugins/salt-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/salt-step/issues) | **1** |
-| [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 1 | [0](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | 0 |
-| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 5 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **4** |
+| [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | **1** |
+| [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 7 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **6** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 3 | [0](https://github.com/rundeck-plugins/vault-storage/issues) | **2** |
-| [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 1 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | 0 |
+| [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | **1** |
 
-**Total Open PRs:** 49 across 27 repositories
+**Total Open PRs:** 63 across 27 repositories
 **Total Open Issues:** 3 across 3 repositories
-**PRs Needing Attention:** 25
+**PRs Needing Attention:** 39
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **sshj-plugin #198**: [RUN-0000] Update docker images (ci)
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/198
+
+- **sshj-plugin #197**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/197
+
+- **sshj-plugin #196**: [RUN-0000] Update dependency axios to v1.21.1
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/196
+
+- **sshj-plugin #195**: [RUN-0000] Update dependency follow-redirects to v1.16.3
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/195
+
+- **sshj-plugin #194**: [RUN-0000] Update dependency org.apache.commons:commons-lang3 to v3.22.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/194
+
+- **sshj-plugin #191**: Cleanup ssh client connections on copy fails
+  - Last activity: opened by @sideshowcecil
+  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/191
+
+- **attribute-match-node-enhancer #68**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/attribute-match-node-enhancer/pull/68
+
+- **attribute-match-node-enhancer #67**: [RUN-0000] Update dependency org.apache.commons:commons-lang3 to v3.22.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/attribute-match-node-enhancer/pull/67
+
+- **kubernetes #241**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/241
+
+- **rundeck-s3-log-plugin #97**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pull/97
+
+- **py-winrm-plugin #152**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/152
+
+- **py-winrm-plugin #145**: Fail instead of appending when the copy destination already exists
+  - Last activity: reviewed by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/145
+
+- **py-winrm-plugin #135**: Add support for client certificate based authentication
+  - Last activity: commented by @sideshowcecil
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/135
+
+- **yaml-text-source #19**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/yaml-text-source/pull/19
+
+- **jq-json-logfilter #44**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/jq-json-logfilter/pull/44
+
+- **slack-incoming-webhook-plugin #91**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pull/91
+
+- **aws-s3-steps #32**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/aws-s3-steps/pull/32
+
+- **docker #98**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/docker/pull/98
+
+- **http-step #78**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/http-step/pull/78
+
+- **pagerduty-notification #63**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/pagerduty-notification/pull/63
+
+- **rundeck-ec2-nodes-plugin #253**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/253
+
+- **rundeck-ec2-nodes-plugin #252**: [RUN-0000] Update dependency com.fasterxml.jackson.core:jackson-databind to v2.23.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/252
+
+- **.github #27**: Update actions/setup-java action to v6.3.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/.github/pull/27
 
 - **rundeck-azure-storage-plugin #30**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
@@ -105,42 +197,6 @@ PRs where community has most recent activity (comment or commit):
 - **aws-s3-model-source #63**: [RUN-5123] Migrate to AWS SDK for Java v2
   - Last activity: reviewed by @ncofreortiz-hub
   - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/63
-
-- **rundeck-ec2-nodes-plugin #252**: [RUN-0000] Update dependency com.fasterxml.jackson.core:jackson-databind to v2.23.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/252
-
-- **.github #27**: Update actions/setup-java action to v6.3.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/.github/pull/27
-
-- **sshj-plugin #196**: [RUN-0000] Update dependency axios to v1.21.1
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/196
-
-- **sshj-plugin #195**: [RUN-0000] Update dependency follow-redirects to v1.16.3
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/195
-
-- **sshj-plugin #194**: [RUN-0000] Update dependency org.apache.commons:commons-lang3 to v3.22.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/194
-
-- **sshj-plugin #191**: Cleanup ssh client connections on copy fails
-  - Last activity: opened by @sideshowcecil
-  - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/191
-
-- **py-winrm-plugin #145**: Fail instead of appending when the copy destination already exists
-  - Last activity: reviewed by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/145
-
-- **py-winrm-plugin #135**: Add support for client certificate based authentication
-  - Last activity: commented by @sideshowcecil
-  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/135
-
-- **attribute-match-node-enhancer #67**: [RUN-0000] Update dependency org.apache.commons:commons-lang3 to v3.22.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/attribute-match-node-enhancer/pull/67
 
 
 ---
