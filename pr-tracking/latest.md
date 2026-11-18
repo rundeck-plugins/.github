@@ -1,4 +1,4 @@
-# PR Report - 2026-11-17
+# PR Report - 2026-11-18
 
 ## Summary
 
@@ -41,6 +41,10 @@
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **.github #27**: Update actions/setup-java action to v6.3.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/.github/pull/27
 
 - **yaml-text-source #19**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
@@ -257,10 +261,6 @@ PRs where community has most recent activity (comment or commit):
 - **ansible-plugin #484**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/ansible-plugin/pull/484
-
-- **.github #27**: Update actions/setup-java action to v6.3.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/.github/pull/27
 
 - **git-plugin #95**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
