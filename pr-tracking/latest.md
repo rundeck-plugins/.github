@@ -1,4 +1,4 @@
-# PR Report - 2026-11-18
+# PR Report - 2026-11-19
 
 ## Summary
 
@@ -7,8 +7,8 @@
 | [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 13 | [4](https://github.com/rundeck-plugins/kubernetes/issues) | **12** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 13 | [4](https://github.com/rundeck-plugins/vault-storage/issues) | **12** |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/git-plugin/issues) | **1** |
-| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 4 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **3** |
-| [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 2 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | **1** |
+| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 5 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **4** |
+| [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 3 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | **2** |
 | [.github](https://github.com/rundeck-plugins/.github/pulls) | 1 | [0](https://github.com/rundeck-plugins/.github/issues) | **1** |
 | [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | **1** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 3 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | **2** |
@@ -32,15 +32,23 @@
 | [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 7 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **6** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | **1** |
 
-**Total Open PRs:** 84 across 27 repositories
+**Total Open PRs:** 86 across 27 repositories
 **Total Open Issues:** 11 across 5 repositories
-**PRs Needing Attention:** 60
+**PRs Needing Attention:** 62
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **rundeck-s3-log-plugin #98**: [RUN-5146] Restore S3-compatible log uploads
+  - Last activity: opened by @elquimeras
+  - Link: https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pull/98
+
+- **rundeck-s3-log-plugin #97**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pull/97
 
 - **.github #27**: Update actions/setup-java action to v6.3.0
   - Last activity: opened by @app/renovate
@@ -126,10 +134,6 @@ PRs where community has most recent activity (comment or commit):
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pull/91
 
-- **rundeck-s3-log-plugin #97**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pull/97
-
 - **rundeck-ec2-nodes-plugin #253**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/253
@@ -145,6 +149,10 @@ PRs where community has most recent activity (comment or commit):
 - **rundeck-azure-plugin #104**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/rundeck-azure-plugin/pull/104
+
+- **py-winrm-plugin #153**: Decode winrm-check output and normalize Windows line endings
+  - Last activity: reviewed by @jgarces-pd
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/153
 
 - **py-winrm-plugin #152**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
