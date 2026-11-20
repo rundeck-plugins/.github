@@ -1,4 +1,4 @@
-# PR Report - 2026-11-19
+# PR Report - 2026-11-20
 
 ## Summary
 
@@ -42,17 +42,17 @@
 
 PRs where community has most recent activity (comment or commit):
 
+- **.github #27**: Update actions/setup-java action to v6.3.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/.github/pull/27
+
 - **rundeck-s3-log-plugin #98**: [RUN-5146] Restore S3-compatible log uploads
-  - Last activity: opened by @elquimeras
+  - Last activity: reviewed by @elquimeras
   - Link: https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pull/98
 
 - **rundeck-s3-log-plugin #97**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pull/97
-
-- **.github #27**: Update actions/setup-java action to v6.3.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/.github/pull/27
 
 - **yaml-text-source #19**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
