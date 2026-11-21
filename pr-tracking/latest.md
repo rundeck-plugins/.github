@@ -1,4 +1,4 @@
-# PR Report - 2026-11-20
+# PR Report - 2026-11-21
 
 ## Summary
 
@@ -151,7 +151,7 @@ PRs where community has most recent activity (comment or commit):
   - Link: https://github.com/rundeck-plugins/rundeck-azure-plugin/pull/104
 
 - **py-winrm-plugin #153**: Decode winrm-check output and normalize Windows line endings
-  - Last activity: reviewed by @jgarces-pd
+  - Last activity: commented by @jgarces-pd
   - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/153
 
 - **py-winrm-plugin #152**: [RUN-0000] Update Gradle to v8.14.7
