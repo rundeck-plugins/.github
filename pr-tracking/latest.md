@@ -1,46 +1,166 @@
-# PR Report - 2026-11-24
+# PR Report - 2026-11-25
 
 ## Summary
 
 | Repository | Open PRs | Open Issues | Needs Attention |
 |------------|----------|-------------|-----------------|
-| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 13 | [4](https://github.com/rundeck-plugins/kubernetes/issues) | **12** |
+| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 14 | [4](https://github.com/rundeck-plugins/kubernetes/issues) | **13** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 13 | [4](https://github.com/rundeck-plugins/vault-storage/issues) | **12** |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/git-plugin/issues) | **1** |
-| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 5 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **4** |
+| [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 6 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **5** |
 | [rundeck-s3-log-plugin](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pulls) | 3 | [1](https://github.com/rundeck-plugins/rundeck-s3-log-plugin/issues) | **2** |
 | [.github](https://github.com/rundeck-plugins/.github/pulls) | 1 | [0](https://github.com/rundeck-plugins/.github/issues) | **1** |
 | [ansible-plugin](https://github.com/rundeck-plugins/ansible-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/ansible-plugin/issues) | **1** |
 | [attribute-match-node-enhancer](https://github.com/rundeck-plugins/attribute-match-node-enhancer/pulls) | 3 | [0](https://github.com/rundeck-plugins/attribute-match-node-enhancer/issues) | **2** |
 | [aws-s3-model-source](https://github.com/rundeck-plugins/aws-s3-model-source/pulls) | 4 | [0](https://github.com/rundeck-plugins/aws-s3-model-source/issues) | **3** |
-| [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 2 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | **1** |
-| [docker](https://github.com/rundeck-plugins/docker/pulls) | 2 | [0](https://github.com/rundeck-plugins/docker/issues) | **1** |
+| [aws-s3-steps](https://github.com/rundeck-plugins/aws-s3-steps/pulls) | 3 | [0](https://github.com/rundeck-plugins/aws-s3-steps/issues) | **2** |
+| [docker](https://github.com/rundeck-plugins/docker/pulls) | 3 | [0](https://github.com/rundeck-plugins/docker/issues) | **2** |
 | [http-notification](https://github.com/rundeck-plugins/http-notification/pulls) | 2 | [0](https://github.com/rundeck-plugins/http-notification/issues) | **1** |
 | [http-step](https://github.com/rundeck-plugins/http-step/pulls) | 2 | [0](https://github.com/rundeck-plugins/http-step/issues) | **1** |
 | [jq-json-logfilter](https://github.com/rundeck-plugins/jq-json-logfilter/pulls) | 2 | [0](https://github.com/rundeck-plugins/jq-json-logfilter/issues) | **1** |
-| [multiline-regex-datacapture-filter](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pulls) | 2 | [0](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/issues) | **1** |
-| [nixy-step-plugins](https://github.com/rundeck-plugins/nixy-step-plugins/pulls) | 2 | [0](https://github.com/rundeck-plugins/nixy-step-plugins/issues) | **1** |
+| [multiline-regex-datacapture-filter](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pulls) | 3 | [0](https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/issues) | **2** |
+| [nixy-step-plugins](https://github.com/rundeck-plugins/nixy-step-plugins/pulls) | 3 | [0](https://github.com/rundeck-plugins/nixy-step-plugins/issues) | **2** |
 | [openssh-node-execution](https://github.com/rundeck-plugins/openssh-node-execution/pulls) | 1 | [0](https://github.com/rundeck-plugins/openssh-node-execution/issues) | 0 |
 | [pagerduty-notification](https://github.com/rundeck-plugins/pagerduty-notification/pulls) | 2 | [0](https://github.com/rundeck-plugins/pagerduty-notification/issues) | **1** |
 | [puppet-apply-step](https://github.com/rundeck-plugins/puppet-apply-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/puppet-apply-step/issues) | 0 |
 | [rundeck-azure-plugin](https://github.com/rundeck-plugins/rundeck-azure-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/rundeck-azure-plugin/issues) | **1** |
-| [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | **1** |
+| [rundeck-azure-storage-plugin](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/issues) | **2** |
 | [rundeck-ec2-nodes-plugin](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pulls) | 3 | [0](https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/issues) | **2** |
 | [rundeck-plugin-examples](https://github.com/rundeck-plugins/rundeck-plugin-examples/pulls) | 3 | [0](https://github.com/rundeck-plugins/rundeck-plugin-examples/issues) | **3** |
 | [salt-step](https://github.com/rundeck-plugins/salt-step/pulls) | 1 | [0](https://github.com/rundeck-plugins/salt-step/issues) | **1** |
 | [slack-incoming-webhook-plugin](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pulls) | 2 | [0](https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/issues) | **1** |
 | [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 7 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **6** |
-| [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 2 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | **1** |
+| [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 3 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | **2** |
 
-**Total Open PRs:** 86 across 27 repositories
+**Total Open PRs:** 94 across 27 repositories
 **Total Open Issues:** 11 across 5 repositories
-**PRs Needing Attention:** 62
+**PRs Needing Attention:** 70
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **nixy-step-plugins #55**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/nixy-step-plugins/pull/55
+
+- **nixy-step-plugins #54**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/nixy-step-plugins/pull/54
+
+- **kubernetes #257**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/257
+
+- **kubernetes #256**: Wait for Pod: wait until every container is ready
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/256
+
+- **kubernetes #255**: Service ports: read nodePort, named target ports, and no ports
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/255
+
+- **kubernetes #254**: Create Job: default the restart policy to Never
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/254
+
+- **kubernetes #253**: Node executor: stop adding line breaks to the command output
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/253
+
+- **kubernetes #252**: Wait for Job: show the log of a pod that has several containers
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/252
+
+- **kubernetes #251**: Run Job: keep the labels and annotations of the pod template
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/251
+
+- **kubernetes #250**: Update Deployment: apply Resources Limits, accept '=' in env values
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/250
+
+- **kubernetes #249**: File copy: fail when tar could not write the file
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/249
+
+- **kubernetes #247**: Node source: keep running pods when emoticons are enabled
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/247
+
+- **kubernetes #245**: Wait for Deployment: wait for the rollout of the current spec
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/245
+
+- **kubernetes #244**: Wait for Job: fail when the Job failed or did not finish
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/244
+
+- **kubernetes #241**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/241
+
+- **aws-s3-steps #33**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/aws-s3-steps/pull/33
+
+- **aws-s3-steps #32**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/aws-s3-steps/pull/32
+
+- **py-winrm-plugin #154**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/154
+
+- **py-winrm-plugin #153**: Decode winrm-check output and normalize Windows line endings
+  - Last activity: commented by @jgarces-pd
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/153
+
+- **py-winrm-plugin #152**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/152
+
+- **py-winrm-plugin #145**: Fail instead of appending when the copy destination already exists
+  - Last activity: reviewed by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/145
+
+- **py-winrm-plugin #135**: Add support for client certificate based authentication
+  - Last activity: commented by @sideshowcecil
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/135
+
+- **docker #99**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/docker/pull/99
+
+- **docker #98**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/docker/pull/98
+
+- **rundeck-azure-storage-plugin #31**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pull/31
+
+- **rundeck-azure-storage-plugin #30**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pull/30
+
+- **multiline-regex-datacapture-filter #45**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pull/45
+
+- **multiline-regex-datacapture-filter #44**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pull/44
+
+- **yaml-text-source #20**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/yaml-text-source/pull/20
+
+- **yaml-text-source #19**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/yaml-text-source/pull/19
 
 - **.github #27**: Update actions/setup-java action to v6.3.0
   - Last activity: opened by @app/renovate
@@ -53,10 +173,6 @@ PRs where community has most recent activity (comment or commit):
 - **rundeck-s3-log-plugin #97**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/rundeck-s3-log-plugin/pull/97
-
-- **yaml-text-source #19**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/yaml-text-source/pull/19
 
 - **vault-storage #142**: Stop calling lookup-self before every Vault read
   - Last activity: reviewed by @skywalkw3r
@@ -142,89 +258,13 @@ PRs where community has most recent activity (comment or commit):
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/252
 
-- **rundeck-azure-storage-plugin #30**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pull/30
-
 - **rundeck-azure-plugin #104**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/rundeck-azure-plugin/pull/104
 
-- **py-winrm-plugin #153**: Decode winrm-check output and normalize Windows line endings
-  - Last activity: commented by @jgarces-pd
-  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/153
-
-- **py-winrm-plugin #152**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/152
-
-- **py-winrm-plugin #145**: Fail instead of appending when the copy destination already exists
-  - Last activity: reviewed by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/145
-
-- **py-winrm-plugin #135**: Add support for client certificate based authentication
-  - Last activity: commented by @sideshowcecil
-  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/135
-
 - **pagerduty-notification #63**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/pagerduty-notification/pull/63
-
-- **nixy-step-plugins #54**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/nixy-step-plugins/pull/54
-
-- **multiline-regex-datacapture-filter #44**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pull/44
-
-- **kubernetes #256**: Wait for Pod: wait until every container is ready
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/256
-
-- **kubernetes #255**: Service ports: read nodePort, named target ports, and no ports
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/255
-
-- **kubernetes #254**: Create Job: default the restart policy to Never
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/254
-
-- **kubernetes #253**: Node executor: stop adding line breaks to the command output
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/253
-
-- **kubernetes #252**: Wait for Job: show the log of a pod that has several containers
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/252
-
-- **kubernetes #251**: Run Job: keep the labels and annotations of the pod template
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/251
-
-- **kubernetes #250**: Update Deployment: apply Resources Limits, accept '=' in env values
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/250
-
-- **kubernetes #249**: File copy: fail when tar could not write the file
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/249
-
-- **kubernetes #247**: Node source: keep running pods when emoticons are enabled
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/247
-
-- **kubernetes #245**: Wait for Deployment: wait for the rollout of the current spec
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/245
-
-- **kubernetes #244**: Wait for Job: fail when the Job failed or did not finish
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/244
-
-- **kubernetes #241**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/241
 
 - **jq-json-logfilter #44**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
@@ -237,14 +277,6 @@ PRs where community has most recent activity (comment or commit):
 - **http-notification #59**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/http-notification/pull/59
-
-- **docker #98**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/docker/pull/98
-
-- **aws-s3-steps #32**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/aws-s3-steps/pull/32
 
 - **aws-s3-model-source #65**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
