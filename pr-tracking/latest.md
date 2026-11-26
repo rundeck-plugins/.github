@@ -1,4 +1,4 @@
-# PR Report - 2026-11-25
+# PR Report - 2026-11-26
 
 ## Summary
 
@@ -41,6 +41,10 @@
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **.github #27**: Update actions/setup-java action to v6.3.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/.github/pull/27
 
 - **nixy-step-plugins #55**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
   - Last activity: opened by @app/renovate
@@ -161,10 +165,6 @@ PRs where community has most recent activity (comment or commit):
 - **yaml-text-source #19**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/yaml-text-source/pull/19
-
-- **.github #27**: Update actions/setup-java action to v6.3.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/.github/pull/27
 
 - **rundeck-s3-log-plugin #98**: [RUN-5146] Restore S3-compatible log uploads
   - Last activity: reviewed by @elquimeras
