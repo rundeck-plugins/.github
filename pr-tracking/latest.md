@@ -1,4 +1,4 @@
-# PR Report - 2026-11-26
+# PR Report - 2026-11-27
 
 ## Summary
 
@@ -42,129 +42,33 @@
 
 PRs where community has most recent activity (comment or commit):
 
-- **.github #27**: Update actions/setup-java action to v6.3.0
+- **rundeck-azure-plugin #104**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/.github/pull/27
+  - Link: https://github.com/rundeck-plugins/rundeck-azure-plugin/pull/104
 
-- **nixy-step-plugins #55**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
+- **rundeck-ec2-nodes-plugin #253**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/nixy-step-plugins/pull/55
+  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/253
 
-- **nixy-step-plugins #54**: [RUN-0000] Update Gradle to v8.14.7
+- **rundeck-ec2-nodes-plugin #252**: [RUN-0000] Update dependency com.fasterxml.jackson.core:jackson-databind to v2.23.0
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/nixy-step-plugins/pull/54
+  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/252
 
-- **kubernetes #257**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
+- **http-notification #59**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/257
+  - Link: https://github.com/rundeck-plugins/http-notification/pull/59
 
-- **kubernetes #256**: Wait for Pod: wait until every container is ready
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/256
-
-- **kubernetes #255**: Service ports: read nodePort, named target ports, and no ports
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/255
-
-- **kubernetes #254**: Create Job: default the restart policy to Never
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/254
-
-- **kubernetes #253**: Node executor: stop adding line breaks to the command output
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/253
-
-- **kubernetes #252**: Wait for Job: show the log of a pod that has several containers
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/252
-
-- **kubernetes #251**: Run Job: keep the labels and annotations of the pod template
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/251
-
-- **kubernetes #250**: Update Deployment: apply Resources Limits, accept '=' in env values
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/250
-
-- **kubernetes #249**: File copy: fail when tar could not write the file
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/249
-
-- **kubernetes #247**: Node source: keep running pods when emoticons are enabled
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/247
-
-- **kubernetes #245**: Wait for Deployment: wait for the rollout of the current spec
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/245
-
-- **kubernetes #244**: Wait for Job: fail when the Job failed or did not finish
-  - Last activity: opened by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/244
-
-- **kubernetes #241**: [RUN-0000] Update Gradle to v8.14.7
+- **jq-json-logfilter #44**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/kubernetes/pull/241
+  - Link: https://github.com/rundeck-plugins/jq-json-logfilter/pull/44
 
-- **aws-s3-steps #33**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
+- **pagerduty-notification #63**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/aws-s3-steps/pull/33
+  - Link: https://github.com/rundeck-plugins/pagerduty-notification/pull/63
 
-- **aws-s3-steps #32**: [RUN-0000] Update Gradle to v8.14.7
+- **slack-incoming-webhook-plugin #91**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/aws-s3-steps/pull/32
-
-- **py-winrm-plugin #154**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/154
-
-- **py-winrm-plugin #153**: Decode winrm-check output and normalize Windows line endings
-  - Last activity: commented by @jgarces-pd
-  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/153
-
-- **py-winrm-plugin #152**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/152
-
-- **py-winrm-plugin #145**: Fail instead of appending when the copy destination already exists
-  - Last activity: reviewed by @skywalkw3r
-  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/145
-
-- **py-winrm-plugin #135**: Add support for client certificate based authentication
-  - Last activity: commented by @sideshowcecil
-  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/135
-
-- **docker #99**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/docker/pull/99
-
-- **docker #98**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/docker/pull/98
-
-- **rundeck-azure-storage-plugin #31**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pull/31
-
-- **rundeck-azure-storage-plugin #30**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pull/30
-
-- **multiline-regex-datacapture-filter #45**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pull/45
-
-- **multiline-regex-datacapture-filter #44**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pull/44
-
-- **yaml-text-source #20**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/yaml-text-source/pull/20
-
-- **yaml-text-source #19**: [RUN-0000] Update Gradle to v8.14.7
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/yaml-text-source/pull/19
+  - Link: https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pull/91
 
 - **rundeck-s3-log-plugin #98**: [RUN-5146] Restore S3-compatible log uploads
   - Last activity: reviewed by @elquimeras
@@ -222,6 +126,42 @@ PRs where community has most recent activity (comment or commit):
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/vault-storage/pull/127
 
+- **http-step #78**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/http-step/pull/78
+
+- **ansible-plugin #484**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/ansible-plugin/pull/484
+
+- **aws-s3-model-source #65**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/65
+
+- **aws-s3-model-source #64**: [RUN-0000] Update dependency com.fasterxml.jackson.core:jackson-databind to v2.23.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/64
+
+- **aws-s3-model-source #63**: [RUN-5123] Migrate to AWS SDK for Java v2
+  - Last activity: reviewed by @ncofreortiz-hub
+  - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/63
+
+- **multiline-regex-datacapture-filter #45**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pull/45
+
+- **multiline-regex-datacapture-filter #44**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/multiline-regex-datacapture-filter/pull/44
+
+- **attribute-match-node-enhancer #68**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/attribute-match-node-enhancer/pull/68
+
+- **attribute-match-node-enhancer #67**: [RUN-0000] Update dependency org.apache.commons:commons-lang3 to v3.22.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/attribute-match-node-enhancer/pull/67
+
 - **sshj-plugin #198**: [RUN-0000] Update docker images (ci)
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/198
@@ -246,61 +186,121 @@ PRs where community has most recent activity (comment or commit):
   - Last activity: opened by @sideshowcecil
   - Link: https://github.com/rundeck-plugins/sshj-plugin/pull/191
 
-- **slack-incoming-webhook-plugin #91**: [RUN-0000] Update Gradle to v8.14.7
+- **rundeck-azure-storage-plugin #31**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/slack-incoming-webhook-plugin/pull/91
+  - Link: https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pull/31
 
-- **rundeck-ec2-nodes-plugin #253**: [RUN-0000] Update Gradle to v8.14.7
+- **rundeck-azure-storage-plugin #30**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/253
+  - Link: https://github.com/rundeck-plugins/rundeck-azure-storage-plugin/pull/30
 
-- **rundeck-ec2-nodes-plugin #252**: [RUN-0000] Update dependency com.fasterxml.jackson.core:jackson-databind to v2.23.0
+- **aws-s3-steps #33**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/pull/252
+  - Link: https://github.com/rundeck-plugins/aws-s3-steps/pull/33
 
-- **rundeck-azure-plugin #104**: [RUN-0000] Update Gradle to v8.14.7
+- **aws-s3-steps #32**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/rundeck-azure-plugin/pull/104
+  - Link: https://github.com/rundeck-plugins/aws-s3-steps/pull/32
 
-- **pagerduty-notification #63**: [RUN-0000] Update Gradle to v8.14.7
+- **py-winrm-plugin #154**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/pagerduty-notification/pull/63
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/154
 
-- **jq-json-logfilter #44**: [RUN-0000] Update Gradle to v8.14.7
+- **py-winrm-plugin #153**: Decode winrm-check output and normalize Windows line endings
+  - Last activity: commented by @jgarces-pd
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/153
+
+- **py-winrm-plugin #152**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/jq-json-logfilter/pull/44
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/152
 
-- **http-step #78**: [RUN-0000] Update Gradle to v8.14.7
+- **py-winrm-plugin #145**: Fail instead of appending when the copy destination already exists
+  - Last activity: reviewed by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/145
+
+- **py-winrm-plugin #135**: Add support for client certificate based authentication
+  - Last activity: commented by @sideshowcecil
+  - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/135
+
+- **kubernetes #257**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/http-step/pull/78
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/257
 
-- **http-notification #59**: [RUN-0000] Update Gradle to v8.14.7
+- **kubernetes #256**: Wait for Pod: wait until every container is ready
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/256
+
+- **kubernetes #255**: Service ports: read nodePort, named target ports, and no ports
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/255
+
+- **kubernetes #254**: Create Job: default the restart policy to Never
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/254
+
+- **kubernetes #253**: Node executor: stop adding line breaks to the command output
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/253
+
+- **kubernetes #252**: Wait for Job: show the log of a pod that has several containers
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/252
+
+- **kubernetes #251**: Run Job: keep the labels and annotations of the pod template
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/251
+
+- **kubernetes #250**: Update Deployment: apply Resources Limits, accept '=' in env values
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/250
+
+- **kubernetes #249**: File copy: fail when tar could not write the file
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/249
+
+- **kubernetes #247**: Node source: keep running pods when emoticons are enabled
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/247
+
+- **kubernetes #245**: Wait for Deployment: wait for the rollout of the current spec
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/245
+
+- **kubernetes #244**: Wait for Job: fail when the Job failed or did not finish
+  - Last activity: opened by @skywalkw3r
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/244
+
+- **kubernetes #241**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/http-notification/pull/59
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/241
 
-- **aws-s3-model-source #65**: [RUN-0000] Update Gradle to v8.14.7
+- **yaml-text-source #20**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/65
+  - Link: https://github.com/rundeck-plugins/yaml-text-source/pull/20
 
-- **aws-s3-model-source #64**: [RUN-0000] Update dependency com.fasterxml.jackson.core:jackson-databind to v2.23.0
+- **yaml-text-source #19**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/64
+  - Link: https://github.com/rundeck-plugins/yaml-text-source/pull/19
 
-- **aws-s3-model-source #63**: [RUN-5123] Migrate to AWS SDK for Java v2
-  - Last activity: reviewed by @ncofreortiz-hub
-  - Link: https://github.com/rundeck-plugins/aws-s3-model-source/pull/63
-
-- **attribute-match-node-enhancer #68**: [RUN-0000] Update Gradle to v8.14.7
+- **docker #99**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/attribute-match-node-enhancer/pull/68
+  - Link: https://github.com/rundeck-plugins/docker/pull/99
 
-- **attribute-match-node-enhancer #67**: [RUN-0000] Update dependency org.apache.commons:commons-lang3 to v3.22.0
+- **docker #98**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/attribute-match-node-enhancer/pull/67
+  - Link: https://github.com/rundeck-plugins/docker/pull/98
 
-- **ansible-plugin #484**: [RUN-0000] Update Gradle to v8.14.7
+- **nixy-step-plugins #55**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
   - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/ansible-plugin/pull/484
+  - Link: https://github.com/rundeck-plugins/nixy-step-plugins/pull/55
+
+- **nixy-step-plugins #54**: [RUN-0000] Update Gradle to v8.14.7
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/nixy-step-plugins/pull/54
+
+- **.github #27**: Update actions/setup-java action to v6.3.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/.github/pull/27
 
 - **git-plugin #95**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
