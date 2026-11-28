@@ -1,10 +1,10 @@
-# PR Report - 2026-11-27
+# PR Report - 2026-11-28
 
 ## Summary
 
 | Repository | Open PRs | Open Issues | Needs Attention |
 |------------|----------|-------------|-----------------|
-| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 14 | [4](https://github.com/rundeck-plugins/kubernetes/issues) | **13** |
+| [kubernetes](https://github.com/rundeck-plugins/kubernetes/pulls) | 15 | [4](https://github.com/rundeck-plugins/kubernetes/issues) | **14** |
 | [vault-storage](https://github.com/rundeck-plugins/vault-storage/pulls) | 13 | [4](https://github.com/rundeck-plugins/vault-storage/issues) | **12** |
 | [git-plugin](https://github.com/rundeck-plugins/git-plugin/pulls) | 1 | [1](https://github.com/rundeck-plugins/git-plugin/issues) | **1** |
 | [py-winrm-plugin](https://github.com/rundeck-plugins/py-winrm-plugin/pulls) | 6 | [1](https://github.com/rundeck-plugins/py-winrm-plugin/issues) | **5** |
@@ -32,15 +32,19 @@
 | [sshj-plugin](https://github.com/rundeck-plugins/sshj-plugin/pulls) | 7 | [0](https://github.com/rundeck-plugins/sshj-plugin/issues) | **6** |
 | [yaml-text-source](https://github.com/rundeck-plugins/yaml-text-source/pulls) | 3 | [0](https://github.com/rundeck-plugins/yaml-text-source/issues) | **2** |
 
-**Total Open PRs:** 94 across 27 repositories
+**Total Open PRs:** 95 across 27 repositories
 **Total Open Issues:** 11 across 5 repositories
-**PRs Needing Attention:** 70
+**PRs Needing Attention:** 71
 
 ---
 
 ## PRs Needing Attention
 
 PRs where community has most recent activity (comment or commit):
+
+- **.github #27**: Update actions/setup-java action to v6.3.0
+  - Last activity: opened by @app/renovate
+  - Link: https://github.com/rundeck-plugins/.github/pull/27
 
 - **rundeck-azure-plugin #104**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
@@ -215,12 +219,16 @@ PRs where community has most recent activity (comment or commit):
   - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/152
 
 - **py-winrm-plugin #145**: Fail instead of appending when the copy destination already exists
-  - Last activity: reviewed by @skywalkw3r
+  - Last activity: commented by @skywalkw3r
   - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/145
 
 - **py-winrm-plugin #135**: Add support for client certificate based authentication
   - Last activity: commented by @sideshowcecil
   - Link: https://github.com/rundeck-plugins/py-winrm-plugin/pull/135
+
+- **kubernetes #258**: fix(deps): address CVE-2026-44431, CVE-2026-44432, CVE-2026-97687, CVE-2026-97689, and certifi advisory GHSA-6q48-6c7w-9gw
+  - Last activity: opened by @gnomeria
+  - Link: https://github.com/rundeck-plugins/kubernetes/pull/258
 
 - **kubernetes #257**: [RUN-0000] Update plugin pl.allegro.tech.build.axion-release to v1.21.5
   - Last activity: opened by @app/renovate
@@ -231,7 +239,7 @@ PRs where community has most recent activity (comment or commit):
   - Link: https://github.com/rundeck-plugins/kubernetes/pull/256
 
 - **kubernetes #255**: Service ports: read nodePort, named target ports, and no ports
-  - Last activity: opened by @skywalkw3r
+  - Last activity: reviewed by @skywalkw3r
   - Link: https://github.com/rundeck-plugins/kubernetes/pull/255
 
 - **kubernetes #254**: Create Job: default the restart policy to Never
@@ -243,7 +251,7 @@ PRs where community has most recent activity (comment or commit):
   - Link: https://github.com/rundeck-plugins/kubernetes/pull/253
 
 - **kubernetes #252**: Wait for Job: show the log of a pod that has several containers
-  - Last activity: opened by @skywalkw3r
+  - Last activity: reviewed by @skywalkw3r
   - Link: https://github.com/rundeck-plugins/kubernetes/pull/252
 
 - **kubernetes #251**: Run Job: keep the labels and annotations of the pod template
@@ -255,7 +263,7 @@ PRs where community has most recent activity (comment or commit):
   - Link: https://github.com/rundeck-plugins/kubernetes/pull/250
 
 - **kubernetes #249**: File copy: fail when tar could not write the file
-  - Last activity: opened by @skywalkw3r
+  - Last activity: reviewed by @skywalkw3r
   - Link: https://github.com/rundeck-plugins/kubernetes/pull/249
 
 - **kubernetes #247**: Node source: keep running pods when emoticons are enabled
@@ -263,7 +271,7 @@ PRs where community has most recent activity (comment or commit):
   - Link: https://github.com/rundeck-plugins/kubernetes/pull/247
 
 - **kubernetes #245**: Wait for Deployment: wait for the rollout of the current spec
-  - Last activity: opened by @skywalkw3r
+  - Last activity: reviewed by @skywalkw3r
   - Link: https://github.com/rundeck-plugins/kubernetes/pull/245
 
 - **kubernetes #244**: Wait for Job: fail when the Job failed or did not finish
@@ -297,10 +305,6 @@ PRs where community has most recent activity (comment or commit):
 - **nixy-step-plugins #54**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
   - Link: https://github.com/rundeck-plugins/nixy-step-plugins/pull/54
-
-- **.github #27**: Update actions/setup-java action to v6.3.0
-  - Last activity: opened by @app/renovate
-  - Link: https://github.com/rundeck-plugins/.github/pull/27
 
 - **git-plugin #95**: [RUN-0000] Update Gradle to v8.14.7
   - Last activity: opened by @app/renovate
